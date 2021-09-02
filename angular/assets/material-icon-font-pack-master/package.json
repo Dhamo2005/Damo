@@ -1,0 +1,22 @@
+{
+    "name": "material-icons-font-pack",
+    "version": "1.0.0",
+    "main": "\"\"",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/codefusion/material-icons-font-pack"
+    },
+    "keywords": [
+        "material-icons",
+        "material-icons-font",
+        "material",
+        "icons",
+        "font",
+        "icon-font"
+    ],
+    "author": "CodeFusion",
+    "bugs": {
+        "url": "https://github.com/codefusion/material-icon-font-pack/issues"
+    },
+    "homepage": "https://github.com/codefusion/material-icon-fontpack#readme"
+}

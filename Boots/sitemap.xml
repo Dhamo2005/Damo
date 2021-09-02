@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+    <url>
+        <loc>http://dhamo.unaux.com/404.html</loc>
+    </url>
+    <url>
+        <loc>http://dhamo.unaux.com/blank.html</loc>
+    </url>
+    <url>
+        <loc>http://dhamo.unaux.com/forgot-password.html</loc>
+    </url>
+    <url>
+        <loc>http://dhamo.unaux.com/index.html</loc>
+    </url>
+    <url>
+        <loc>http://dhamo.unaux.com/login.html</loc>
+    </url>
+    <url>
+        <loc>http://dhamo.unaux.com/profile.html</loc>
+    </url>
+    <url>
+        <loc>http://dhamo.unaux.com/register.html</loc>
+    </url>
+    <url>
+        <loc>http://dhamo.unaux.com/table.html</loc>
+    </url>
+</urlset>

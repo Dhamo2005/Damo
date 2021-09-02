@@ -1,0 +1,1 @@
+<?php function damo_validate($string){ return mysqli_real_escape_string($GLOBALS['con'], htmlspecialchars($string));}
