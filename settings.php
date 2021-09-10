@@ -186,7 +186,7 @@ $row = $GLOBALS['con']->query("SELECT * FROM users WHERE id={$_SESSION['myid']}"
                     })),
                         t.validate().then(function(a){
                             if(a = "Valid"){
-                                alert();
+                                
                             }
                         });
             }
