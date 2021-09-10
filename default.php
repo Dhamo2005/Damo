@@ -431,7 +431,7 @@ function activer($act, $additional_text)
                                         </div>
                                     </div>
                                     <div class="d-flex align-items-center ms-1 ms-lg-3">
-                                        <div class="btn btn-icon btn-active-light-primary w-30px h-30px w-md-40px h-md-40px" data-kt-menu-trigger="click" data-kt-menu-attach="parent" data-kt-menu-placement="bottom-end" data-kt-menu-flip="bottom"><span class="material-icons-outlined text-muted"><span class="material-icons-outlined">apps</span></span></div>
+                                        <div class="btn btn-icon btn-active-light-primary w-md-40px h-md-40px" data-kt-menu-trigger="click" data-kt-menu-attach="parent" data-kt-menu-placement="bottom-end" data-kt-menu-flip="bottom"><span class="material-icons-outlined text-muted"><span class="material-icons-outlined">apps</span></span></div>
                                         <div class="menu menu-sub menu-sub-dropdown menu-column w-250px w-lg-325px" data-kt-menu="true">
                                             <div class="d-flex flex-column flex-center bgi-no-repeat rounded-top px-9 py-10" style="background-image:url('assets/media/misc/pattern-1.jpg')">
                                                 <h3 class="text-white fw-bold mb-3">Quick Links</h3><span class="badge bg-success py-2 px-3">25 pending tasks</span>
@@ -470,7 +470,7 @@ function activer($act, $additional_text)
                                         </div>
                                     </div>
                                     <div class="d-flex align-items-center ms-1 ms-lg-3">
-                                        <div class="btn btn-icon btn-active-light-primary position-relative w-30px h-30px w-md-40px h-md-40px" data-kt-menu-trigger="click" data-kt-menu-attach="parent" data-kt-menu-placement="bottom-end" data-kt-menu-flip="bottom"><span class="me-2 text-muted"><span class="material-icons-outlined">notifications</span></span></div>
+                                        <div class="btn btn-icon btn-active-light-primary position-relative w-md-40px h-md-40px" data-kt-menu-trigger="click" data-kt-menu-attach="parent" data-kt-menu-placement="bottom-end" data-kt-menu-flip="bottom"><span class="me-2 text-muted"><span class="material-icons-outlined">notifications</span></span></div>
                                         <div class="menu menu-sub menu-sub-dropdown menu-column w-350px w-lg-375px" data-kt-menu="true">
                                             <div class="d-flex flex-column bgi-no-repeat rounded-top" style="background-image:url('assets/media/misc/pattern-1.jpg')">
                                                 <h3 class="text-white fw-bold px-9 mt-10 mb-6">Notifications<span class="fs-8 opacity-75 ps-3">24 reports</span></h3>
@@ -530,7 +530,7 @@ function activer($act, $additional_text)
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="d-flex align-items-center ms-1 ms-lg-3" id="kt_header_user_menu_toggle">
+                                    <div class="d-flex align-items-center ms-1 ms-lg-3 mx-2 ms-2" id="kt_header_user_menu_toggle">
                                         <div class="cursor-pointer symbol symbol-30px symbol-md-40px" data-kt-menu-trigger="click" data-kt-menu-attach="parent" data-kt-menu-placement="bottom-end" data-kt-menu-flip="bottom"><img alt="<?php echo $_SESSION['name']; ?>" width="45px" height="45px" src="<?php if (!empty($_SESSION['avatar'])) {
                                                                                                                                                                                                                                                                                                                 echo $_SESSION['avatar'];
                                                                                                                                                                                                                                                                                                             } else {
