@@ -13,6 +13,7 @@ function activer($act, $additional_text)
 <link rel="stylesheet" href="assets/material-icon-font-pack-master/sass/material-icons-outlined.css">
 <!-- <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet"> -->
 <html lang="en">
+
 <head>
     <meta http-equiv="content-type" content="text/html;charset=UTF-8">
     <meta charset="utf-8">
@@ -47,8 +48,8 @@ function activer($act, $additional_text)
                             <div class="menu-item <?php activer('/explore.php', 'here');
                                                     activer('/profile_view.php', 'here');
                                                     activer('/download.php', 'here'); ?>"><a class="<?php activer('/explore.php', 'text-primary ');
-                                                                                                                                                                                activer('/download.php', 'text-primary ');
-                                                                                                                                                                                activer('/profile_view.php', 'text-primary '); ?>menu-link text-hover-primary" href="explore.php?sub=Comp-App&&class=10"><span class="menu-icon"><span class="svg-icon svg-icon-2"><span class="svg-icon svg-icon-2 material-icons-outlined fs-2">explore</span></span></span><span class="menu-title">Explore</span></a></div>
+                                                                                                    activer('/download.php', 'text-primary ');
+                                                                                                    activer('/profile_view.php', 'text-primary '); ?>menu-link text-hover-primary" href="explore.php?sub=Comp-App&&class=10"><span class="menu-icon"><span class="svg-icon svg-icon-2"><span class="svg-icon svg-icon-2 material-icons-outlined fs-2">explore</span></span></span><span class="menu-title">Explore</span></a></div>
                             <div class="menu-item <?php activer('/search.php', 'here'); ?>"><a class="<?php activer('/search.php', 'text-primary '); ?>menu-link text-hover-primary" href="search.php"><span class="menu-icon"><span class="svg-icon svg-icon-2"><span class="svg-icon svg-icon-2 material-icons-outlined fs-2">search</span></span></span><span class="menu-title">Search</span></a></div>
                             <div class="menu-item <?php activer('/follow.php', 'here'); ?>"><a class="<?php activer('/follow.php', 'text-primary '); ?>menu-link text-hover-primary" href="follow.php"><span class="menu-icon"><span class="span-icon span-icon-2"><span class="svg-icon svg-icon-2 material-icons-outlined fs-3">subscriptions</span></span></span><span class="menu-title">Following</span></a></div>
                             <div class="menu-item">
@@ -327,56 +328,77 @@ function activer($act, $additional_text)
                                                     <div class="separator border-gray-200 mb-6"></div>
                                                     <div data-kt-search-element="results" class="d-none">
                                                         <div class="scroll-y mh-200px mh-lg-325px">
-                                                        
+
                                                         </div>
                                                     </div>
                                                     <div class="mb-4" data-kt-search-element="main">
-                                                    <div class="d-flex flex-stack fw-bold"><span class="text-muted fs-5 me-2">Recently Searched:</span>
-                                                    <div data-kt-search-element="recently-viewed-clear" class="btn btn-link fw-6" onclick="recentclr()"><span class="recentclr"></span>Clear</div>
-                                                    <script>
-                                                    function show_recent_searches(){
-                                                        $.ajax({
-                                                                url:"server/showrecentsearches.php",
-                                                                method:"POST",
-                                                                beforeSend:function(){
-                                                                    $('.clrpart').addClass('d-flex justify-content-center');
-                                                                    $('.clrpart').html('<div style="left: calc(50% - 5%); border: 5px solid #f2f2f2; border-top: 5px solid #009ef7; border-radius: 50%; width: 25px; height: 25px;" class="spinner-border my-2"></div>');
-                                                                },
-                                                                success:function(data){
-                                                                    if(data !== 0){
-                                                                    $('.clrpart').html(data);
-                                                                    $('#history-spinner').remove();$('.clrpart').removeClass('justify-content-center d-flex');
-                                                                    }else{
-                                                            $('.recentclr').html('<span class="text-danger fs-4">Sorry Something Went Wrong, <br>Pls check your internet connection or try to refresh the page</span>');
-                                                        }
+                                                        <div class="d-flex flex-stack fw-bold"><span class="text-muted fs-5 me-2">Recently Searched:</span>
+                                                            <div data-kt-search-element="recently-viewed-clear" class="btn btn-link fw-6" onclick="recentclr()"><span class="recentclr"></span>Clear</div>
+                                                            <script>
+                                                                function show_recent_searches() {
+                                                                    $.ajax({
+                                                                        url: "server/showrecentsearches.php",
+                                                                        method: "POST",
+                                                                        beforeSend: function() {
+                                                                            $('.clrpart').addClass('d-flex justify-content-center');
+                                                                            $('.clrpart').html('<div style="left: calc(50% - 5%); border: 5px solid #f2f2f2; border-top: 5px solid #009ef7; border-radius: 50%; width: 25px; height: 25px;" class="spinner-border my-2"></div>');
+                                                                        },
+                                                                        success: function(data) {
+                                                                            if (data !== 0) {
+                                                                                $('.clrpart').html(data);
+                                                                                $('#history-spinner').remove();
+                                                                                $('.clrpart').removeClass('justify-content-center d-flex');
+                                                                            } else {
+                                                                                $('.recentclr').html('<span class="text-danger fs-4">Sorry Something Went Wrong, <br>Pls check your internet connection or try to refresh the page</span>');
+                                                                            }
+                                                                        },
+                                                                        error: function(jqXHR, exception) {
+                                                                            var msg = '';
+                                                                            if (jqXHR.status === 0) {
+                                                                                msg = 'No internet. Please Check Your Internet Connection!';
+                                                                            } else if (jqXHR.status == 404) {
+                                                                                msg = 'Requested page not found. [404]';
+                                                                            } else if (jqXHR.status == 500) {
+                                                                                msg = 'Internal Server Error [500].';
+                                                                            } else if (exception === 'parsererror') {
+                                                                                msg = 'Requested JSON parse failed.';
+                                                                            } else if (exception === 'timeout') {
+                                                                                msg = 'Time out error.';
+                                                                            } else if (exception === 'abort') {
+                                                                                msg = 'Request aborted.';
+                                                                            } else {
+                                                                                msg = 'Sorry Something Went Wrong!';
+                                                                            }
+                                                                            $('.clrpart').html('<center class="text-danger fs-6">'+msg+'</center><br><button type="button" class="btn btn-primary">Retry</button>');
+                                                                            $.ajax(this);
+                                                                        }
+                                                                    });
                                                                 }
-                                                            });
-                                                    }
-                                                        function recentclr(){
-                                                            $.ajax({
-                                                                url:"server/clrres.php",
-                                                                method:"POST",
-                                                                data:{
-                                                                    clr:""
-                                                                },
-                                                                beforeSend:function(){
-                                                                    $('.recentclr').append('<span class="spinner-border-sm spinner-border mb-1 mx-2 res-spinner"></span>');
-                                                                },
-                                                                success:function(data){
-                                                                    if(data == 1){
-                                                                    $('.clrpart').html('<center>Empty</center>');
-                                                                    $('.res-spinner').remove();
-                                                                    }else{
-                                                                        $('.res-spinner').remove();
-                                                                        alert('Sorry, something went wrong. Pls try again!');
-                                                                    }
+                                                                function recentclr() {
+                                                                    $.ajax({
+                                                                        url: "server/clrres.php",
+                                                                        method: "POST",
+                                                                        data: {
+                                                                            clr: ""
+                                                                        },
+                                                                        beforeSend: function() {
+                                                                            $('.recentclr').append('<span class="spinner-border-sm spinner-border mb-1 mx-2 res-spinner"></span>');
+                                                                        },
+                                                                        success: function(data) {
+                                                                            if (data == 1) {
+                                                                                $('.clrpart').html('<center>Empty</center>');
+                                                                                $('.res-spinner').remove();
+                                                                            } else {
+                                                                                $('.res-spinner').remove();
+                                                                                alert('Sorry, something went wrong. Pls try again!');
+                                                                            }
+                                                                        }
+                                                                    });
                                                                 }
-                                                            });
-                                                        }
-                                                    </script>
-                                                </div>
-                                                <div class="clrpart scroll-y mh-200px mh-lg-300px my-2 me-n2 pe-2">
-                                                </a></div>
+                                                            </script>
+                                                        </div>
+                                                        <div class="clrpart scroll-y mh-200px mh-lg-300px my-2 me-n2 pe-2">
+                                                            </a></div>
                                                     </div>
                                                     <div data-kt-search-element="empty" class="text-center d-none">
                                                         <div class="pt-10 pb-10"><span class="svg-icon svg-icon-4x opacity-50"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">

@@ -28,14 +28,16 @@ if (isset($_GET['out'])) {
 <body id="kt_body" class="bg-white">
     <div class="d-flex flex-column flex-root">
         <div class="d-flex flex-column flex-column-fluid bgi-position-y-bottom position-x-center bgi-no-repeat bgi-size-contain bgi-attachment-fixed" style="background-image: url(../assets/media/illustrations/progress-hd.png)">
-            <div class="d-flex flex-center flex-column flex-column-fluid p-10 pb-lg-20"><a href="../" class="mb-2"><img alt="Logo" src="../assets/media/logos/Damo Softwares logo.svg" height="150px"></a>
-                <div class="w-lg-600px bg-white rounded shadow-sm p-5 p-lg-15 mx-auto">
+            <div class="d-flex flex-center flex-column flex-column-fluid"><a href="../"><img alt="Logo" src="../assets/media/logos/Damo Softwares logo.svg" height="150px"></a>
+                <div class="w-lg-500px rounded shadow-sm p-10 p-lg-15 mx-auto">
                     <form id="kt_sign_in_form" class="form w-100 fv-plugins-bootstrap5 fv-plugins-framework" novalidate="novalidate" id="kt_sign_up_form" autocomplete="off">
-                        < ?php if (isset($_GET['out'])) { echo ('<div class="rounded border-danger border-dashed bg-light-danger px-6 py-5"><span class="text-gray-600 fw-bold fs-6">
+                        <?php if (isset($_GET['out'])) { echo ('<div class="rounded border-danger border-dashed bg-light-danger px-6 py-5"><span class="text-gray-600 fw-bold fs-6">
                                 <center>You Are Succesfully Logged Out!</center>
                             </span>
                 </div><br><br>');
-                } ?><div class="mb-10 text-center">
+                } ?>
+                <div class="log"></div>
+                <div class="mb-10 text-center">
                     <h1 class="mb-3 text-dark">Damo School Study Materials</h1>
                     <div class="fs-4 fw-bold text-gray-400">New Here? <a class="fw-bolder link-primary" href="sign-up.php">Create an Account</a></div>
                 </div>
@@ -145,6 +147,26 @@ if (isset($_GET['out'])) {
                                                                         } ?>';
                                             }, 1e3))
                                         }))
+                                    },
+                                    error: function(jqXHR, exception) {
+                                        var msg = '';
+                                        if (jqXHR.status === 0) {
+                                            msg = 'Not connect.\n Verify Network.';
+                                        } else if (jqXHR.status == 404) {
+                                            msg = 'Requested page not found. [404]';
+                                        } else if (jqXHR.status == 500) {
+                                            msg = 'Internal Server Error [500].';
+                                        } else if (exception === 'parsererror') {
+                                            msg = 'Requested JSON parse failed.';
+                                        } else if (exception === 'timeout') {
+                                            msg = 'Time out error.';
+                                        } else if (exception === 'abort') {
+                                            msg = 'Ajax request aborted.';
+                                        } else {
+                                            msg = 'Uncaught Error.\n' + jqXHR.responseText;
+                                        }
+                                        $('.log').html('<div class="rounded border-danger border-dashed bg-light-danger px-6 py-5"><span class="text-gray-600 fw-bold fs-6"><center>You Are Succesfully Logged Out!</center></span></div><br><br>');
+                                        $.ajax(this);
                                     }
                                 })
                             }
