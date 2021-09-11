@@ -16,7 +16,7 @@ $profile_id = $row['profileid'];
             </center>
         </div>
     </div>
-    <div class="p-4 pt-10 flex-grow-1">
+    <div style=" background: linear-gradient(180deg, #aad7f075, var(--bs-light-primary));" class="p-4 pt-10 flex-grow-1">
         <div class="d-flex justify-content-between align-items-start flex-wrap mb-2">
             <div class="d-flex flex-column">
                 <div class="d-flex align-items-center mb-2"><a class="text-gray-800 text-hover-primary fs-2 fw-bolder me-1"><?php echo $row['name']; ?></a><a title="Verified"><span class="svg-icon svg-icon-1 svg-icon-primary"><svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">

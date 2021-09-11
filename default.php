@@ -393,7 +393,7 @@ function activer($act, $additional_text)
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="d-flex align-items-center ms-1 ms-lg-3 mx-2 ms-2" id="kt_header_user_menu_toggle">
+                                    <div class="d-flex align-items-center ms-1 ms-lg-3 mx-2 ms-4" id="kt_header_user_menu_toggle">
                                         <div class="cursor-pointer symbol symbol-30px symbol-md-40px" data-kt-menu-trigger="click" data-kt-menu-attach="parent" data-kt-menu-placement="bottom-end" data-kt-menu-flip="bottom"><img alt="<?php echo $_SESSION['name']; ?>" width="45px" height="45px" src="<?php if (!empty($_SESSION['avatar'])) {
                                                                                                                                                                                                                                                                                                                 echo $_SESSION['avatar'];
                                                                                                                                                                                                                                                                                                             } else {
