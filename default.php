@@ -44,26 +44,26 @@ function activer($act, $additional_text)
                 <div class="noselect aside-menu flex-column-fluid">
                     <div class="hover-scroll-overlay-y my-5 my-lg-5" id="kt_aside_menu_wrapper" data-kt-scroll="true" data-kt-scroll-activate="{default: false, lg: true}" data-kt-scroll-height="auto" data-kt-scroll-dependencies="#kt_aside_logo, #kt_aside_footer" data-kt-scroll-wrappers="#kt_aside_menu" data-kt-scroll-offset="0" style="height: 570px;">
                         <div class="menu menu-column menu-title fs-5-gray-800 menu-state-title-primary menu-state-icon-primary menu-state-bullet-primary menu-arrow-gray-500" id="#kt_aside_menu" data-kt-menu="true">
-                            <div class="menu-item <?php activer('/home.php', 'here'); ?>"><a class="<?php activer('/home.php', 'text-primary '); ?>menu-link text-hover-primary" href="home.php"><span class="menu-icon"><span class="svg-icon svg-icon-2"><span class="svg-icon svg-icon-2 material-icons-outlined fs-2">home</span></span></span><span class="menu-title fs-5">Home</span></a></div>
-                            <div class="menu-item <?php activer('/explore.php', 'here');
-                                                    activer('/profile_view.php', 'here');
-                                                    activer('/download.php', 'here'); ?>"><a class="<?php activer('/explore.php', 'text-primary ');
-                                                                                                    activer('/download.php', 'text-primary ');
-                                                                                                    activer('/profile_view.php', 'text-primary '); ?>menu-link text-hover-primary" href="explore.php?sub=Comp-App&&class=10"><span class="menu-icon"><span class="svg-icon svg-icon-2"><span class="svg-icon svg-icon-2 material-icons-outlined fs-2">explore</span></span></span><span class="menu-title fs-5">Explore</span></a></div>
-                            <div class="menu-item <?php activer('/search.php', 'here'); ?>"><a class="<?php activer('/search.php', 'text-primary '); ?>menu-link text-hover-primary" href="search.php"><span class="menu-icon"><span class="svg-icon svg-icon-2"><span class="svg-icon svg-icon-2 material-icons-outlined fs-2">search</span></span></span><span class="menu-title fs-5">Search</span></a></div>
-                            <div class="menu-item <?php activer('/follow.php', 'here'); ?>"><a class="<?php activer('/follow.php', 'text-primary '); ?>menu-link text-hover-primary" href="follow.php"><span class="menu-icon"><span class="span-icon span-icon-2"><span class="svg-icon svg-icon-2 material-icons-outlined fs-3">subscriptions</span></span></span><span class="menu-title fs-5">Following</span></a></div>
+                            <div class="menu-item <?php activer('/Damo/home.php', 'here'); ?>"><a class="<?php activer('/Damo/home.php', 'text-primary '); ?>menu-link text-hover-primary" href="home.php"><span class="menu-icon"><span class="svg-icon svg-icon-2"><span class="svg-icon svg-icon-2 material-icons-outlined fs-2">home</span></span></span><span class="menu-title fs-5">Home</span></a></div>
+                            <div class="menu-item <?php activer('/Damo/explore.php', 'here');
+                                                    activer('/Damo/profile_view.php', 'here');
+                                                    activer('/Damo/download.php', 'here'); ?>"><a class="<?php activer('/Damo/explore.php', 'text-primary ');
+                                                                                                    activer('/Damo/download.php', 'text-primary ');
+                                                                                                    activer('/Damo/profile_view.php', 'text-primary '); ?>menu-link text-hover-primary" href="explore.php?sub=Comp-App&&class=10"><span class="menu-icon"><span class="svg-icon svg-icon-2"><span class="svg-icon svg-icon-2 material-icons-outlined fs-2">explore</span></span></span><span class="menu-title fs-5">Explore</span></a></div>
+                            <div class="menu-item <?php activer('/Damo/search.php', 'here'); ?>"><a class="<?php activer('/Damo/search.php', 'text-primary '); ?>menu-link text-hover-primary" href="search.php"><span class="menu-icon"><span class="svg-icon svg-icon-2"><span class="svg-icon svg-icon-2 material-icons-outlined fs-2">search</span></span></span><span class="menu-title fs-5">Search</span></a></div>
+                            <div class="menu-item <?php activer('/Damo/follow.php', 'here'); ?>"><a class="<?php activer('/Damo/follow.php', 'text-primary '); ?>menu-link text-hover-primary" href="follow.php"><span class="menu-icon"><span class="span-icon span-icon-2"><span class="svg-icon svg-icon-2 material-icons-outlined fs-3">subscriptions</span></span></span><span class="menu-title fs-5">Following</span></a></div>
                             <div class="menu-item">
-                                <div class="menu-content pt-5 pb-2"><span class="menu-section text-muted text-uppercase fs-8 ls-1">Groups</span></div>
+                                <div class="menu-content pt-5 pb-2"><span class="menu-section text-muted text-uppercase fs-7 ls-1">Groups</span></div>
                             </div>
                             <div class="menu-item"><a class="menu-link text-hover-primary"><span class="menu-icon"><span class="svg-icon svg-icon-2 material-icons-outlined fs-2">group</span></span><span class="menu-title fs-5">Groups</span></a></div>
                             <div class="menu-item"><a class="menu-link text-hover-primary"><span class="menu-icon"><span class="svg-icon svg-icon-2 material-icons-outlined fs-2">group_add</span></span><span class="menu-title fs-5">Create Group</span></a></div>
                             <div class="menu-item"><a class="menu-link text-hover-primary"><span class="menu-icon"><span class="svg-icon svg-icon-2 material-icons-outlined fs-2">settings</span></span><span class="menu-title fs-5">My Groups</span></a></div>
                             <div class="menu-item">
-                                <div class="menu-content pt-5 pb-2"><span class="menu-section text-muted text-uppercase fs-8 ls-1">Account</span></div>
+                                <div class="menu-content pt-5 pb-2"><span class="menu-section text-muted text-uppercase fs-7 ls-1">Account</span></div>
                             </div>
-                            <div class="menu-item <?php activer('/upload.php', 'here'); ?>"><a class="<?php activer('/upload.php', 'text-primary '); ?> menu-link text-hover-primary"><span class="menu-icon"><span class="svg-icon svg-icon-2 material-icons-outlined fs-2">upload</span></span><span class="menu-title fs-5">My Uploads</span></a></div>
+                            <div class="menu-item <?php activer('/Damo/upload.php', 'here'); ?>"><a class="<?php activer('/Damo/upload.php', 'text-primary '); ?> menu-link text-hover-primary"><span class="menu-icon"><span class="svg-icon svg-icon-2 material-icons-outlined fs-2">upload</span></span><span class="menu-title fs-5">My Uploads</span></a></div>
                             <div class="menu-item"><a class="menu-link text-hover-primary"><span class="menu-icon"><span class="svg-icon svg-icon-2 material-icons-outlined fs-2">person</span></span><span class="menu-title fs-5">Owerview</span></a></div>
-                            <div class="menu-item <?php activer('/settings.php', 'here'); ?>"><a href="settings.php" class="<?php activer('/settings.php', 'text-primary '); ?>menu-link text-hover-primary"><span class="menu-icon"><span class="svg-icon svg-icon-2 material-icons-outlined fs-2">settings</span></span><span class="menu-title fs-5">Settings</span></a></div>
+                            <div class="menu-item <?php activer('/Damo/settings.php', 'here'); ?>"><a href="settings.php" class="<?php activer('/Damo/settings.php', 'text-primary '); ?>menu-link text-hover-primary"><span class="menu-icon"><span class="svg-icon svg-icon-2 material-icons-outlined fs-2">settings</span></span><span class="menu-title fs-5">Settings</span></a></div>
                             <div class="menu-item">
                                 <div class="menu-content pt-0 pb-0">
                                     <div class="separator mx-1 my-4"></div>
@@ -71,7 +71,7 @@ function activer($act, $additional_text)
                             </div>
                             <div class="menu-item"><a class="menu-link text-hover-primary"><span class="menu-icon"><span class="svg-icon svg-icon-2 material-icons-outlined fs-2">support</span></span><span class="menu-title fs-5">Support</span></a></div>
                             <div class="menu-item"><a class="menu-link text-hover-primary"><span class="menu-icon"><span class="svg-icon svg-icon-2 material-icons-outlined fs-2">help_outlined</span></span><span class="menu-title fs-5">Help</span></a></div>
-                            <div class="menu-item <?php activer('/feedback.php', 'here'); ?>"><a href="feedback.php" class="<?php activer('/feedback.php', 'text-primary '); ?> menu-link text-hover-primary"><span class="menu-icon"><span class="svg-icon svg-icon-2 material-icons-outlined fs-2">feedback</span></span><span class="menu-title fs-5">Feedback</span></a></div>
+                            <div class="menu-item <?php activer('/Damo/feedback.php', 'here'); ?>"><a href="feedback.php" class="<?php activer('/Damo/feedback.php', 'text-primary '); ?> menu-link text-hover-primary"><span class="menu-icon"><span class="svg-icon svg-icon-2 material-icons-outlined fs-2">feedback</span></span><span class="menu-title fs-5">Feedback</span></a></div>
                         </div>
                     </div>
                 </div>
@@ -333,7 +333,7 @@ function activer($act, $additional_text)
                                         </div>
                                     </div>
                                     <div class="d-flex align-items-center ms-1 ms-lg-3">
-                                        <div class="btn btn-icon btn-active-light-primary position-relative w-md-40px h-md-40px" data-kt-menu-trigger="click" data-kt-menu-attach="parent" data-kt-menu-placement="bottom-end" data-kt-menu-flip="bottom"><span class="me-2 text-muted"><span class="material-icons-outlined">notifications</span></span></div>
+                                        <div class="btn btn-icon btn-active-light-primary position-relative w-md-40px h-md-40px" data-kt-menu-trigger="click" data-kt-menu-attach="parent" data-kt-menu-placement="bottom-end" data-kt-menu-flip="bottom"><span class="text-muted"><span class="material-icons-outlined">notifications</span></span></div>
                                         <div class="menu menu-sub menu-sub-dropdown menu-column w-350px w-lg-375px" data-kt-menu="true">
                                             <div class="d-flex flex-column bgi-no-repeat rounded-top" style="background-image:url('assets/media/misc/pattern-1.jpg')">
                                                 <h3 class="text-white fw-bold px-9 mt-10 mb-6">Notifications<span class="fs-8 opacity-75 ps-3">24 reports</span></h3>
