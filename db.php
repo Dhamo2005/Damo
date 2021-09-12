@@ -1,1 +1,1 @@
-<?php $GLOBALS['con']=new mysqli("localhost", "root", "", "Damo");
+<?php $GLOBALS['con']=new mysqli("localhost", "root", "", "damo");
