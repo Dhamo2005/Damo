@@ -48,8 +48,8 @@ function activer($act, $additional_text)
                             <div class="menu-item <?php activer('/Damo/explore.php', 'here');
                                                     activer('/Damo/profile_view.php', 'here');
                                                     activer('/Damo/download.php', 'here'); ?>"><a class="<?php activer('/Damo/explore.php', 'text-primary ');
-                                                                                                    activer('/Damo/download.php', 'text-primary ');
-                                                                                                    activer('/Damo/profile_view.php', 'text-primary '); ?>menu-link text-hover-primary" href="explore.php?sub=Comp-App&&class=10"><span class="menu-icon"><span class="svg-icon svg-icon-2"><span class="svg-icon svg-icon-2 material-icons-outlined fs-2">explore</span></span></span><span class="menu-title fs-5">Explore</span></a></div>
+                                                                                                            activer('/Damo/download.php', 'text-primary ');
+                                                                                                            activer('/Damo/profile_view.php', 'text-primary '); ?>menu-link text-hover-primary" href="explore.php?sub=Comp-App&&class=10"><span class="menu-icon"><span class="svg-icon svg-icon-2"><span class="svg-icon svg-icon-2 material-icons-outlined fs-2">explore</span></span></span><span class="menu-title fs-5">Explore</span></a></div>
                             <div class="menu-item <?php activer('/Damo/search.php', 'here'); ?>"><a class="<?php activer('/Damo/search.php', 'text-primary '); ?>menu-link text-hover-primary" href="search.php"><span class="menu-icon"><span class="svg-icon svg-icon-2"><span class="svg-icon svg-icon-2 material-icons-outlined fs-2">search</span></span></span><span class="menu-title fs-5">Search</span></a></div>
                             <div class="menu-item <?php activer('/Damo/follow.php', 'here'); ?>"><a class="<?php activer('/Damo/follow.php', 'text-primary '); ?>menu-link text-hover-primary" href="follow.php"><span class="menu-icon"><span class="span-icon span-icon-2"><span class="svg-icon svg-icon-2 material-icons-outlined fs-3">subscriptions</span></span></span><span class="menu-title fs-5">Following</span></a></div>
                             <div class="menu-item">
@@ -137,7 +137,7 @@ function activer($act, $additional_text)
                                             <div class="d-flex align-items-center" data-kt-search-element="toggle" id="kt_header_search_toggle">
                                                 <div class="btn btn-icon btn-active-light-primary" onclick="show_recent_searches()"><span class="material-icons-outlined text-muted"><span class="material-icons-outlined">search</span></span></div>
                                             </div>
-                                            <div data-kt-search-element="content" class="menu menu-sub menu-sub-dropdown p-7 w-325px w-md-375px">
+                                            <div data-kt-search-element="content" class="search-v menu menu-sub menu-sub-dropdown p-7 w-325px w-md-375px">
                                                 <div data-kt-search-element="wrapper">
                                                     <form action="search.php" data-kt-search-element="form" class="w-100 position-relative mb-3" autocomplete="off"><span class="svg-icon svg-icon-2 svg-icon-lg-1 svg-icon-gray-500 position-absolute top-50 translate-middle-y ms-0"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
                                                                 <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
@@ -208,13 +208,14 @@ function activer($act, $additional_text)
                                                                             } else {
                                                                                 msg = 'Sorry Something Went Wrong. Please Try Again!';
                                                                             }
-                                                                            $('.clrpart').html('<center class="text-danger fs-6">'+msg+'</center><br><button type="button" class="btn btn-primary">Retry</button>');
+                                                                            $('.clrpart').html('<center class="text-danger fs-6">' + msg + '</center><br><button type="button" class="btn btn-primary">Retry</button>');
                                                                             setTimeout(() => {
                                                                                 $.ajax(this);
                                                                             }, 2000);
                                                                         }
                                                                     });
                                                                 }
+
                                                                 function recentclr() {
                                                                     $.ajax({
                                                                         url: "server/clrres.php",
