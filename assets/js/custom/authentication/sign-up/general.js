@@ -110,7 +110,7 @@ var KTSignupGeneral = (function () {
                 var place = $('#place').val();
                 var gender = $('#gender').val();
                 $.ajax({
-                url: "vidh_reg.php",
+                url: "../server/insert.php",
                 method: "POST",
                 data: {
                   name:name,
@@ -130,7 +130,8 @@ var KTSignupGeneral = (function () {
                       text: "Thanks For Filling This Form!",
                       icon: "success",
                       buttonsStyling: !1,
-                      confirmButtonText: "<a class='text-white'>Ok, got it!</a>",
+                      confirmButtonText:
+                        "<a class='text-white'>Ok, got it!</a>",
                       customClass: { confirmButton: "btn btn-primary" },
                     });
                   }else{
@@ -141,7 +142,7 @@ var KTSignupGeneral = (function () {
                       (t.disabled = !1),
                       Swal.fire({
                         text:
-                          "Sorry, Some Technical Issue Found.Please Try Again.",
+                          data,
                         icon: "warning",
                         buttonsStyling: !1,
                         confirmButtonText: data,
@@ -152,7 +153,7 @@ var KTSignupGeneral = (function () {
               });
               } else {
                 Swal.fire({
-                  text:data,
+                  text:'Please Fill Out This Form',
                   icon: "error",
                   buttonsStyling: !1,
                   confirmButtonText: "Ok, got it!",
