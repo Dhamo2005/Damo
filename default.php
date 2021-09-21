@@ -292,7 +292,7 @@ function activer($act, $additional_text)
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                             <div class="modal-header pb-0">
-                                <form action="search.php" data-kt-search-element="form" class="w-100 position-relative" autocomplete="off"><span class="svg-icon svg-icon-2 svg-icon-lg-1 svg-icon-gray-500 position-absolute top-50 translate-middle-y ms-0"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                                <form action="search.php" class="w-100 position-relative" autocomplete="off"><span class="svg-icon svg-icon-2 svg-icon-lg-1 svg-icon-gray-500 position-absolute top-50 translate-middle-y ms-0"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
                                             <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                                                 <rect x="0" y="0" width="24" height="24"></rect>
                                                 <path d="M14.2928932,16.7071068 C13.9023689,16.3165825 13.9023689,15.6834175 14.2928932,15.2928932 C14.6834175,14.9023689 15.3165825,14.9023689 15.7071068,15.2928932 L19.7071068,19.2928932 C20.0976311,19.6834175 20.0976311,20.3165825 19.7071068,20.7071068 C19.3165825,21.0976311 18.6834175,21.0976311 18.2928932,20.7071068 L14.2928932,16.7071068 Z" fill="#000000" fill-rule="nonzero" opacity="0.3"></path>
@@ -304,8 +304,8 @@ function activer($act, $additional_text)
                                                     <rect fill="#000000" opacity="0.5" transform="translate(8.000000, 8.000000) rotate(-270.000000) translate(-8.000000, -8.000000)" x="0" y="7" width="16" height="2" rx="1"></rect>
                                                 </g>
                                             </svg></span></span>
-                                    <div data-bs-dismiss="modal" class="text-muted text-active-primary text-hover-primary position-absolute top-50 end-0 translate-middle-y" data-kt-search-element="toolbar">
-                                        <div data-kt-search-element="advanced-options-form-show" class="btn btn-icon w-20px btn-sm btn-active-color-primary" data-bs-toggle="tooltip" title="Close" data-bs-original-title="Colse Options">
+                                    <div data-bs-dismiss="modal" class="text-muted text-active-primary text-hover-primary position-absolute top-50 end-0 translate-middle-y">
+                                        <div class="btn btn-icon w-20px btn-sm btn-active-color-primary" data-bs-toggle="tooltip" title="Close" data-bs-original-title="Colse Options">
                                             <span class="svg-icon svg-icon-2 material-icons-outlined fs-2">
                                             close
                                             </span>
@@ -314,15 +314,15 @@ function activer($act, $additional_text)
                                 </form>
                             </div>
                             <div class="modal-body">
-                                <div data-kt-search-element="wrapper">
-                                    <div data-kt-search-element="results" class="d-none">
+                                <div>
+                                    <div class="d-none">
                                         <div class="scroll-y mh-200px mh-lg-325px">
 
                                         </div>
                                     </div>
-                                    <div class="mb-4" data-kt-search-element="main">
+                                    <div class="mb-4">
                                         <div class="d-flex flex-stack fw-bold"><span class="text-muted fs-5 me-2">Recently Searched:</span>
-                                            <div data-kt-search-element="recently-viewed-clear" class="btn btn-link fw-6" onclick="recentclr()"><span class="recentclr"></span>Clear</div>
+                                            <div class="btn btn-link fw-6" onclick="recentclr()"><span class="recentclr"></span>Clear</div>
                                             <script>
                                                 function show_recent_searches() {
                                                     $.ajax({
