@@ -17,7 +17,9 @@ if (!empty($email) && !empty($email)) {
 			$_SESSION['gender'] = $row["gender"];
 			$_SESSION['std'] = $row["class"];
 			$_SESSION['medium'] = $row["medium"];
-		echo ('1');
+			if($GLOBALS['con']->query("UPDATE `users` SET `last_login` = now() WHERE `users`.`email` = '$email'")){
+				echo ('1');
+			}
 		}
 	} else {
 		echo ("0");
