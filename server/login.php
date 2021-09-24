@@ -1,5 +1,6 @@
 <?php session_start();
 include_once("../db.php");
+date_default_timezone_set('Asia/Kolkata');
 $email = trim(htmlspecialchars(strip_tags(mysqli_real_escape_string($GLOBALS['con'], $_POST['email'])),ENT_COMPAT,'UTF-8'));
 $password = trim(htmlspecialchars(strip_tags(mysqli_real_escape_string($GLOBALS['con'], md5($_POST['password']))),ENT_COMPAT,'UTF-8'));
 if (!empty($email) && !empty($email)) {
