@@ -36,6 +36,16 @@
                     ?>
 </div>
 <script>
+    $(document).ready(function () {
+        var cls = $('#class').val();
+        if (cls <= 12 && cls > 10) {
+            $('#sub').html('<option></option><option value="Tamil">Tamil</option><option value="English">English</option><option value="Maths">Maths</option><option value="Chemistry">Chemistry</option><option value="Physics">Physics</option><option value="Accounts">Accounts</option><option value="Comp-Science">Computer-Science</option><option value="Comp-App">Computer-Applications</option><option value="Comp-Tech">Computer-Technology</option><option value="Commerce">Commerce</option><option value="Biology">Biology</option><option value="Zoology">Zoology</option><option value="Economics">Economics</option><option value="EEE">English</option><option value="History">History</option>');
+        } if(cls <= 10 && cls > 3){
+            $('#sub').html('<option></option><option value="Tamil">Tamil</option><option value="English">English</option><option value="Maths">Maths</option><option value="Science">Science</option><option value="Social Science">Social Science</option>');
+        } if(cls <= 2 && cls > 0){
+            $('#sub').html('<option></option><option value="Tamil">Tamil</option><option value="English">English</option><option value="Maths">Maths</option><option value="Environmental Science">Environmental Science</option>');
+        }
+    });
     $('#class').change(function(e) {
         cls = $(this).val();
         if (cls <= 12 && cls > 10) {
@@ -46,4 +56,5 @@
             $('#sub').html('<option></option><option value="Tamil">Tamil</option><option value="English">English</option><option value="Maths">Maths</option><option value="Environmental Science">Environmental Science</option>');
         }
     });
+    localStorage.setItem('pre_search',)
 </script>
