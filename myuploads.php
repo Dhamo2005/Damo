@@ -1,40 +1,9 @@
 <?php
 include('db.php');
 include('default.php');
-// function for times ago
-function to_time_ago($time)
-{
-	$diff = time() - $time;
-	if ($diff < 1) {
-		return 'Now';
-	}
-	$time_rules = array(12 * 30 * 24 * 60 * 60 => 'year', 30 * 24 * 60 * 60 => 'month', 24 * 60 * 60 => 'day', 60 * 60 => 'hour', 60 => 'minute', 1 => 'second');
-	foreach ($time_rules as $secs => $str) {
-		$div = $diff / $secs;
-		if ($div >= 1) {
-			$t = round($div);
-			return $t . ' ' . $str . ($t > 1 ? 's' : '') . ' ago';
-		}
-	}
-}
-// function for short download counts
-function number_shorten($number, $precision = 1, $divisors = null)
-{
-	if (!isset($divisors)) {
-		$divisors = array(pow(1000, 0) => '', pow(1000, 1) => 'K', pow(1000, 2) => 'M', pow(1000, 3) => 'B', pow(1000, 4) => 'T', pow(1000, 5) => 'Qa', pow(1000, 6) => 'Qi',);
-	}
-	foreach ($divisors as $divisor => $shorthand) {
-		if (abs($number) < ($divisor * 1000)) {
-			break;
-		}
-	}
-	if ($number < 1000) {
-		$precision = 0;
-	}
-	return number_format($number / $divisor, $precision) . $shorthand;
-}
-include_once("db.php");
+include('controls/numfunctions.php');
 $sql = "SELECT users.Name, materials.format, materials.Title, materials.id, materials.likes, materials.dislikes, materials.downloads, materials.Std , materials.link, materials.Subject, TIME_TO_SEC(TIMEDIFF(materials.Date,now())), users.avatar,users.name as Author, materials.Date FROM users,materials WHERE materials.uid = users.id AND materials.uid = 278 ORDER BY `materials`.`Date` DESC LIMIT 5 ";
+$sql;
 $result = $con->query($sql); ?>
 <title><?php echo $_SESSION['name']; ?> - Admin Page</title>
 <div class="col-12">
@@ -54,7 +23,7 @@ $result = $con->query($sql); ?>
 			echo ('
                     <div class="p-2" style="background-color: white;"><div class="d-flex align-items-start" style="overflow-wrap: anywhere;padding-bottom: inherit;">
                     <div class="flex-grow-1">
-                    <small class="float-right text-navy">' . to_time_ago(time() + $row["TIME_TO_SEC(TIMEDIFF(materials.Date,now()))"]) . '</small>
+                    <small class="float-right text-navy">' . time_ago(time() + $row["TIME_TO_SEC(TIMEDIFF(materials.Date,now()))"]) . '</small>
                     <span><b>' . $row['Subject'] . '</b><br><small class="text-muted">' . date("M d, Y ", strtotime($row["Date"])) . '</small></span></span>
                     <div class="text-sm text-muted mt-1" style="padding-top:5px;padding-bottom:10px;">' . $row['Title'] . '</div>
                     <a class="btn btn-sm btn-success mt-1"><i class="feather-sm fa fa-thumbs-up"></i>&nbsp;' . number_shorten($row['likes']) . '</a>

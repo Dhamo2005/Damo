@@ -1,15 +1,17 @@
 <?php
 include_once('default.php');
+?>
+<title><?php echo $_SESSION['name'] . "&nbsp;-&nbsp;Following | Damo Softwares";?></title>
+<?php
 $sql = "SELECT DISTINCT users.id as uploaderid, users.name, users.avatar, users.gender, users.about FROM users,followers WHERE followers.uid=278 AND users.id=followers.followid ORDER BY followers.id DESC";
 $result = $GLOBALS['con']->query($sql);
 if (mysqli_num_rows($result) > 0) {
-    
 ?><div class="col-12 mt-2 noselect">
             <div class="border-dotted border-success border-1 card card-flush">
                 <div class="card-header bg-primary">
                     <div class="card-title flex-column">
                         <h3 class="fw-bolder text-white mb-1">Following... 😇</h3>
-                        <div class="fs-6 text-white opacity-75 bg-gradient"><?php echo "Total&nbsp;" . mysqli_num_rows($result) . "&nbsp;"; ?>Member<?php if(mysqli_num_rows($result) >1){echo 's';} ?></div>
+                        <div class="fs-6 text-white opacity-75 bg-gradient"><?php echo mysqli_num_rows($result) . "&nbsp;"; ?>Member<?php if(mysqli_num_rows($result) >1){echo 's';} ?></div>
                     </div>
                     <div class="card-toolbar"><span class="badge badge-light-success fw-bolder fs-8 px-2 py-1 ms-2 p-4">2 New</span></div>
                 </div>

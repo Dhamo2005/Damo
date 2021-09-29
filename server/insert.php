@@ -38,8 +38,10 @@ if(empty($name && $email && $phone_number && $class && $medium && $about && $pla
     echo $err;
 }else{
     $password_hash = md5($password);
-    $sql = "INSERT INTO `users` (`name`, `phone_number`, `class`, `medium`, `email`, `password`, `about`, `Joined`, `place`, `type`,`gender`) VALUES 
-    ('$name', '$phone_number', '$class', '$medium', '$email', '$password_hash', '$about', now(), '$place', '$type', '$gender') ";
+    $sql = " ";
     $GLOBALS['con']->query($sql);
+    $statement = DB::con()->prepare("INSERT INTO `users` (`name`, `phone_number`, `class`, `medium`, `email`, `password`, `about`, `Joined`, `place`, `type`,`gender`) VALUES ('$name', '$phone_number', '$class', '$medium', '$email', '$password_hash', '$about', now(), '$place', '$type', '$gender')");
+    $statement = DB::con()->prepare("INSERT INTO `users` (`name`, `phone_number`, `class`, `medium`, `email`, `password`, `about`, `Joined`, `place`, `type`,`gender`) VALUES (:name, :phone_number, :class, :medium, :email,:password,:about,:Joined,:place,:");
+    $statement->execute(['name' => $name, 'phone_number' => $phone_number, 'class' => $class, 'medium' => $medium, 'email' => $email, 'password' => $password_hash, 'about'=>$about, 'Joined'=> 'now()', 'place'=>$place, 'type'=>$type, 'gender'=>$gender]);
     echo 1;
 }

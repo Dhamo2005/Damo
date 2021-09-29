@@ -20,14 +20,19 @@ if (isset($_GET['sub']) && isset($_GET['class'])) {
     $sql = "SELECT DISTINCT users.Name, materials.format, materials.Title, materials.id, materials.likes, materials.dislikes, (select DISTINCT count(mydownloads.id) FROM mydownloads WHERE mydownloads.fileid = materials.id ) as downloads, materials.Std, materials.Author, materials.link, materials.Date, users.email, users.gender, users.avatar, users.id as uploaderid FROM users,materials WHERE materials.uid=users.id AND materials.Std LIKE '%$class%' AND materials.Subject LIKE'%$sub%' ORDER BY materials.Date DESC";
     $result = $GLOBALS['con']->query($sql); ?><div class="d-flex px-2 container-fluid flex-sm-nowrap flex-stack flex-wrap">
         <div class="d-flex flex-column align-items-start flex-wrap justify-content-center me-2">
-            <h1 class="d-flex align-items-center fs-2 fw-bolder my-1 text-dark"><?php echo $class . "th&nbsp;" . $sub . "&nbsp;materials"; ?><span class="px-2 badge bg-danger bg-opacity-10 fs-8 fw-bold ms-2 text-danger"><?php echo mysqli_num_rows($result) . "&nbsp;Results Found!"; ?></span></h1>
+            <h1 class="d-flex align-items-center fs-2 fw-bolder my-1 text-dark"><?php echo $class . "th&nbsp;" . $sub . "&nbsp;materials"; ?><span class="px-2 badge 
+            <?php if (mysqli_num_rows($result) > 0) {
+                echo 'bg-success text-success';
+            } else {
+                echo 'bg-danger text-danger';
+            } ?> bg-opacity-10 fs-7 ms-2"><?php echo mysqli_num_rows($result); ?></span></h1>
             <ul class="fw-bold breadcrumb fs-5 my-1">
                 <li class="breadcrumb-item text-muted"><a href="index.php">Home</a></li>
                 <li class="breadcrumb-item text-muted"><a href="index.php">Explore</a></li>
                 <li class="breadcrumb-item text-dark"><?php echo $class; ?>th</li>
             </ul>
         </div>
-        <div class="d-flex align-items-center flex-nowrap py-1 text-nowrap"><a class="d-flex btn me-4 btn-active-primary btn-white px-1" target="_blank"><span class="material-icons-outlined fs-2 pe-2">share</span><span class="d-sm-none">Share Page</span></a><a class="btn px-2 btn-primary" target="_blank"><span class="d-flex menu-link"><span class="menu-icon"><span class="material-icons-outlined fs-2 pe-2">filter_list</span></span><span class="d-sm-none menu-title">Filter</span></span></a></div>
+        <div class="d-flex align-items-center flex-nowrap py-1 text-nowrap"><a class="d-flex btn me-4 btn-active-primary btn-white px-1 px-md-4" target="_blank"><span class="material-icons-outlined fs-2 pe-2">share</span><span class="d-sm-none">Share</span></a><a class="btn px-2 px-md-4 btn-primary" target="_blank"><span class="d-flex menu-link"><span class="menu-icon"><span class="material-icons-outlined fs-2 pe-2">filter_list</span></span><span class="d-sm-none menu-title">Filter</span></span></a></div>
     </div>
     <?php if (mysqli_num_rows($result) == 0) {
         echo "<h6 class='text-center'><br><span class='fs-1'>🙄</span><br><br>Sorry No Uploads Found!<br></h6><br>";
@@ -50,7 +55,7 @@ if (isset($_GET['sub']) && isset($_GET['class'])) {
                                         echo 'assets/media/avatars/blank_t.svg';
                                     }
                                 } ?>" alt="<?php echo $row['name']; ?>"></div>
-                                <div class="d-flex flex-column"><a class="text-gray-800 fs-5 fw-bolder"><?php echo $row['Name']; ?></a><span class="fw-bold text-gray-600"><?php echo time_ago_in_php($row["Date"]); ?></span></div>
+                                <div class="d-flex flex-column"><a class="text-gray-800 fs-5 fw-bolder"><?php echo $row['Name']; ?></a><span class="fw-bold text-gray-600"><?php echo time_ago($row["Date"]); ?></span></div>
                             </div>
                         </div>
                         <div class="my-0"><button class="btn btn-sm btn-color-muted btn-active-light-primary btn-icon" data-kt-menu-flip="top-end" data-kt-menu-placement="bottom-end" data-kt-menu-trigger="click" type="button"><span class="svg-icon svg-icon-2"><span class="material-icons-outlined">more_vert</span></span></button>
@@ -73,12 +78,12 @@ if (isset($_GET['sub']) && isset($_GET['class'])) {
                         <p class="mb-5 fs-6 fw-normal text-gray-800"><?php echo ($row['Title']); ?></p>
                     </div>
                     <div class="separator mb-4"></div>
-                    <form class="mb-6 position-relative">
+                    <div class="mb-6 position-relative">
                         <div class="d-flex justify-content-between w-100 mt-auto"><span class="fw-bold fs-6 text-gray-400 text-center"><a class="d-flex text-muted fs-6 py-1 px-1 fw-bolder"><span class="fs-2 material-icons-outlined pe-2">thumb_up</span><?php echo getper($row['likes'], $row['dislikes'], ($row['likes'] + $row['dislikes'])); ?>%</a></span><span class="fw-bolder fs-6"><span class="btn btn-sm btn-icon btn-active-color-light-success me-4 pe-0"><span class="mb-3 svg-icon svg-icon-3"><a class="d-flex btn btn-color-muted btn-sm fs-6 py-1 fw-bolder btn-active-light-success px-1" href="<?php echo "download.php?link=" . base64_encode($row['id']); ?>"><?php echo number_shorten($row['downloads']); ?><span class="material-icons-outlined px-1">get_app</span></a></span></span></span></div>
                         <div class="h-5px w-100 mb-3" style="background-color: #c9c9c9;">
                             <div class="bg-success rounded h-5px" role="progressbar" style="width: <?php echo getper($row['likes'], $row['dislikes'], ($row['likes'] + $row['dislikes'])) ?>%;" aria-valuenow="<?php echo getper($row['likes'], $row['dislikes'], ($row['likes'] + $row['dislikes'])); ?>" aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
-                    </form>
+                    </div>
                 </div>
             </div><?php }
             }

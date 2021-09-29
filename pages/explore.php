@@ -24,37 +24,24 @@
             </div>
         </form>
     </fieldset>
-    <?php 
-    // print_r($_SESSION);
-    
-    //                 $std = $_SESSION['std'];
-    //                 if ($std > 10 && $std >= 12) {
-    //                     echo '<option></option><option value="Tamil">Tamil</option><option value="English">English</option><option value="Maths">Maths</option><option value="Science">Science</option><option value="Social Science">Social Science</option>';
-    //                 } elseif ($std <=2 && $std >0){
-    //                     echo '<option></option><option value="Tamil">Tamil</option><option value="English">English</option><option value="Maths">Maths</option><option value="Environmental Scince">Environmental Scince</option>';
-    //                 }
-                    ?>
 </div>
 <script>
     $(document).ready(function () {
         var cls = $('#class').val();
-        if (cls <= 12 && cls > 10) {
-            $('#sub').html('<option></option><option value="Tamil">Tamil</option><option value="English">English</option><option value="Maths">Maths</option><option value="Chemistry">Chemistry</option><option value="Physics">Physics</option><option value="Accounts">Accounts</option><option value="Comp-Science">Computer-Science</option><option value="Comp-App">Computer-Applications</option><option value="Comp-Tech">Computer-Technology</option><option value="Commerce">Commerce</option><option value="Biology">Biology</option><option value="Zoology">Zoology</option><option value="Economics">Economics</option><option value="EEE">English</option><option value="History">History</option>');
-        } if(cls <= 10 && cls > 3){
-            $('#sub').html('<option></option><option value="Tamil">Tamil</option><option value="English">English</option><option value="Maths">Maths</option><option value="Science">Science</option><option value="Social Science">Social Science</option>');
-        } if(cls <= 2 && cls > 0){
-            $('#sub').html('<option></option><option value="Tamil">Tamil</option><option value="English">English</option><option value="Maths">Maths</option><option value="Environmental Science">Environmental Science</option>');
-        }
+        get_sub(cls);
     });
     $('#class').change(function(e) {
         cls = $(this).val();
+        get_sub(cls);
+    });
+    function get_sub(cls){
         if (cls <= 12 && cls > 10) {
-            $('#sub').html('<option></option><option value="Tamil">Tamil</option><option value="English">English</option><option value="Maths">Maths</option><option value="Chemistry">Chemistry</option><option value="Physics">Physics</option><option value="Accounts">Accounts</option><option value="Computer-Science">Computer-Science</option><option value="Computer-Applications">Computer-Applications</option><option value="Computer-Technology">Computer-Technology</option><option value="Commerce">Commerce</option><option value="Biology">Biology</option><option value="Zoology">Zoology</option><option value="Economics">Economics</option><option value="EEE">English</option><option value="History">History</option>');
+            $('#sub').html('<option></option><option value="Tamil">Tamil</option><option value="English">English</option><option value="Maths">Maths</option><option value="Chemistry">Chemistry</option><option value="Physics">Physics</option><option value="Accounts">Accounts</option><option value="Comp-Science">Computer-Science</option><option value="Comp-App">Computer-Applications</option><option value="Comp-Tech">Computer-Technology</option><option value="Commerce">Commerce</option><option value="Biology">Biology</option><option value="Zoology">Zoology</option><option value="Economics">Economics</option><option value="BEE">Basic Electronic Engineering</option><option value="History">History</option>');
         } if(cls <= 10 && cls > 3){
             $('#sub').html('<option></option><option value="Tamil">Tamil</option><option value="English">English</option><option value="Maths">Maths</option><option value="Science">Science</option><option value="Social Science">Social Science</option>');
         } if(cls <= 2 && cls > 0){
             $('#sub').html('<option></option><option value="Tamil">Tamil</option><option value="English">English</option><option value="Maths">Maths</option><option value="Environmental Science">Environmental Science</option>');
         }
-    });
-    localStorage.setItem('pre_search',)
+    localStorage.setItem('pre_search',cls);
+    }
 </script>

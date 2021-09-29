@@ -1,7 +1,7 @@
 <?php
-class DBConnection
+class DB
 {
-    function DBConnection()
+    static function Con()
     {
         $host = 'localhost';
         $dbname = 'damo';
@@ -19,9 +19,14 @@ class DBConnection
 
 class user
 {
-    private function register_user()
+    static function register_user()
     {
-        $statement = $DBH->prepare('INSERT INTO testtable (name, lastname, age) VALUES (:fname, :sname, :age)');
-        $statement->execute(['fname' => 'Bob', 'sname' => 'Desaunois', 'age' => '18',]);
+        $statement = DB::con()->prepare("INSERT INTO `recentlysearched` (`uid`, `keyword`) VALUES (:uid, :keyword)");
+        $statement->execute(['uid' => '278', 'keyword' => 'Desaunois']);
     }
 }
+// function register_user() {
+//     $username = htmlspecialchars(mysqli_real_escape_string($_POST['username']));
+    
+// }
+user::register_user();
