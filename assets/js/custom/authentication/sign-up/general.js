@@ -100,29 +100,31 @@ var KTSignupGeneral = (function () {
             a.validate().then(function (a) {
               if ("Valid" == a) {
                 var name = $('#name').val();
-                var student_id = $('#student_id').val();
                 var email   =$('#email').val();
                 var phone_number = $('#phone_number').val();
                 var classs = $('#classs').val();
                 var medium = $('#medium').val();
-                var group = $('#group').val();
                 var about = $('#about').val();
                 var place = $('#place').val();
                 var gender = $('#gender').val();
+                var password = $('#password').val();
+                var confirm_password = $('#confirm_password').val();
+                var type = $('#type').val();
                 $.ajax({
                 url: "../server/insert.php",
                 method: "POST",
                 data: {
                   name:name,
-                  student_id:student_id,
-                  email:email,
                   phone_number:phone_number,
+                  email:email,
                   classs:classs,
-                  group:group,
                   medium:medium,
                   about:about,
                   place:place,
+                  type:type,
                   gender:gender,
+                  password:password,
+                  confirm_password:confirm_password
                 },
                 success: function (data) {
                   if(data == 1){
@@ -141,8 +143,7 @@ var KTSignupGeneral = (function () {
                     t.removeAttribute("data-kt-indicator"),
                       (t.disabled = !1),
                       Swal.fire({
-                        text:
-                          data,
+                        text:data,
                         icon: "warning",
                         buttonsStyling: !1,
                         confirmButtonText: data,
@@ -153,7 +154,7 @@ var KTSignupGeneral = (function () {
               });
               } else {
                 Swal.fire({
-                  text:'Please Fill Out This Form',
+                  text:'Please Fill Out This Form'+data,
                   icon: "error",
                   buttonsStyling: !1,
                   confirmButtonText: "Ok, got it!",

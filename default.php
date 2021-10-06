@@ -61,7 +61,7 @@ function activer($act, $additional_text)
                             <div class="menu-item">
                                 <div class="menu-content pt-5 pb-2"><span class="menu-section text-muted text-uppercase fs-7 ls-1">Account</span></div>
                             </div>
-                            <div class="menu-item <?php activer('/Damo/upload.php', 'here'); ?>"><a href="myuploads.php" class="<?php activer('/Damo/myupload.php', 'text-primary '); activer('/Damo/upload.php', 'text-primary '); ?> menu-link text-hover-primary"><span class="menu-icon"><span class="svg-icon svg-icon-2 material-icons-outlined fs-2">upload</span></span><span class="menu-title fs-5">My Uploads</span></a></div>
+                            <div class="menu-item <?php activer('/Damo/upload.php', 'here'); activer('/Damo/myuploads.php', 'here'); ?>"><a href="myuploads.php" class="<?php activer('/Damo/myuploads.php', 'text-primary '); activer('/Damo/upload.php', 'text-primary '); ?> menu-link text-hover-primary"><span class="menu-icon"><span class="svg-icon svg-icon-2 material-icons-outlined fs-2">upload</span></span><span class="menu-title fs-5">My Uploads</span></a></div>
                             <div class="menu-item"><a class="menu-link text-hover-primary"><span class="menu-icon"><span class="svg-icon svg-icon-2 material-icons-outlined fs-2">person</span></span><span class="menu-title fs-5">Owerview</span></a></div>
                             <div class="menu-item <?php activer('/Damo/settings.php', 'here'); ?>"><a href="settings.php" class="<?php activer('/Damo/settings.php', 'text-primary '); ?>menu-link text-hover-primary"><span class="menu-icon"><span class="svg-icon svg-icon-2 material-icons-outlined fs-2">settings</span></span><span class="menu-title fs-5">Settings</span></a></div>
                             <div class="menu-item">
@@ -411,4 +411,4 @@ function activer($act, $additional_text)
 
                 <div class="py-4 content d-flex flex-column flex-column-fluid" id="kt_content">
                     <script src="assets/jquery.js"></script>
-                    <div class="px-4" id="content">
+                    <div class="px-4 px-sm-3" id="content">

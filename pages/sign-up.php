@@ -38,6 +38,11 @@
                                 <option value="tm">Tamil (TM)</option>
                                 <option value="em">English (EM)</option>
                             </select></div>
+                            <div class="fv-row mb-7"><label class="form-label fw-bolder text-dark fs-6">Medium</label><select id="medium" name="Medium" class="form-control form-control-lg form-control-solid">
+                                <option value="">Select Your Group Category</option>
+                                <option value="tm">Tamil (TM)</option>
+                                <option value="em">English (EM)</option>
+                            </select></div>
                         <div class="fv-row mb-7"><label class="form-label fw-bolder text-dark fs-6">About</label><input id="about" class="form-control form-control-lg form-control-solid" type="text" name="about" placeholder="Say something about you"></div>
                         <div class="fv-row mb-7"><label class="form-label fw-bolder text-dark fs-6">Place</label><input id="place" class="form-control form-control-lg form-control-solid" type="text" name="Place" placeholder="Enter Your Current Location"></div>
                         <div class="fv-row mb-7"><label class="form-label fw-bolder text-dark fs-6">You Are</label><select id="type" name="type" class="form-control form-control-lg form-control-solid">
@@ -67,7 +72,7 @@
                         <div class="fv-row mb-5"><label class="form-label fw-bolder text-dark fs-6">Confirm Password</label><input class="form-control form-control-lg form-control-solid" id="confirm_password" type="password" placeholder="" name="confirm-password" autocomplete="off" /></div>
                         <div class="fv-row mb-10"><label class="form-check form-check-custom form-check-solid"><input class="form-check-input" type="checkbox" name="toc" value="1" /><span class="form-check-label fw-bold text-gray-700 fs-6">I Agree &amp; <a href="#" class="ms-1 link-primary">Terms and conditions</a>.</span></label></div>
                         <div class="text-center"><button type="button" id="kt_sign_up_submit" class="btn btn-lg btn-primary"><span class="indicator-label">Submit</span><span class="indicator-progress">Please wait... <span class="spinner-border spinner-border-sm align-middle ms-2"></span></span></button></div>
-                    </form </div>
+                    </form> </div>
                 </div>
                 <div class="d-flex flex-center flex-column-auto p-10">
                     <div class="d-flex align-items-center fw-bold fs-6"><a href="https://keenthemes.com/faqs" class="text-muted text-hover-primary px-2">About</a><a href="mailto:support@keenthemes.com" class="text-muted text-hover-primary px-2">Contact</a><a href="https://1.envato.market/EA4JP" class="text-muted text-hover-primary px-2">Contact Us</a></div>

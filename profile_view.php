@@ -11,17 +11,18 @@ if (isset($_GET['p']) && !empty($_GET['p']) && !empty(base64_decode(base64_decod
         <div style="background-image: url(assets/bg/profilebg.jpg); background-repeat: round;"><br>
             <div class="card-body p-0">
                 <center style="margin-top: -6 !important;">
-                    <div class="symbol symbol-150px symbol-lg-160px symbol-fixed position-relative cursor-pointer"><img style="margin-bottom:-25px;" src="<?php if (!empty($row['avatar'])) {
-                                                                                                                                                                echo $row['avatar'];
-                                                                                                                                                            } else {
-                                                                                                                                                                if ($row['gender'] === 'm') {
-                                                                                                                                                                    echo 'assets/media/avatars/blank_male.svg';
-                                                                                                                                                                } elseif ($row['gender'] === 'f') {
-                                                                                                                                                                    echo 'assets/media/avatars/blank_female.png';
-                                                                                                                                                                } elseif ($row['gender'] === 't') {
-                                                                                                                                                                    echo 'assets/media/avatars/blank_t.svg';
-                                                                                                                                                                }
-                                                                                                                                                            } ?>" alt="<?php echo $row['name']; ?>"></div>
+                    <div class="symbol symbol-150px symbol-lg-160px symbol-fixed position-relative cursor-pointer"><img style="margin-bottom:-25px;" src="
+                    <?php if (!empty($row['avatar'])) {
+                        echo $row['avatar'];
+                    } else {
+                        if ($row['gender'] === 'm') {
+                            echo 'assets/media/avatars/blank_male.svg';
+                        } elseif ($row['gender'] === 'f') {
+                            echo 'assets/media/avatars/blank_female.png';
+                        } elseif ($row['gender'] === 't') {
+                            echo 'assets/media/avatars/blank_t.svg';
+                        }
+                    } ?>" alt="<?php echo $row['name']; ?>"></div>
                 </center>
             </div>
         </div>
@@ -47,6 +48,10 @@ if (isset($_GET['p']) && !empty($_GET['p']) && !empty(base64_decode(base64_decod
                 </div>
                 <div class="d-flex my-4"><a class="btn btn-sm btn-light-success me-2 d-flex" id="kt_user_follow_button" data-kt-indicator="off"><span class="material-icons-outlined px-2 fs-4 indicator-label">how_to_reg</span><span class="indicator-progress"><span class="me-2 align-middle ms-2 spinner-border spinner-grow-sm" data-kt-indicator="o" style="width: 1.2rem;height: 1.2rem;"></span></span><span><span><?php echo ($GLOBALS['con']->query("SELECT COUNT(id) FROM `followers` WHERE followid = $profile_id"))->fetch_array()[0]; ?></span></span></a><a class="btn btn-sm btn-primary me-3 d-flex"><span class="material-icons-outlined px-2 fs-4">share</span><span class="d-sm-none">Share Profile</span></a></div>
             </div>
+
+                        
+
+
             <div class="d-flex overflow-auto h-55px">
                 <ul class="nav nav-stretch nav-line-tabs nav-line-tabs-2x border-transparent fs-5 fw-bolder flex-nowrap">
                     <li class="nav-item">
@@ -60,7 +65,7 @@ if (isset($_GET['p']) && !empty($_GET['p']) && !empty(base64_decode(base64_decod
                     </li>
                 </ul>
             </div>
-            
+
             <div class="container px-0 mt-8">
                 <div class="row">
                     <div class="col">
