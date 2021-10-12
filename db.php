@@ -1,4 +1,5 @@
 <?php $GLOBALS['con'] = new mysqli("localhost", "root", "", "damo");
+mysqli_set_charset( $con, 'utf8');
 class DB
 {
     static function Con()

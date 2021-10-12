@@ -39,7 +39,7 @@
         <div class="row mb-3">
           <div class="col-md-6 pe-lg-10">
             <form method="POST" class="form mb-15" method="post" id="kt_contact_form">
-              <h1 class="fw-bolder text-dark mb-9">Send Us Email</h1>
+              <h1 class="fw-bolder text-dark mb-9">Feedback Us</h1>
               <div class="d-flex flex-column mb-5 fv-row"><label class="fs-5 fw-bold mb-2">Name</label><input required disabled value="<?php echo $_SESSION['name']; ?>" class="noselect form-control form-control-solid" placeholder="" name="name" /></div>
               <div class="d-flex flex-column mb-5 fv-row"><label class="fs-5 fw-bold mb-2">Subject</label><input required name="subject" class="form-control form-control-solid" placeholder="" name="subject" /></div>
               <div class="d-flex flex-column mb-10 fv-row"><label class="fs-6 fw-bold mb-2">Message</label><textarea  required name="query" class="form-control form-control-solid" rows="6" name="message" placeholder=""></textarea></div><button type="submit" class="btn btn-primary" id="kt_contact_submit_button"><span class="indicator-label">Send Feedback</span><span class="indicator-progress">Please wait... <span class="spinner-border spinner-border-sm align-middle ms-2"></span></span></button>

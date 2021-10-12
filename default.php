@@ -1,4 +1,4 @@
-<?php session_start();
+<?php session_start();session_regenerate_id(true);
 if (!isset($_SESSION['email']) || empty($_SESSION['email'])) {
     header("location:pages/sign-in.php?c=" . $_SERVER['REQUEST_URI']);
 }
@@ -80,7 +80,7 @@ function activer($act, $additional_text)
             <div class="wrapper d-flex flex-column flex-row-fluid" id="kt_wrapper">
                 <div id="kt_header" class="border-bottom border-success border-1 header align-items-stretch">
                     <div class="container-fluid d-flex align-items-stretch justify-content-between">
-                        <div class="d-flex align-items-center d-lg-none ms-n3 me-1" title="Show aside menu">
+                        <div class="damo-menu-btn d-flex align-items-center d-lg-none ms-n3 me-1" title="Show aside menu">
                             <div class="btn btn-icon btn-active-light-primary" id="kt_aside_mobile_toggle"><span class="svg-icon svg-icon-2x mt-1"><span class="material-icons-outlined">menu</span></span></div>
                         </div>
                         <div class="d-flex align-items-center flex-grow-1 flex-lg-grow-0"><a href="index.php" class="d-lg-none"><img alt="Logo" src="assets/media/logos/Damo Softwares Fevicon.svg" class="h-40px"></a></div>
@@ -267,7 +267,7 @@ function activer($act, $additional_text)
                                                                                                                                                                             }
                                                                                                                                                                         } ?>"></div>
                                                     <div class="d-flex flex-column">
-                                                        <div class="fw-bolder d-flex align-items-center fs-5"><?php echo ($_SESSION['name']); ?><span class="badge badge-light-success fw-bolder fs-8 px-2 py-1 ms-2">Pro</span></div><a href="#" class="fw-bold text-muted text-hover-primary fs-7"><?php echo ($_SESSION['email']); ?></a>
+                                                        <div class="fw-bolder d-flex align-items-center fs-5"><?php echo ($_SESSION['name']); ?></div><a href="#" class="fw-bold text-muted text-hover-primary fs-7"><?php echo ($_SESSION['email']); ?></a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -409,6 +409,6 @@ function activer($act, $additional_text)
                     </div>
                 </div>
 
-                <div class="py-4 content d-flex flex-column flex-column-fluid" id="kt_content">
+                <div class="py-4 mb-sm-15 content d-flex flex-column flex-column-fluid" id="kt_content">
                     <script src="assets/jquery.js"></script>
                     <div class="px-4 px-sm-3" id="content">

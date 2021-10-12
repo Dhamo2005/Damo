@@ -25,6 +25,9 @@
         </form>
     </fieldset>
 </div>
+
+<?php include('explore_tags.php'); ?>
+
 <script>
     $(document).ready(function () {
         var cls = $('#class').val();
@@ -42,6 +45,6 @@
         } if(cls <= 2 && cls > 0){
             $('#sub').html('<option></option><option value="Tamil">Tamil</option><option value="English">English</option><option value="Maths">Maths</option><option value="Environmental Science">Environmental Science</option>');
         }
-    localStorage.setItem('pre_search',cls);
+    // localStorage.setItem('pre_search',cls);
     }
 </script>

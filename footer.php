@@ -21,7 +21,7 @@
 				</g>
 			</svg></span></div>
 
-	<ul style="padding: 0px 10px 10px 10px !important;" class="bg-white row p-0 m-0 d-md-none fixed-bottom nav nav-tabs nav-line-tabs nav-line-tabs-2x fs-6">
+	<ul style="padding: 0px 10px 10px 10px !important;" class="damo-navbar-bottom bg-white row p-0 m-0 d-md-none fixed-bottom nav nav-tabs nav-line-tabs nav-line-tabs-2x fs-6">
 		<li class="px-0 nav-item col text-center">
 			<a class="w-75 nav-link active" data-bs-toggle="tab" href="home.php"><span class="material-icons-outlined">home</span></a>
 		</li>
@@ -44,3 +44,8 @@
 	</body>
 
 	</html><?php mysqli_close($GLOBALS['con']); ?><script src="scripts/shortcuts.js"></script>
+	<script>
+		$('.damo-menu-btn').click(function() {
+			$('.damo-navbar-bottom').hide();
+		});
+	</script>
