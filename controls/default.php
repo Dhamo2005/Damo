@@ -13,7 +13,12 @@ function activer($act, $additional_text)
 <link rel="stylesheet" href="assets/material-icon-font-pack-master/sass/material-icons-outlined.css">
 <!-- <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet"> -->
 <html lang="en">
-<style>*{ font-family: 'Roboto', sans-serif;}</style>
+<style>
+    * {
+        font-family: 'Roboto', sans-serif;
+    }
+</style>
+
 <head>
     <meta http-equiv="content-type" content="text/html;charset=UTF-8">
     <meta charset="utf-8">
@@ -41,6 +46,7 @@ function activer($act, $additional_text)
                                 </g>
                             </svg></span></div>
                 </div>
+
                 <div class="noselect aside-menu flex-column-fluid">
                     <div class="hover-scroll-overlay-y my-5 my-lg-5" id="kt_aside_menu_wrapper" data-kt-scroll="true" data-kt-scroll-activate="{default: false, lg: true}" data-kt-scroll-height="auto" data-kt-scroll-dependencies="#kt_aside_logo, #kt_aside_footer" data-kt-scroll-wrappers="#kt_aside_menu" data-kt-scroll-offset="0" style="height: 570px;">
                         <div class="menu menu-column menu-title fs-5-gray-800 menu-state-title-primary menu-state-icon-primary menu-state-bullet-primary menu-arrow-gray-500" id="#kt_aside_menu" data-kt-menu="true">
