@@ -1,12 +1,13 @@
+<link href="https://fonts.googleapis.com/css2?family=Mukta+Malar:wght@200&display=swap" rel="stylesheet">
 <?php
 include('../db.php');
 $sql = "SELECT title,DATE_FORMAT(date,'%D-%M-%Y') AS Date FROM `news` ORDER BY date DESC";
 $res = $con->query($sql);
+$date = null;
 while ($row = $res->fetch_assoc()) {
+	$date = $row['Date'];
 ?>
-	<link href="https://fonts.googleapis.com/css2?family=Mukta+Malar:wght@200&display=swap" rel="stylesheet">
 	<div class="d-flex flex-column">
-
 		<div class="card my-2">
 			<div class="bg-primary" style=" height: 5px; border-radius: 2px 2px 0 0; display: block; width: 100%;"></div>
 			<div class="card-body text-hover-primary cursor-pointer p-4">

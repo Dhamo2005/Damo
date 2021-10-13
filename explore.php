@@ -38,7 +38,7 @@ if (isset($_GET['sub']) && isset($_GET['class'])) {
         echo "<h6 class='text-center'><br><span class='fs-1'>🙄</span><br><br>Sorry No Uploads Found!<br></h6><br>";
         include('pages/explore.php');
     } else {
-        while ($row = $result->fetch_assoc()) { ?><div class="mb-5 border-1 border-dotted border-primary card mb-xxl-8">
+        while ($row = $result->fetch_assoc()) { ?><div class="mb-5 card mb-xxl-8">
                 <div class="card-body p-4">
                     <div class="d-flex align-items-center mb-5">
                         <div class="d-flex align-items-center flex-grow-1">

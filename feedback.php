@@ -33,7 +33,7 @@
 }
 ?>
 <div class="post d-flex flex-column-fluid" id="kt_post">
-  <div id="kt_content_container" class="container">
+  <div id="kt_content_container" class="container p-0">
     <div class="card">
       <div class="card-body p-lg-17">
         <div class="row mb-3">

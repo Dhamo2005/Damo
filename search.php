@@ -1,6 +1,14 @@
 <?php
 include_once('default.php');
+include_once('controls/damo_filters.php');
 include_once('db.php'); ?><form action="#">
+    <title><?php
+    if(isset($_GET['search'])){
+        echo damo_validate($_GET['search']). ' - Search Results';
+    }else{
+        echo 'Search - Damo Softwares';
+    }
+    ?></title>
     <div class="card mb-7">
         <div class="card-body">
             <div class="d-flex align-items-center">
@@ -85,23 +93,26 @@ include_once('db.php'); ?><form action="#">
                 if ($result > 0) {
                     $i = 0;
         ?><div class="d-flex flex-wrap flex-stack">
-                <div class="d-flex flex-wrap align-items-center my-1 p-1 rounded-2 bg-primary">
-                    <h3 class="fw-bolder text-white me-5 my-1 ps-2"><?php echo mysqli_num_rows($qry); ?>| <span class="text-white fs-6">by Recent Updates ✔<?php switch ($result) { case ($result < 10):{ echo '😀';} break; case ($result >10):{ echo '😄';} break; default:{ echo '🙂';}} ?></span></h3>
+                <div class="d-flex flex-wrap align-items-center my-1 p-1 rounded-2 bg-primary d-shadow">
+                    <h3 class="fw-bolder text-white me-5 my-1 ps-2"><?php echo mysqli_num_rows($qry); ?>| <span class="text-white fs-6">Results Found ✔<?php switch ($result) { case ($result < 10):{ echo '😀';} break; case ($result >10):{ echo '😄';} break; default:{ echo '🙂';}} ?></span></h3>
                 </div>
                 <div class="d-flex flex-wrap my-1">
-                    <div class="d-flex my-0"><select name="status" data-control="select2" data-hide-search="true" data-placeholder="Filter" class="form-select form-select-white form-select-sm w-150px me-5">
-                            <option value="1">Recently Updated</option>
-                            <option value="2">Last Month</option>
-                            <option value="3">Last Quarter</option>
-                            <option value="4">Last Year</option>
-                        </select><select name="status" data-control="select2" data-hide-search="true" data-placeholder="Export" class="form-select form-select-white form-select-sm w-100px">
-                            <option value="1">Excel</option>
-                            <option value="1">PDF</option>
-                            <option value="2">Print</option>
-                        </select></div>
+                    <div class="d-flex my-0">
+                        <select name="status" class="d-shadow form-select form-select-white form-select-sm w-150px me-5">
+                            <option class="fs-4" value="1">Recently Updated</option>
+                            <option class="fs-4" value="2">Last Month</option>
+                            <option class="fs-4" value="3">Last Quarter</option>
+                            <option class="fs-4" value="4">Last Year</option>
+                        </select>
+                        <select name="status" class="d-shadow form-select form-select-white form-select-sm w-100px">
+                            <option class="fs-4" value="1">Excel</option>
+                            <option class="fs-4" value="1">PDF</option>
+                            <option class="fs-4" value="2">Print</option>
+                        </select>
+                    </div>
                 </div>
             </div><?php while ($row = $qry->fetch_assoc()) {
-                        $i++; ?><div class="card-body bg-white my-4 cursor-pointer" onclick="window.location.href='<?php echo $row['link']; ?>'">
+                        $i++; ?><div class="card-body card bg-white my-4 cursor-pointer" onclick="window.location.href='<?php echo $row['link']; ?>'">
                     <div class="tab-content">
                         <div class="card-body p-0 tab-pane fade show active" role="tabpanel" aria-labelledby="kt_activity_today_tab">
                             <div class="timeline">

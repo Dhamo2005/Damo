@@ -29,7 +29,7 @@ if (isset($_GET['out'])) {
     <div class="d-flex flex-column flex-root">
         <div class="d-flex flex-column flex-column-fluid bgi-position-y-bottom position-x-center bgi-no-repeat bgi-size-contain bgi-attachment-fixed" style="background-image: url(../assets/media/illustrations/progress-hd.png)">
             <div class="d-flex flex-center flex-column flex-column-fluid"><a href="../"><img alt="Logo" src="../assets/media/logos/Damo Softwares logo.svg" height="150px"></a>
-                <div class="w-lg-500px rounded shadow-sm p-10 p-lg-15 mx-auto">
+                <div class="w-lg-500px d-shadow rounded shadow-sm p-10 p-lg-15 mx-auto">
                     <form id="kt_sign_in_form" class="form w-100 fv-plugins-bootstrap5 fv-plugins-framework" novalidate="novalidate" id="kt_sign_up_form" autocomplete="off">
                         <?php if (isset($_GET['out'])) {
                             echo ('<div class="logoutmsg"><div class="rounded border-danger border-dashed bg-light-danger px-6 py-5"><span class="text-gray-600 fw-bold fs-6">

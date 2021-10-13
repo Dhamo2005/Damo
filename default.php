@@ -13,7 +13,6 @@ function activer($act, $additional_text)
 <link rel="stylesheet" href="assets/material-icon-font-pack-master/sass/material-icons-outlined.css">
 <!-- <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet"> -->
 <html lang="en">
-
 <head>
     <meta http-equiv="content-type" content="text/html;charset=UTF-8">
     <meta charset="utf-8">
@@ -78,7 +77,7 @@ function activer($act, $additional_text)
                 <div class="aside-footer flex-column-auto" id="kt_aside_footer"></div>
             </div>
             <div class="wrapper d-flex flex-column flex-row-fluid" id="kt_wrapper">
-                <div id="kt_header" class="border-bottom border-success border-1 header align-items-stretch">
+                <div id="kt_header" class="d-shadow header align-items-stretch">
                     <div class="container-fluid d-flex align-items-stretch justify-content-between">
                         <div class="damo-menu-btn d-flex align-items-center d-lg-none ms-n3 me-1" title="Show aside menu">
                             <div class="btn btn-icon btn-active-light-primary" id="kt_aside_mobile_toggle"><span class="svg-icon svg-icon-2x mt-1"><span class="material-icons-outlined">menu</span></span></div>
@@ -142,7 +141,7 @@ function activer($act, $additional_text)
                                     </div>
                                     <div class="d-flex align-items-center ms-1 ms-lg-3">
                                         <div class="btn btn-icon btn-active-light-primary w-md-40px h-md-40px" data-kt-menu-trigger="click" data-kt-menu-attach="parent" data-kt-menu-placement="bottom-end" data-kt-menu-flip="bottom"><span class="material-icons-outlined text-muted"><span class="material-icons-outlined">apps</span></span></div>
-                                        <div class="menu menu-sub menu-sub-dropdown menu-column w-250px w-lg-325px" data-kt-menu="true">
+                                        <div class="menu menu-sub menu-sub-dropdown menu-column w-250px w-lg-325px d-shadow" data-kt-menu="true">
                                             <div class="d-flex flex-column flex-center bgi-no-repeat rounded-top px-9 py-10" style="background-image:url('assets/media/misc/pattern-1.jpg')">
                                                 <h3 class="text-white fw-bold mb-3">Quick Links</h3><span class="badge bg-success py-2 px-3">25 pending tasks</span>
                                             </div>
@@ -181,7 +180,7 @@ function activer($act, $additional_text)
                                     </div>
                                     <div class="d-flex align-items-center ms-1 ms-lg-3">
                                         <div class="btn btn-icon btn-active-light-primary position-relative w-md-40px h-md-40px" data-kt-menu-trigger="click" data-kt-menu-attach="parent" data-kt-menu-placement="bottom-end" data-kt-menu-flip="bottom"><span class="text-muted"><span class="material-icons-outlined">notifications</span></span></div>
-                                        <div class="menu menu-sub menu-sub-dropdown menu-column w-350px w-lg-375px" data-kt-menu="true">
+                                        <div class="menu menu-sub menu-sub-dropdown menu-column w-350px w-lg-375px d-shadow" data-kt-menu="true">
                                             <div class="d-flex flex-column bgi-no-repeat rounded-top" style="background-image:url('assets/media/misc/pattern-1.jpg')">
                                                 <h3 class="text-white fw-bold px-9 mt-10 mb-6">Notifications<span class="fs-8 opacity-75 ps-3">24 reports</span></h3>
                                                 <ul class="nav nav-line-tabs nav-line-tabs-2x nav-stretch fw-bold px-9">
@@ -252,7 +251,7 @@ function activer($act, $additional_text)
                                                                                                                                                                                                                                                                                                                     echo 'assets/media/avatars/blank_t.svg';
                                                                                                                                                                                                                                                                                                                 }
                                                                                                                                                                                                                                                                                                             } ?>"></div>
-                                        <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-bold py-4 fs-6 w-250px" data-kt-menu="true">
+                                        <div class="menu menu-sub menu-sub-dropdown d-shadow menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-bold py-4 fs-6 w-250px" data-kt-menu="true">
                                             <div class="menu-item px-3">
                                                 <div class="menu-content d-flex align-items-center px-3">
                                                     <div class="symbol symbol-50px me-5"><img alt="<?php echo $_SESSION['name']; ?>" width="45px" height="45px" src="<?php if (!empty($_SESSION['avatar'])) {
@@ -289,7 +288,7 @@ function activer($act, $additional_text)
 
                 <!-- Modal -->
                 <div class="modal fade pe-0" id="modelId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
+                    <div class="modal-dialog d-shadow" role="document">
                         <div class="modal-content">
                             <div class="modal-header pb-0">
                                 <form action="search.php" class="w-100 position-relative" autocomplete="off"><span class="svg-icon svg-icon-2 svg-icon-lg-1 svg-icon-gray-500 position-absolute top-50 translate-middle-y ms-0"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
@@ -411,4 +410,4 @@ function activer($act, $additional_text)
 
                 <div class="py-4 mb-sm-15 content d-flex flex-column flex-column-fluid" id="kt_content">
                     <script src="assets/jquery.js"></script>
-                    <div class="px-4 px-sm-3" id="content">
+                    <div class="container-fluid" id="content">
