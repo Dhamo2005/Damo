@@ -39,15 +39,16 @@ function activer($act, $additional_text)
                                 </g>
                             </svg></span></div>
                 </div>
-
                 <div class="noselect aside-menu flex-column-fluid">
                     <div class="hover-scroll-overlay-y my-5 my-lg-5" id="kt_aside_menu_wrapper" data-kt-scroll="true" data-kt-scroll-activate="{default: false, lg: true}" data-kt-scroll-height="auto" data-kt-scroll-dependencies="#kt_aside_logo, #kt_aside_footer" data-kt-scroll-wrappers="#kt_aside_menu" data-kt-scroll-offset="0" style="height: 570px;">
                         <div class="menu menu-column menu-title fs-5-gray-800 menu-state-title-primary menu-state-icon-primary menu-state-bullet-primary menu-arrow-gray-500" id="#kt_aside_menu" data-kt-menu="true">
                             <div class="menu-item <?php activer('/Damo/home.php', 'here'); ?>"><a class="<?php activer('/Damo/home.php', 'text-primary '); ?>menu-link text-hover-primary" href="home.php"><span class="menu-icon"><span class="svg-icon svg-icon-2"><span class="svg-icon svg-icon-2 material-icons-outlined fs-2">home</span></span></span><span class="menu-title fs-5">Home</span></a></div>
                             <div class="menu-item <?php activer('/Damo/explore.php', 'here');
+                                                    activer('/Damo/news_view.php', 'here');
                                                     activer('/Damo/profile_view.php', 'here');
                                                     activer('/Damo/download.php', 'here'); ?>"><a class="<?php activer('/Damo/explore.php', 'text-primary ');
                                                                                                             activer('/Damo/download.php', 'text-primary ');
+                                                                                                            activer('/Damo/news_view.php', 'text-primary ');
                                                                                                             activer('/Damo/profile_view.php', 'text-primary '); ?>menu-link text-hover-primary" href="explore.php"><span class="menu-icon"><span class="svg-icon svg-icon-2"><span class="svg-icon svg-icon-2 material-icons-outlined fs-2">explore</span></span></span><span class="menu-title fs-5">Explore</span></a></div>
                             <div class="menu-item <?php activer('/Damo/search.php', 'here'); ?>"><a class="<?php activer('/Damo/search.php', 'text-primary '); ?>menu-link text-hover-primary" href="search.php"><span class="menu-icon"><span class="svg-icon svg-icon-2"><span class="svg-icon svg-icon-2 material-icons-outlined fs-2">search</span></span></span><span class="menu-title fs-5">Search</span></a></div>
                             <div class="menu-item <?php activer('/Damo/follow.php', 'here'); ?>"><a class="<?php activer('/Damo/follow.php', 'text-primary '); ?>menu-link text-hover-primary" href="follow.php"><span class="menu-icon"><span class="span-icon span-icon-2"><span class="svg-icon svg-icon-2 material-icons-outlined fs-3">subscriptions</span></span></span><span class="menu-title fs-5">Following</span></a></div>
@@ -408,6 +409,6 @@ function activer($act, $additional_text)
                     </div>
                 </div>
 
-                <div class="py-4 mb-sm-15 content d-flex flex-column flex-column-fluid" id="kt_content">
+                <div class="py-4 content d-flex flex-column flex-column-fluid" id="kt_content">
                     <script src="assets/jquery.js"></script>
                     <div class="container-fluid" id="content">

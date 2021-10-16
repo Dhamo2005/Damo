@@ -1,23 +1,27 @@
-<link href="https://fonts.googleapis.com/css2?family=Mukta+Malar:wght@200&display=swap" rel="stylesheet">
 <?php
 include('../db.php');
-$sql = "SELECT title,DATE_FORMAT(date,'%D-%M-%Y') AS Date FROM `news` ORDER BY date DESC";
+include('../controls/numfunctions.php');
+include('../controls/damo_func.php');
+$sql = "SELECT id,title,DATE_FORMAT(date,'%D-%M-%Y') AS Date, views FROM `news` ORDER BY date DESC";
 $res = $con->query($sql);
 $date = null;
 while ($row = $res->fetch_assoc()) {
-	$date = $row['Date'];
 ?>
-	<div class="d-flex flex-column">
-		<div class="card my-2">
-			<div class="bg-primary" style=" height: 5px; border-radius: 2px 2px 0 0; display: block; width: 100%;"></div>
-			<div class="card-body text-hover-primary cursor-pointer p-4">
-				<div>
-					<h4 class="card-title" style="line-height: 200%;font-family: 'Mukta Malar', sans-serif;"><?php echo $row['title']; ?></h4>
-					<p class="card-text text-end"><?php echo $row['Date']; ?></p>
+	<article class="d-flex flex-column">
+		<div style="border-left: 8px solid var(--bs-active-primary);" class="card my-2">
+			<a class="card-body text-dark text-hover-primary p-4" href="news_view.php?news=<?php echo base64_encode(base64_encode($row['id'])); ?>">
+				<h4 class="news_title card-title"><?php echo limitxt($row['title'], 200, '<a href="news_view.php?news=' . base64_encode(base64_encode($row['id'])) . '">Read More</a>'); ?></h4>
+				<div class="d-flex justify-content-between opacity-75">
+					<div class="text-start">
+						<time class="entry-date published fnt-cnt timestampcss comsizeforgrayclr"><?php echo time_ago($row['Date']); ?></time>
+					</div>
+					<div class="text-end">
+						<time class="entry-date published fnt-cnt timestampcss comsizeforgrayclr"><?php echo $row['Date']; ?></time>
+						<span class="ms-2"> <i class="fa fa-eye"></i> <?php echo $row['views']; ?></span>
+					</div>
 				</div>
-			</div>
+			</a>
 		</div>
-
-	</div>
+	</article>
 <?php
 } ?>

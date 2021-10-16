@@ -1,0 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Tamil:wght@300&display=swap');
+.news_title{
+    line-height: 200%;font-family: 'Noto Sans Tamil', sans-serif;font-size: 1.1rem;
+}
+.news{
+    line-height: 250%;font-family: 'Noto Sans Tamil', sans-serif;font-size: 1.1rem;font-weight: 600 !important;
+}
