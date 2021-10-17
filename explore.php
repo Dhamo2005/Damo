@@ -1,7 +1,7 @@
 <?php error_reporting(0);
 if (isset($_GET['sub']) && isset($_GET['class'])) {
-    include_once('default.php');
-    include('controls/damo_filters.php');
+    require('default.php');
+    require('controls/damo_filters.php');
 ?>
     <title>
         <?php if (isset($_GET['sub']) && isset($_GET['class']) && is_numeric($_GET['class']) && is_string($_GET['class'])) {
@@ -16,7 +16,7 @@ if (isset($_GET['sub']) && isset($_GET['class'])) {
         } ?></title>
     <?php $sub = damo_validate($_GET['sub']);
     $class = damo_validate($_GET['class']);
-    include_once('controls/numfunctions.php');
+    require('controls/numfunctions.php');
     $sql = "SELECT DISTINCT users.Name, materials.format, materials.Title, materials.id, materials.likes, materials.dislikes, (select DISTINCT count(mydownloads.id) FROM mydownloads WHERE mydownloads.fileid = materials.id ) as downloads, materials.Std, materials.Author, materials.link, materials.Date, users.email, users.gender, users.avatar, users.id as uploaderid FROM users,materials WHERE materials.uid=users.id AND materials.Std LIKE '%$class%' AND materials.Subject LIKE'%$sub%' ORDER BY materials.Date DESC";
     $result = $GLOBALS['con']->query($sql); ?><div class="d-flex px-2 container-fluid flex-sm-nowrap flex-stack flex-wrap">
         <div class="d-flex flex-column align-items-start flex-wrap justify-content-center me-2">
@@ -36,7 +36,7 @@ if (isset($_GET['sub']) && isset($_GET['class'])) {
     </div>
     <?php if (mysqli_num_rows($result) == 0) {
         echo "<h6 class='text-center'><br><span class='fs-1'>🙄</span><br><br>Sorry No Uploads Found!<br></h6><br>";
-        include('pages/explore.php');
+        require('pages/explore.php');
     } else {
         while ($row = $result->fetch_assoc()) { ?><div class="mb-5 card mb-xxl-8">
                 <div class="card-body p-4">
@@ -87,11 +87,11 @@ if (isset($_GET['sub']) && isset($_GET['class'])) {
                 </div>
             </div><?php }
             }
-            include_once('footer.php'); ?>
+            require('footer.php'); ?>
 <?php
 } else {
-    include_once('default.php');
+    require('default.php');
     error_reporting(0);
-    include('pages/explore.php');
-    include('footer.php');
+    require('pages/explore.php');
+    require('footer.php');
 }

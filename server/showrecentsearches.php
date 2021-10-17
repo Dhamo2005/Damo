@@ -1,4 +1,4 @@
-<?php include_once('../db.php');
+<?php require('../db.php');
 $sql_recent = "SELECT keyword FROM `recentlysearched` ORDER BY `recentlysearched`.`keyword` ASC";
 $result_recent = $GLOBALS['con']->query($sql_recent);
 if (mysqli_num_rows($result_recent) > 0) {

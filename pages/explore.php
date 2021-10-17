@@ -26,7 +26,7 @@
     </fieldset>
 </div>
 
-<?php include('explore_tags.php'); ?>
+<?php require('explore_tags.php'); ?>
 
 <script>
     $(document).ready(function () {

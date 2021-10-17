@@ -1,6 +1,6 @@
 <?php
-if(null == include('../db.php')) {
-    include('../db.php');
+if(null == require('../db.php')) {
+    require('../db.php');
 }
 $sql = "SELECT tag FROM `trending_tags` ORDER BY date DESC";
 $res = $con->query($sql);

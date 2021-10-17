@@ -1,4 +1,4 @@
-<?php include_once('../db.php');
+<?php require('../db.php');
 session_start();
 if (isset($_POST['followid'])) {
 	$uid = mysqli_real_escape_string($GLOBALS['con'], base64_decode(base64_decode($_POST['followid'])));

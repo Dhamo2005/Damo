@@ -1,4 +1,4 @@
-<?php include_once('default.php');
+<?php require('default.php');
 $row = $GLOBALS['con']->query("SELECT * FROM users WHERE id={$_SESSION['myid']}")->fetch_assoc();
 ?><div id="Profile Details" class="card mb-5 mb-xl-10">
     <div class="bg-primary card-header border-0 cursor-pointer" role="button" data-bs-toggle="collapse" data-bs-target="#kt_account_profile_details" aria-expanded="true" aria-controls="kt_account_profile_details">
@@ -85,7 +85,7 @@ $row = $GLOBALS['con']->query("SELECT * FROM users WHERE id={$_SESSION['myid']}"
             </form>
         </div>
     </div>
-</div><?php include_once('footer.php'); ?><script>
+</div><?php require('footer.php'); ?><script>
     "use strict";
     var KTAccountSettingsProfileDetails = function() {
         var e, t;

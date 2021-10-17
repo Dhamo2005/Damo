@@ -1,7 +1,7 @@
 <?php
-include_once('default.php');
-include_once('controls/damo_filters.php');
-include_once('db.php'); ?><form action="#">
+require('default.php');
+require('controls/damo_filters.php');
+?><form action="#">
     <title><?php
             if (isset($_GET['search'])) {
                 echo damo_validate($_GET['search']) . ' - Search Results';
@@ -151,8 +151,34 @@ include_once('db.php'); ?><form action="#">
                 }
             }
         } else {
-            include('pages\popularsearch.php');
-            require('pages\trending_tags.php');
+            require('pages\popularsearch.php');
+            ?>
+            <trending_tags>
+                <script>
+                    $(document).ready(function(){
+                        load_trends();
+                    });
+                    function load_trends(){
+                        $.ajax({
+                            type: "GET",
+                            url: "pages/trending_tags.php",
+                            beforeSend : function(){
+                                $('trending_tags').html('<div data-kt-indicator="on"><span class="ps-4 fs-6 indicator-progress">Loading...<span class="spinner-border spinner-border-sm align-middle ms-2"></span></span></div>');
+                            },
+                            success: function(tags) {
+                                console.log(tags);
+                                $('trending_tags').html(tags);
+                            },
+                            error: function(jqXHR, exception) {
+                                setTimeout(() => {
+                                    $.ajax(this);
+                                }, 1500);
+                            }
+                        });
+                    }
+                </script>
+            </trending_tags>
+            <?php
         }
 ?>
-<?php include_once('footer.php'); ?>
+<?php require('footer.php'); ?>

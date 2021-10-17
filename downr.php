@@ -1,5 +1,5 @@
 <?php
-include_once('db.php');
+require('db.php');
 session_start();
 $token = base64_decode(base64_decode(mysqli_real_escape_string($GLOBALS['con'], $_GET['token'],true),true));
 if ($result = $GLOBALS['con']->query("INSERT INTO `mydownloads` ( `uid`, `fileid`, `time`) VALUES ('{$_SESSION['myid']}', '{$token}', current_timestamp())")) {

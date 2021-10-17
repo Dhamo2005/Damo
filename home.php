@@ -1,6 +1,6 @@
 <title>Home Page | Damo Softwares</title>
 <?php
-include_once('default.php');
+require('default.php');
 ?>
 <link rel="stylesheet" href="assets/css/news.css">
 <div class="p-0">
@@ -67,5 +67,5 @@ include_once('default.php');
     </div>
 </div>
 <?php
-include_once('footer.php');
+require('footer.php');
 ?>

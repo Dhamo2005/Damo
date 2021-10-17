@@ -1,8 +1,7 @@
 <?php
-include_once('default.php');
+require('default.php');
 if (isset($_GET['p']) && !empty($_GET['p']) && !empty(base64_decode(base64_decode($_GET['p'], true), true))) {
-    include_once('db.php');
-    include_once('controls/damo_filters.php');
+    require('controls/damo_filters.php');
     $profile_view_id =  damo_validate(base64_decode(base64_decode($_GET['p'], true), true));
     $row = $GLOBALS['con']->query("SELECT users.id as profileid, users.name as name, users.gender, users.`avatar`, `about`, `place`,`type`, `Joined`FROM users WHERE `id`= $profile_view_id")->fetch_assoc();
     $profile_id = $row['profileid'];
@@ -84,5 +83,5 @@ if (isset($_GET['p']) && !empty($_GET['p']) && !empty(base64_decode(base64_decod
 <?php } else {
     echo 'Sorry No Profiles Found!';
 }
-include_once('footer.php');
+require('footer.php');
 ?>

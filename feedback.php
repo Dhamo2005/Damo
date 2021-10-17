@@ -1,4 +1,4 @@
-<?php include('default.php'); ?>
+<?php require('default.php'); ?>
 <link rel="stylesheet" href="assets/css/toast.css">
 <script src="assets/js/toast.js"></script>
 <?php if (isset($_POST['query']) && isset($_POST['subject']) && !empty($_POST['query']) && !empty($_POST['subject'])) {
@@ -152,4 +152,4 @@
     KTContactApply.init();
   });
 </script> -->
-<?php include('footer.php'); ?>
+<?php require('footer.php'); ?>

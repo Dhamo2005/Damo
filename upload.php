@@ -1,5 +1,5 @@
 <?php
-include_once('default.php'); ?>
+require('default.php'); ?>
 <script src="assets/plugins/global/plugins.bundle.js"></script>
 <div class="bg-primary py-2 text-center">
     <h1 class="text-dark mb-3">Upload Files</h1>
@@ -173,4 +173,4 @@ include_once('default.php'); ?>
     </script>
 </form>
 <?php
-include_once('footer.php'); ?>
+require('footer.php'); ?>

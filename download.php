@@ -2,14 +2,14 @@
     echo "<script>window.history.back();</script>";
 } else {
     if (!isset($_GET['link']) || empty($_GET['link']) || !isset($_GET['link']) || empty($_GET['link']) || base64_decode($_GET['link'], true) < 4) {
-        include_once('default.php');
+        require('default.php');
         echo "<div class='text-center text-danger'><span style='font-size:30px;'>😓</span><br><h4>Error 404</h4><h2>Sorry, Content Not Found!</h2><a class='fs-2 pt-2 cursor-pointer' href='home.php'>Go To Home Page</a></div>";
     } else {
-        include_once('default.php');
+        require('default.php');
         $mid = htmlspecialchars(mysqli_real_escape_string($GLOBALS['con'], base64_decode($_GET['link'], true)));
         $sql = "SELECT DISTINCT materials.id,materials.size,materials.medium, materials.Title, materials.uid, materials.link, materials.likes, materials.dislikes, materials.Date, COUNT(mydownloads.id) AS downloads,materials.format,materials.Subject,materials.Std,users.name,users.place,users.avatar,users.type,users.gender FROM users,materials,mydownloads WHERE mydownloads.fileid=$mid AND mydownloads.uid={$_SESSION['myid']} AND materials.id=$mid AND users.id=materials.uid";
         $result = $GLOBALS['con']->query($sql);
-        include_once('controls/numfunctions.php'); ?>
+        require('controls/numfunctions.php'); ?>
         <?php if (mysqli_num_rows($result) > 0 && is_numeric($mid)) {
             $row = $result->fetch_assoc(); ?>
             <title><?php echo $row['Title'] ?></title>
@@ -53,7 +53,7 @@
                                             </g>
                                         </svg></span><?php echo $row['place']; ?></a></div>
                         </div>
-                        <?php include('controls/followsharebtn.php'); ?>
+                        <?php require('controls/followsharebtn.php'); ?>
                     </div>
                     <div class="d-flex flex-wrap flex-stack">
                         <div class="d-flex flex-column flex-grow-1">
@@ -181,4 +181,4 @@
         }
     }
 } ?>
-<?php include_once('footer.php'); ?>
+<?php require('footer.php'); ?>

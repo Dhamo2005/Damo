@@ -1,7 +1,7 @@
 <?php
-include('../db.php');
-include('../controls/numfunctions.php');
-include('../controls/damo_func.php');
+require('../db.php');
+require('../controls/numfunctions.php');
+require('../controls/damo_func.php');
 $sql = "SELECT id,title,DATE_FORMAT(date,'%D-%M-%Y') AS Date, views FROM `news` ORDER BY date DESC";
 $res = $con->query($sql);
 $date = null;

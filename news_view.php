@@ -1,9 +1,9 @@
 <?php
-include('default.php');
+require('default.php');
 if(isset($_GET['news'])){
-include('controls/damo_filters.php');
-include('controls/numfunctions.php');
-include('controls/damo_func.php');
+require('controls/damo_filters.php');
+require('controls/numfunctions.php');
+require('controls/damo_func.php');
 $news_id = damo_validate(base64_decode(base64_decode($_GET['news'], true),true));
 $sql = "SELECT title,description,DATE_FORMAT(date,'%D-%M-%Y') AS date, views FROM `news` WHERE news.id = '$news_id'";
 $res = $con->query($sql);
@@ -87,8 +87,8 @@ $row = $res->fetch_assoc();
 else{
     ?>
     <link rel="stylesheet" href="assets/css/news.css"><?php
-    include('controls/numfunctions.php');
-include('controls/damo_func.php');
+    require('controls/numfunctions.php');
+require('controls/damo_func.php');
 $sql = "SELECT id,title,DATE_FORMAT(date,'%D-%M-%Y') AS Date, views FROM `news` ORDER BY date DESC";
 $res = $con->query($sql);
 $date = null;
@@ -113,5 +113,5 @@ while ($row = $res->fetch_assoc()) {
 <?php
 }
 }
-include('footer.php');
+require('footer.php');
         ?>

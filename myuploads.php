@@ -1,7 +1,7 @@
 <?php
-include('db.php');
-include('default.php');
-include('controls/numfunctions.php');
+require('db.php');
+require('default.php');
+require('controls/numfunctions.php');
 $sql = "SELECT users.Name, materials.format, materials.Title, materials.id, materials.likes, materials.dislikes, materials.downloads, materials.Std , materials.link, materials.Subject, TIME_TO_SEC(TIMEDIFF(materials.Date,now())), users.avatar,users.name as Author, materials.Date FROM users,materials WHERE materials.uid = users.id AND materials.uid = 278 ORDER BY `materials`.`Date` DESC LIMIT 5 ";
 $sql;
 $result = $con->query($sql); ?>
@@ -90,7 +90,7 @@ $result = $con->query($sql); ?>
 	echo ('<button class="btn btn-success col-12 bg-success text-center text-white" id="btnLoad" data-id="' . $lastid . '">Load More...</button>'); ?>
 </div>
 <?php
-include('footer.php');
+require('footer.php');
 ?>
 <script>
 	$(document).ready(function() {

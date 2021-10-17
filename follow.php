@@ -1,5 +1,5 @@
 <?php
-include_once('default.php');
+require('default.php');
 ?>
 <title><?php echo $_SESSION['name'] . "&nbsp;-&nbsp;Following | Damo Softwares";?></title>
 <?php
@@ -34,4 +34,4 @@ if (mysqli_num_rows($result) > 0) {
         </div><?php
         } else {
             echo "<center>You Havn't Any Followers</center>";
-        } ?><?php include_once('footer.php'); ?>
+        } ?><?php require('footer.php'); ?>

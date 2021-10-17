@@ -1,4 +1,4 @@
-<?php include_once('../db.php');
+<?php require('../db.php');
 function validator($val)
 {
     return trim(htmlspecialchars(mysqli_real_escape_string($GLOBALS['con'], $val)));
