@@ -16,10 +16,20 @@ include_once('default.php');
             <div class="tab-pane fade active show" id="tags_panel" role="tabpanel">
                 <script>
                     $(document).ready(function() {
+                        load_trends();
+                    });
+                    $('#trend_btn').click(function() {
+                        load_trends();
+                    });
+                    function load_trends(){
                         $.ajax({
                             type: "GET",
                             url: "pages/trending_tags.php",
+                            beforeSend : function(){
+                                $('#tags_panel').html('<div data-kt-indicator="on"><span class="ps-4 fs-6 indicator-progress">Loading...<span class="spinner-border spinner-border-sm align-middle ms-2"></span></span></div>');
+                            },
                             success: function(tags) {
+                                console.log(tags);
                                 $('#tags_panel').html(tags);
                             },
                             error: function(jqXHR, exception) {
@@ -28,9 +38,7 @@ include_once('default.php');
                                 }, 1500);
                             }
                         });
-                        $('#tags_panel').html('<div data-kt-indicator="on"><span class="ps-4 fs-6 indicator-progress">Loading...<span class="spinner-border spinner-border-sm align-middle ms-2"></span></span></div>');
-                        $('#tags_panel').load('pages/trending_tags.php');
-                    });
+                    }
                 </script>
             </div>
             <div class="tab-pane fade" id="news_panel" role="tabpanel">
@@ -39,19 +47,17 @@ include_once('default.php');
                         $.ajax({
                             type: "GET",
                             url: "pages/news.php",
+                            beforeSend : function(){
+                                $('#news_panel').html('<div data-kt-indicator="on"><span class="ps-4 fs-6 indicator-progress">Loading...<span class="spinner-border spinner-border-sm align-middle ms-2"></span></span></div>');
+                            },
                             success: function(news) {
                                 $('#news_panel').html(news);
                             },
                             error: function(jqXHR, exception) {
                                 setTimeout(() => {
                                     $.ajax(this);
-                                }, 1500);
+                                }, 1000);
                             }
-                        }).then(function(){
-                            $('#news_panel').html('<div data-kt-indicator="on"><span class="ps-4 fs-6 indicator-progress">Loading...<span class="spinner-border spinner-border-sm align-middle ms-2"></span></span></div>');
-                        setTimeout(function() {
-                            $('#news_panel').load('pages/news.php');
-                        }, 1500);
                         });
                     });
                 </script>

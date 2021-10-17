@@ -3,12 +3,12 @@ include_once('default.php');
 include_once('controls/damo_filters.php');
 include_once('db.php'); ?><form action="#">
     <title><?php
-    if(isset($_GET['search'])){
-        echo damo_validate($_GET['search']). ' - Search Results';
-    }else{
-        echo 'Search - Damo Softwares';
-    }
-    ?></title>
+            if (isset($_GET['search'])) {
+                echo damo_validate($_GET['search']) . ' - Search Results';
+            } else {
+                echo 'Search - Damo Softwares';
+            }
+            ?></title>
     <div class="card mb-7">
         <div class="card-body">
             <div class="d-flex align-items-center">
@@ -94,7 +94,20 @@ include_once('db.php'); ?><form action="#">
                     $i = 0;
         ?><div class="d-flex flex-wrap flex-stack">
                 <div class="d-flex flex-wrap align-items-center my-1 p-1 rounded-2 bg-primary d-shadow">
-                    <h3 class="fw-bolder text-white me-5 my-1 ps-2"><?php echo mysqli_num_rows($qry); ?>| <span class="text-white fs-6">Results Found ✔<?php switch ($result) { case ($result < 10):{ echo '😀';} break; case ($result >10):{ echo '😄';} break; default:{ echo '🙂';}} ?></span></h3>
+                    <h3 class="fw-bolder text-white me-5 my-1 ps-2"><?php echo mysqli_num_rows($qry); ?>| <span class="text-white fs-6">Results Found
+                            <?php switch ($result) {
+                                case ($result < 10): {
+                                        echo '😀';
+                                    }
+                                    break;
+                                case ($result > 10): {
+                                        echo '😄';
+                                    }
+                                    break;
+                                default: {
+                                        echo '🙂';
+                                    }
+                            } ?></span></h3>
                 </div>
                 <div class="d-flex flex-wrap my-1">
                     <div class="d-flex my-0">
@@ -131,12 +144,15 @@ include_once('db.php'); ?><form action="#">
                             </div>
                         </div>
                     </div>
-                </div><?php }
+                </div>
+<?php }
                 } else {
                     echo ('<center class="fs-6">No results found! <br><span style="font-size: xxx-large">🙄</span></center>');
                 }
             }
         } else {
             include('pages\popularsearch.php');
+            require('pages\trending_tags.php');
         }
-                        ?><?php include_once('footer.php'); ?>
+?>
+<?php include_once('footer.php'); ?>

@@ -1,6 +1,7 @@
 <?php
-include('../db.php');
-include('../controls/numfunctions.php');
+if(null == include('../db.php')) {
+    include('../db.php');
+}
 $sql = "SELECT tag FROM `trending_tags` ORDER BY date DESC";
 $res = $con->query($sql);
 while ($row = $res->fetch_assoc()) {

@@ -113,5 +113,5 @@ while ($row = $res->fetch_assoc()) {
 <?php
 }
 }
-        include('footer.php');
+include('footer.php');
         ?>
