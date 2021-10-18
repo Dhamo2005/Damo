@@ -92,28 +92,4 @@ $result = $con->query($sql); ?>
 <?php
 require('footer.php');
 ?>
-<script>
-	$(document).ready(function() {
-		$(document).on('click', '#btnLoad', function() {
-			var lastid = $(this).data('id');
-			$('#btnLoad').html('Loading...');
-			$.ajax({
-				url: "explore1.php",
-				method: 'POST',
-				data: {
-					lastid: lastid,
-				},
-				dataType: "text",
-				success: function(data) {
-					if (data != '') {
-						$('#btnLoad').remove();
-						$('main').append(data);
-					} else {
-						$('#btnLoad').remove();
-						$('main').append('No More Data To Show');
-					}
-				}
-			})
-		});
-	});
-</script>
+<script src="assets/js/damo_myuploads.js"></script>

@@ -154,29 +154,7 @@ require('controls/damo_filters.php');
             require('pages\popularsearch.php');
             ?>
             <trending_tags>
-                <script>
-                    $(document).ready(function(){
-                        load_trends();
-                    });
-                    function load_trends(){
-                        $.ajax({
-                            type: "GET",
-                            url: "pages/trending_tags.php",
-                            beforeSend : function(){
-                                $('trending_tags').html('<div data-kt-indicator="on"><span class="ps-4 fs-6 indicator-progress">Loading...<span class="spinner-border spinner-border-sm align-middle ms-2"></span></span></div>');
-                            },
-                            success: function(tags) {
-                                console.log(tags);
-                                $('trending_tags').html(tags);
-                            },
-                            error: function(jqXHR, exception) {
-                                setTimeout(() => {
-                                    $.ajax(this);
-                                }, 1500);
-                            }
-                        });
-                    }
-                </script>
+                <script src="assets/js/damo_search.js" type="text/javascript"></script>
             </trending_tags>
             <?php
         }

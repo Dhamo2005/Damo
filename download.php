@@ -130,50 +130,7 @@
                             echo ('<a href="' . $_SERVER['HTTP_REFERER'] . '" class="me-4 btn btn-warning p-2 pe-4 rounded-3 fs-3 rounded cursor-pointer"><span class=" d-inline-flex text-white align-items-baseline"><span class="m-auto material-icons-outlined mx-2 align-items-baseline">arrow_back </span>Go Back</span></a>');
                         } ?><a href="downr.php?<?php echo 'token=' . base64_encode(base64_encode($row['id'])); ?>" target="_blank" class="btn btn-primary p-2 pe-4 rounded-3 fs-3 rounded cursor-pointer" id="download-link"><span class=" d-inline-flex text-white align-items-baseline"><span class="m-auto material-icons-outlined mx-2 align-items-baseline">get_app </span>Download</span></a></center>
                 </div>
-                <script type="text/javascript">
-                    $(document).ready(function() {
-                        $('.btn-like').click(function() {
-                            var likeid = $(this).data("lid");
-                            $.ajax({
-                                url: "controls/downloader/action.php",
-                                type: "POST",
-                                data: {
-                                    likeid: likeid,
-                                    action: 1,
-                                },
-                                beforeSend: function() {
-                                    $('.btn-like').children('div').attr('data-kt-indicator', 'on');
-                                },
-                                success: function(like) {
-                                    $('.btn-like').children('div').attr('data-kt-indicator', 'off');
-                                    v = JSON.parse(like);
-                                    $('.btn-like').children('div').children('div').html(v.likes);
-                                    $('.btn-like').children('div').next('div').html(v.numshortlikes);
-                                },
-                            });
-                        });
-                        $('.btn-dislike').click(function() {
-                            var likeid = $(this).data("lid");
-                            $.ajax({
-                                url: "controls/downloader/action.php",
-                                type: "POST",
-                                data: {
-                                    likeid: likeid,
-                                    action: 0,
-                                },
-                                beforeSend: function() {
-                                    $('.btn-dislike').children('div').attr('data-kt-indicator', 'on');
-                                },
-                                success: function(dislike) {
-                                    $('.btn-dislike').children('div').attr('data-kt-indicator', 'off');
-                                    v = JSON.parse(dislike);
-                                    $('.btn-dislike').children('div').children('div').html(v.dislikes);
-                                    $('.btn-dislike').children('div').next('div').html(v.numshortdislikes);
-                                },
-                            });
-                        });
-                    });
-                </script>
+                <script type="text/javascript" src="assets/js/damo_download.js"></script>
 
             </div>
 <?php } else {

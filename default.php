@@ -323,71 +323,7 @@ function activer($act, $additional_text)
                                     <div class="mb-4">
                                         <div class="d-flex flex-stack fw-bold"><span class="text-muted fs-5 me-2">Recently Searched:</span>
                                             <div class="btn btn-link fw-6" onclick="recentclr()"><span class="recentclr"></span>Clear</div>
-                                            <script>
-                                                function show_recent_searches() {
-                                                    $.ajax({
-                                                        url: "server/showrecentsearches.php",
-                                                        method: "POST",
-                                                        beforeSend: function() {
-                                                            $('.clrpart').addClass('d-flex justify-content-center');
-                                                            $('.clrpart').html('<div style="left: calc(50% - 5%); border: 5px solid #f2f2f2; border-top: 5px solid #009ef7; border-radius: 50%; width: 25px; height: 25px;" class="spinner-border my-2"></div>');
-                                                        },
-                                                        success: function(data) {
-                                                            if (data !== 0) {
-                                                                $('.clrpart').html(data);
-                                                                $('#history-spinner').remove();
-                                                                $('.clrpart').removeClass('justify-content-center d-flex');
-                                                            } else {
-                                                                $('.recentclr').html('<span class="text-danger fs-4">Sorry Something Went Wrong, <br>Pls check your internet connection or try to refresh the page</span>');
-                                                            }
-                                                        },
-                                                        error: function(jqXHR, exception) {
-                                                            var msg = '';
-                                                            if (jqXHR.status === 0) {
-                                                                msg = 'No internet. Please Check Your Internet Connection!';
-                                                            } else if (jqXHR.status == 404) {
-                                                                msg = 'Requested page not found. [404]';
-                                                            } else if (jqXHR.status == 500) {
-                                                                msg = 'Internal Server Error [500].';
-                                                            } else if (exception === 'parsererror') {
-                                                                msg = 'Requested JSON parse failed.';
-                                                            } else if (exception === 'timeout') {
-                                                                msg = 'Time out error.';
-                                                            } else if (exception === 'abort') {
-                                                                msg = 'Request aborted.';
-                                                            } else {
-                                                                msg = 'Sorry Something Went Wrong. Please Try Again!';
-                                                            }
-                                                            $('.clrpart').html('<center class="text-danger fs-6">' + msg + '</center><br><button type="button" class="btn btn-primary">Retry</button>');
-                                                            setTimeout(() => {
-                                                                $.ajax(this);
-                                                            }, 2000);
-                                                        }
-                                                    });
-                                                }
-
-                                                function recentclr() {
-                                                    $.ajax({
-                                                        url: "server/clrres.php",
-                                                        method: "POST",
-                                                        data: {
-                                                            clr: ""
-                                                        },
-                                                        beforeSend: function() {
-                                                            $('.recentclr').append('<span class="spinner-border-sm spinner-border mb-1 mx-2 res-spinner"></span>');
-                                                        },
-                                                        success: function(data) {
-                                                            if (data == 1) {
-                                                                $('.clrpart').html('<center>Empty</center>');
-                                                                $('.res-spinner').remove();
-                                                            } else {
-                                                                $('.res-spinner').remove();
-                                                                alert('Sorry, something went wrong. Pls try again!');
-                                                            }
-                                                        }
-                                                    });
-                                                }
-                                            </script>
+                                            <script src="assets/js/damo_default.js" type="text/javascript"></script>
                                         </div>
                                         <div class="clrpart scroll-y mh-200px mh-lg-300px my-2 me-n2 pe-2">
                                             </a></div>

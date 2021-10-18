@@ -1,0 +1,1 @@
+$(document).ready((function(){$(document).on("click","#btnLoad",(function(){var a=$(this).data("id");$("#btnLoad").html("Loading..."),$.ajax({url:"explore1.php",method:"POST",data:{lastid:a},dataType:"text",success:function(a){""!=a?($("#btnLoad").remove(),$("main").append(a)):($("#btnLoad").remove(),$("main").append("No More Data To Show"))}})}))}));
