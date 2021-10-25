@@ -7,7 +7,7 @@
 	<meta name="description" content="TN School Study Materials | An Outstanding Solutions For Students & Teachers & Educators | Powered By Damo Softwares." />
 	<meta name="keywords" content="10th, 11th, 12th, 1-8th School Study Materials & Books & Guieds Free Download | PDF" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<link rel="shortcut icon" href="../assets/media/logos/favicon.html" />
+	<link rel="shortcut icon" href="../assets/media/logos/Damo Softwares Fevicon.svg" />
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" />
 	<link href="../assets/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
 	<link href="../assets/css/style.bundle.css" rel="stylesheet" type="text/css" />

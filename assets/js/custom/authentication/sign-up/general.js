@@ -1,5 +1,5 @@
 "use strict";
-var email   =$('#email').val();
+var email = $("#email").val();
 var KTSignupGeneral = (function () {
   var e,
     t,
@@ -30,7 +30,7 @@ var KTSignupGeneral = (function () {
             student_id: {
               validators: {
                 notEmpty: { message: "Please Enter Your Student ID" },
-              }
+              },
             },
             Medium: {
               validators: {
@@ -80,7 +80,7 @@ var KTSignupGeneral = (function () {
                 notEmpty: { message: "Email address is required" },
                 emailAddress: {
                   message: "The Value Is Not A Valid Email Address",
-                }
+                },
               },
             },
           },
@@ -99,62 +99,77 @@ var KTSignupGeneral = (function () {
           r.preventDefault(),
             a.validate().then(function (a) {
               if ("Valid" == a) {
-                var name = $('#name').val();
-                var email   =$('#email').val();
-                var phone_number = $('#phone_number').val();
-                var classs = $('#classs').val();
-                var medium = $('#medium').val();
-                var about = $('#about').val();
-                var place = $('#place').val();
-                var gender = $('#gender').val();
-                var password = $('#password').val();
-                var confirm_password = $('#confirm_password').val();
-                var type = $('#type').val();
+                var name = $("#name").val();
+                var email = $("#email").val();
+                var phone_number = $("#phone_number").val();
+                var classs = $("#classs").val();
+                var medium = $("#medium").val();
+                var about = $("#about").val();
+                var place = $("#place").val();
+                var gender = $("#gender").val();
+                var password = $("#password").val();
+                var confirm_password = $("#confirm_password").val();
+                var type = $("#type").val();
                 $.ajax({
-                url: "../server/insert.php",
-                method: "POST",
-                data: {
-                  name:name,
-                  phone_number:phone_number,
-                  email:email,
-                  classs:classs,
-                  medium:medium,
-                  about:about,
-                  place:place,
-                  type:type,
-                  gender:gender,
-                  password:password,
-                  confirm_password:confirm_password
-                },
-                success: function (data) {
-                  if(data == 1){
-                    Swal.fire({
-                      text: "Thanks For Filling This Form!",
-                      icon: "success",
-                      buttonsStyling: !1,
-                      confirmButtonText:
-                        "<a class='text-white'>Ok, got it!</a>",
-                      customClass: { confirmButton: "btn btn-primary" },
-                    });
-                  }else{
-                  t.setAttribute("data-kt-indicator", "on"),
-                  (t.disabled = !0),
-                  setTimeout(function () {
-                    t.removeAttribute("data-kt-indicator"),
-                      (t.disabled = !1),
+                  url: "../server/insert.php",
+                  method: "POST",
+                  data: {
+                    name: name,
+                    phone_number: phone_number,
+                    email: email,
+                    classs: classs,
+                    medium: medium,
+                    about: about,
+                    place: place,
+                    type: type,
+                    gender: gender,
+                    password: password,
+                    confirm_password: confirm_password,
+                  },
+                  success: function (data) {
+                    if (data == 1) {
                       Swal.fire({
-                        text:data,
-                        icon: "warning",
+                        text: "Thanks For Filling This Form!",
+                        icon: "success",
                         buttonsStyling: !1,
-                        confirmButtonText: data,
-                        customClass: { confirmButton: "btn btn-warning" },
+                        confirmButtonText:
+                          "<a class='text-white'>Ok, got it!</a>",
+                        customClass: { confirmButton: "btn btn-primary" },
                       });
-                  }, 1500);
-                }},
-              });
+                    } else if (date(data == 2)) {
+                      t.setAttribute("data-kt-indicator", "on"),
+                        (t.disabled = !0),
+                        setTimeout(function () {
+                          t.removeAttribute("data-kt-indicator"),
+                            (t.disabled = !1),
+                            Swal.fire({
+                              text: "Email is already registered",
+                              icon: "warning",
+                              buttonsStyling: !1,
+                              confirmButtonText: "Ok, got it!",
+                              customClass: { confirmButton: "btn btn-warning" },
+                            });
+                        }, 1500);
+                    } else{
+                      t.setAttribute("data-kt-indicator", "on"),
+                        (t.disabled = !0),
+                        setTimeout(function () {
+                          t.removeAttribute("data-kt-indicator"),
+                            (t.disabled = !1),
+                            Swal.fire({
+                              text: "Sorry something went wrong",
+                              icon: "warning",
+                              buttonsStyling: !1,
+                              confirmButtonText: "Ok, got it!",
+                              customClass: { confirmButton: "btn btn-warning" },
+                            });
+                        }, 1500);
+                    }
+                  },
+                });
               } else {
                 Swal.fire({
-                  text:'Please Fill Out This Form'+data,
+                  text: "Please Fill Out This Form" + data,
                   icon: "error",
                   buttonsStyling: !1,
                   confirmButtonText: "Ok, got it!",

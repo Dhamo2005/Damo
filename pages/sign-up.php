@@ -9,7 +9,7 @@
     <meta name="keywords" content="10th, 11th, 12th, 1-8th School Study Materials & Books & Guieds Free Download | PDF" />
     <link rel="canonical" href="https://preview.keenthemes.com/metronic8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="shortcut icon" href="../assets/media/logos/favicon.html" />
+    <link rel="shortcut icon" href="../assets/media/logos/Damo Softwares Fevicon.svg" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" />
     <link href="../assets/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
     <link href="../assets/css/style.bundle.css" rel="stylesheet" type="text/css" />
@@ -26,7 +26,7 @@
                             <div class="text-gray-400 fw-bold fs-4">Already have an account? <a href="sign-in.php" class="link-primary fw-bolder">Sign in here</a></div>
                         </div>
                         <div class="fv-row mb-7"><label class="form-label fw-bolder text-dark fs-6">Name</label><input id="name" class="form-control form-control-lg form-control-solid" type="text" placeholder="Fullname" name="name" autocomplete="on" /></div>
-                        <div class="fv-row mb-7"><label class="form-label fw-bolder text-dark fs-6">Phone Number</label><input id="phone_number" autocomplete="on" class="form-control form-control-lg form-control-solid" type="tel" placeholder="Phone Number" name="Phone-Number"></div>
+                        <div class="fv-row mb-7"><label class="form-label fw-bolder text-dark fs-6">Phone Number</label><input id="phone_number" maxlength="10" autocomplete="on" class="form-control form-control-lg form-control-solid" type="tel" placeholder="Phone Number" name="Phone-Number"></div>
                         <div class="fv-row mb-7"><label class="form-label fw-bolder text-dark fs-6">Class</label><select id="classs" name="class" class="form-control form-control-lg form-control-solid">
                                 <option value="">Select Your Class</option>
                                 <option value="10">10th</option>

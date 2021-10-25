@@ -93,5 +93,11 @@ if (isset($_GET['sub']) && isset($_GET['class'])) {
     require('default.php');
     error_reporting(0);
     require('pages/explore.php');
+?>
+<br>
+    <trending_tags>
+        <script src="assets/js/damo_search.js" type="text/javascript"></script>
+    </trending_tags>
+<?php
     require('footer.php');
 }

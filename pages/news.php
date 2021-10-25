@@ -2,7 +2,7 @@
 require('../db.php');
 require('../controls/numfunctions.php');
 require('../controls/damo_func.php');
-$sql = "SELECT id,title,DATE_FORMAT(date,'%D-%M-%Y') AS Date, views FROM `news` ORDER BY date DESC";
+$sql = "SELECT id,title, Date, views FROM `news` ORDER BY date DESC";
 $res = $con->query($sql);
 $date = null;
 while ($row = $res->fetch_assoc()) {

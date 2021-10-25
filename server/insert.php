@@ -38,7 +38,12 @@ if (empty($name && $email && $phone_number && $class && $medium && $about && $pl
 } elseif ($gender !== "m" && $gender !== "f") {
     echo $err;
 } else {
-    $password_hash = md5($password);
+    
+    $statement = DB::con()->prepare("SELECT email FROM users WHERE email=:email");
+    $statement->execute(['email' => $email]);
+
+    if ($statement->rowCount() < 0) {
+        $password_hash = md5($password);
     $statement = DB::con()->prepare("INSERT INTO `users` (`name`, `phone_number`, `class`, `medium`, `email`, `password`, `about`, `Joined`, `place`, `type`,`gender`) VALUES (:name, :phone_number, :class, :medium, :email,:password,:about,:Joined,:place,:type,:gender)");
     try {
         $statement->execute(['name' => $name, 'phone_number' => $phone_number, 'class' => $class, 'medium' => $medium, 'email' => $email, 'password' => $password_hash, 'about' => $about, 'Joined' => 'now()', 'place' => $place, 'type' => $type, 'gender' => $gender]);
@@ -46,4 +51,9 @@ if (empty($name && $email && $phone_number && $class && $medium && $about && $pl
     } catch (exception $err) {
         echo $err;
     }
+    } else {
+        echo 2;
+    }
+    
+    
 }
