@@ -1,25 +1,23 @@
-<IfModule mod_rewrite.c>
 
-   RewriteEngine Off
+#    RewriteEngine Off
 
-   RewriteCond %{REQUEST_FILENAME}  -f [OR]
-   RewriteCond %{REQUEST_FILENAME} !-f
-   RewriteRule ^(.*)$ route.php [L,QSA]
+#    RewriteCond %{REQUEST_FILENAME}  -f [OR]
+#    RewriteCond %{REQUEST_FILENAME} !-f
+#    RewriteRule ^(.*)$ route.php [L,QSA]
 
-</IfModule>
-ErrorDocument 404 /
-ErrorDocument 500 /
+# ErrorDocument 404 /
+# ErrorDocument 500 /
 
-RewriteEngine On
-RewriteBase /
+# RewriteEngine On
+# RewriteBase /
 
-RewriteCond %{REQUEST_URI} ^/404/$
-RewriteRule ^(.*)$ / [L]
+# RewriteCond %{REQUEST_URI} ^/404/$
+# RewriteRule ^(.*)$ / [L]
 
-RewriteCond %{REQUEST_URI} ^/500/$
-RewriteRule ^(.*)$ / [L]
+# RewriteCond %{REQUEST_URI} ^/500/$
+# RewriteRule ^(.*)$ / [L]
 
-# or map them to one error document:
-#RewriteCond %{REQUEST_URI} ^/404/$ [OR]
-#RewriteCond %{REQUEST_URI} ^/500/$
-#RewriteRule ^(.*)$ / [L]
+# # or map them to one error document:
+# #RewriteCond %{REQUEST_URI} ^/404/$ [OR]
+# #RewriteCond %{REQUEST_URI} ^/500/$
+# #RewriteRule ^(.*)$ / [L]

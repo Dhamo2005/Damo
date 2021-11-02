@@ -1,0 +1,25 @@
+RewriteEngine On
+
+RewriteCond %{HTTPS} off
+
+RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} [R,L]
+
+ErrorDocument 404 https://dhamo2005.000webhostapp.com/
+ErrorDocument 500 https://dhamo2005.000webhostapp.com/
+# or map them to one error document:
+# ErrorDocument 404 /pages/errors/error_redirect.php
+# ErrorDocument 500 /pages/errors/error_redirect.php
+
+RewriteEngine On
+RewriteBase /
+
+RewriteCond %{REQUEST_URI} ^/404/$
+RewriteRule ^(.*)$ https://dhamo2005.000webhostapp.com/ [L]
+
+RewriteCond %{REQUEST_URI} ^/500/$
+RewriteRule ^(.*)$ https://dhamo2005.000webhostapp.com/ [L]
+
+# or map them to one error document:
+#RewriteCond %{REQUEST_URI} ^/404/$ [OR]
+#RewriteCond %{REQUEST_URI} ^/500/$
+#RewriteRule ^(.*)$ /pages/errors/error_redirect.php [L]

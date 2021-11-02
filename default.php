@@ -1,4 +1,4 @@
-<?php session_start();session_regenerate_id(true);
+<?php session_start(); session_regenerate_id(true);
 if (!isset($_SESSION['email']) || empty($_SESSION['email'])) {
     header("location:pages/sign-in.php?c=" . $_SERVER['REQUEST_URI']);
 }
@@ -9,9 +9,9 @@ function activer($act, $additional_text)
     if ($act == $s) {
         echo $additional_text;
     }
-} ?>
-<link rel="stylesheet" href="assets/material-icon-font-pack-master/sass/material-icons-outlined.css">
-<!-- <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet"> -->
+}?>
+<!--<link rel="stylesheet" href="assets/material-icon-font-pack-master/sass/material-icons-outlined.css">-->
+ <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet"> 
 <html lang="en">
 <head>
     <meta http-equiv="content-type" content="text/html;charset=UTF-8">
@@ -348,3 +348,7 @@ function activer($act, $additional_text)
                 <div class="py-4 content d-flex flex-column flex-column-fluid" id="kt_content">
                     <script src="assets/jquery.js"></script>
                     <div class="container-fluid" id="content">
+                        <noscript style="border-left: 8px solid var(--bs-active-danger);"  class="text-center p-4 mb-10 bg-light-danger text-danger card fs-5 justify-content-center">
+                            Sorry, your browser does not support javascript! <br> Some functions may not work properly <br><br> Try again in Chrome or other any browsers <br><i>(OR)</i>
+                            Enable javascript in your browser
+                        </noscript>

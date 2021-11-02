@@ -1,7 +1,7 @@
 <?php
 require('default.php');
 require('controls/damo_filters.php');
-?><form action="#">
+?><form>
     <title><?php
             if (isset($_GET['search'])) {
                 echo damo_validate($_GET['search']) . ' - Search Results';

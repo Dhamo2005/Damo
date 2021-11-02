@@ -1,6 +1,8 @@
-<title>Home Page | Damo Softwares</title><?php
-                                            require('default.php');
-                                            ?><div class="row gy-5 g-xl-8 mb-10">
+<?php
+require('default.php');
+?>
+<title>Home Page | Damo Softwares</title>
+<div class="row gy-5 g-xl-8 mb-10">
     <div class="col-xxl-4">
         <div class="card card-xxl-stretch">
             <div class="card-header border-0 bg-danger py-5" style="min-height: 35vh;">
@@ -17,7 +19,7 @@
                             </ol>
                         </div>
                     </div>
-                    <div class="carousel-inner fs-5 pt-8">
+                    <div class="carousel-inner fs-5 pt-8 mb-15" style="text-shadow: 4px ​2px 4px white">
                         <div class="carousel-item active">Lorem Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit officia facere laboriosam aperiam sit suscipit quibusdam facilis porro necessitatibus numquam minus ex, ipsum totam nihil ratione, doloribus blanditiis debitis saepe. </div>
                         <div class="carousel-item">Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias amet quam officiis temporibus vero fuga dignissimos sequi distinctio eius ducimus eos hic, doloribus, minus magni dicta nisi recusandae culpa incidunt! </div>
                         <div class="carousel-item">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Veritatis recusandae explicabo reprehenderit exercitationem consequuntur fugiat cumque nostrum obcaecati nemo quo rem, voluptatem eaque tempore eos esse quae sunt, omnis ipsa. </div>
