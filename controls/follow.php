@@ -1,5 +1,6 @@
 <?php require('../db.php');
 session_start();
+session_regenerate_id(true);
 if (isset($_POST['followid'])) {
 	$uid = mysqli_real_escape_string($GLOBALS['con'], base64_decode(base64_decode($_POST['followid'])));
 	if (mysqli_num_rows($GLOBALS['con']->query("SELECT * FROM `followers` WHERE uid={$_SESSION['myid']} AND followid={$uid}")) == 0) {

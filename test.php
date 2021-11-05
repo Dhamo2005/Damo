@@ -1,17 +1,10 @@
 <?php
-$urls = ["/Damo/test.php" => "35", "/Damo/test.php" => "37", "/Damo/tjest.php" => "43"];
-$serurl = "/Damo/test.php";
-
-function act($url,$serurl, $act_key)
-{
-	// echo $url;
-	// echo '<br>';
-	// echo $act_key . '<br>'; 
-	// echo $act_key;
-	if($url == $act_key){
-		echo $act_key;
-	}
+function limit_text($text, $limit) {
+  if (str_word_count($text, 0) > $limit) {
+	$words = str_word_count($text, 2);
+	$pos = array_keys($words);
+	$text = substr($text, 0, $pos[$limit]) . '...';
+  }
+  return $text;
 }
-foreach ($urls as $url => $value) {
-	act($url,$serurl,$value);
-}
+echo limit_text('<b>Lorem ipsum dolor</b> sit amet consectetur adipisicing elit. Eos quas quos libero dolorum consectetur vero. Soluta, rem, reprehenderit ab labore ipsam corrupti tempora, sit quia perferendis ipsa est repudiandae laborum.', 10);

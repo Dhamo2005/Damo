@@ -1,6 +1,6 @@
 <?php
-
 session_start(); 
+session_regenerate_id(true);
 include_once("../database.php");
 // Declaring Variables
 $email = $_POST['email'];

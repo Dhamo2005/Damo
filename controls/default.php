@@ -1,4 +1,4 @@
-<?php session_start();
+<?php session_start();session_regenerate_id(true);
 if (!isset($_SESSION['email']) || empty($_SESSION['email'])) {
     header("location:pages/sign-in.php?c=" . $_SERVER['REQUEST_URI']);
 }
