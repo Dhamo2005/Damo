@@ -16,6 +16,13 @@ function file_download($file)
         header('Content-Length: ' . filesize($file));
         readfile($file);
         exit;
+    }else{
+        $reg_pattern = "/(((http|https|ftp|ftps)\:\/\/)|(www\.))[a-zA-Z0-9\-\.]+\.[a-zA-Z]{2,3}(\:[0-9]+)?(\/\S*)?/" ;
+        if (preg_match($reg_pattern, $file, $matches)) {
+            header("location:".$file);
+        } else {
+            echo "File not found";
+        }
     }
 }
 if ($result = $GLOBALS['con']->query("INSERT INTO `mydownloads` ( `uid`, `fileid`, `time`) VALUES ('{$_SESSION['myid']}', '{$token}', current_timestamp())")) {
@@ -27,3 +34,4 @@ if ($result = $GLOBALS['con']->query("INSERT INTO `mydownloads` ( `uid`, `fileid
 } else {
     header('location:index.php');
 }
+?>

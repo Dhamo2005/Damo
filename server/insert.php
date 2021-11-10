@@ -52,7 +52,7 @@ if (empty($name && $email && $phone_number && $class && $medium && $about && $pl
         echo $err;
     }
     } else {
-        echo 2;
+        echo $statement->rowCount();
     }
     
     

@@ -11,6 +11,6 @@ if($verify >=1){
     echo('0');
 }
 }else{
-    echo("Pongadaa!");
+    echo("Sorry Something Went Wrong!");
 }
 ?>

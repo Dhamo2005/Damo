@@ -5,7 +5,7 @@ require('default.php'); ?>
     <h1 class="text-dark mb-3">Upload Files</h1>
     <div class="text-gray-400 fw-bold fs-4"><a class="link-white fw-bolder">Need Help?</a></div>
 </div>
-<form class=" card-body bg-white form w-100" novalidate="novalidate" id="kt_sign_up_form" autocomplete="off">
+<form class=" card-body bg-white form w-100" novalidate="novalidate" id="upload_form" autocomplete="off">
     <div class="fv-row mb-7"><label class="form-label fw-bolder text-dark fs-6">Title</label><input type="text" name="title" id="name" rows="1" class="form-control form-control-lg form-control-solid" placeholder="Title" autocomplete="off"></div>
     <div class="fv-row mb-7"><label class="form-label fw-bolder text-dark fs-6">Class</label>
         <select id="classs" name="class" class="form-control form-control-lg form-control-solid" data-control="select2" data-placeholder="Choose Class">
@@ -69,7 +69,7 @@ require('default.php'); ?>
             }
         });
     </script>
-    <script>
+    <!-- <script>
         "use strict";
         var KTSigninGeneral = function() {
             var t, n, e;
@@ -170,7 +170,57 @@ require('default.php'); ?>
         KTUtil.onDOMContentLoaded(function() {
             KTSigninGeneral.init()
         })
-    </script>
+    </script> -->
 </form>
+<script>
+    $(document).ready(function() {
+            FormValidation
+                .formValidation(
+                    document.getElementById('upload_form'), {
+                        fields: {
+                            name:{
+                                validators: {
+                                    notEmpty: {
+                                        message: 'The title is required'
+                                    }
+                                }
+                            },
+                            classs:{
+                                validators: {
+                                    notEmpty: {
+                                        message: 'The description is required'
+                                    }
+                                }
+                            },
+                            medium:{
+                                validators: {
+                                    notEmpty: {
+                                        message: 'The category is required'
+                                    }
+                                }
+                            },
+                            gender:{
+                                validators: {
+                                    notEmpty: {
+                                        message: 'The file is required'
+                                    }
+                                }
+                            }
+
+                        },
+                        plugins: {
+                            trigger: new FormValidation.plugins.Trigger,
+                            bootstrap: new FormValidation.plugins.Bootstrap5({
+                                rowSelector: ".fv-row",
+                                eleInvalidClass: "",
+                                eleValidClass: ""
+                            })
+                        }
+                    })
+        })
+        .on('core.form.valid', function() {
+
+        });
+</script>
 <?php
 require('footer.php'); ?>

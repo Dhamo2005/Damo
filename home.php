@@ -2,8 +2,8 @@
 require('default.php');
 ?>
 <title>Home Page | Damo Softwares</title>
-<div class="row gy-5 g-xl-8 mb-10">
-    <div class="col-xxl-4">
+<div class="row gy-5 g-xl-15 mb-10">
+    <div class="col-xxl-12">
         <div class="card card-xxl-stretch">
             <div class="card-header border-0 bg-danger py-5" style="min-height: 35vh;">
                 <div id="kt_carousel_1_carousel" class="carousel carousel-custom slide" data-bs-ride="carousel" data-bs-interval="8000">
@@ -82,8 +82,87 @@ require('default.php');
             <div class="tab-pane fade" id="link_panel" role="tabpanel"><span class="badge badge-primary cursor-pointer fs-6 hover-shadow opacity-75-hover">10th New Reduced Syllabus 2021</span><span class="badge badge-primary cursor-pointer fs-6 hover-shadow opacity-75-hover">10th New Reduced Syllabus 2021</span><span class="badge badge-primary cursor-pointer fs-6 hover-shadow opacity-75-hover">10th New Reduced Syllabus 2021</span><span class="badge badge-primary cursor-pointer fs-6 hover-shadow opacity-75-hover">10th New Reduced Syllabus 2021</span><span class="badge badge-primary cursor-pointer fs-6 hover-shadow opacity-75-hover">10th New Reduced Syllabus 2021</span></div>
         </div>
     </div>
+
+
 </div><?php
         require('footer.php');
-        ?><script src="assets/plugins/global/plugins.bundle.js"></script>
-<link rel="stylesheet" href="assets/plugins/global/.bundle.css">
-<script type="text/javascript" src="assets/js/damo_home.js"></script>
+        ?>
+<!-- <script src="assets/plugins/global/plugins.bundle.js"></script> -->
+<!-- <link rel="stylesheet" href="assets/plugins/global/plugins.bundle.css"> -->
+<!-- <script type="text/javascript" src="assets/js/damo_home.js"></script> -->
+<script>
+    $(document).ready((function() {
+        load_trends()
+    }));
+
+    $("#trend_btn").click((function() {
+        load_trends()
+    }));
+
+    $("#news_btn").click((function() {
+        load_news()
+    }));
+
+    var loada = '<div data-kt-indicator="on"><span class="ps-4 fs-6 indicator-progress">Loading...<span class="spinner-border spinner-border-sm align-middle ms-2"></span></span></div>';
+    var loadb = '<div data-kt-indicator="off"><span class="ps-4 fs-6 indicator-progress"><span class="spinner-border spinner-border-sm align-middle ms-2"></span></span></div>';
+    var loadtxt = '<div id="load_more_btn" class="d-flex justify-content-center mt-4"><button onclick="load_more_news()" class="d-flex align-items-center btn btn-success flex-auto mx-3 ml-md-3 mr-md-0 ml-lg-0 mb-3 mb-md-0 py-1 px-4">Load More' + loadb + '</button></div>';
+
+
+    function load_more_news() {
+        $.ajax({
+            type: "GET",
+            url: "pages/news.php",
+            beforeSend: function() {
+                // alert("Loading...");
+                $('#load_more_btn').children('button').children('div').attr('data-kt-indicator', 'on');
+            },
+            success: function(n) {
+                $("#load_more_btn").remove();
+                $("#news_panel").append(n);
+                $("#news_panel").append(loadtxt);
+            },
+            error: function(n, s) {
+                setTimeout((() => {
+                    $.ajax(this)
+                }), 1e3)
+            }
+        });
+    }
+
+    function load_trends() {
+        $.ajax({
+            type: "GET",
+            url: "pages/trending_tags.php",
+            beforeSend: function() {
+                $("#tags_panel").html(loada);
+            },
+            success: function(n) {
+                $("#tags_panel").html(n)
+            },
+            error: function(n, s) {
+                setTimeout((() => {
+                    $.ajax(this)
+                }), 1500)
+            }
+        })
+    }
+
+    function load_news() {
+        $.ajax({
+            type: "GET",
+            url: "pages/news.php",
+            beforeSend: function() {
+                $("#news_panel").html(loada);
+            },
+            success: function(n) {
+                $("#news_panel").html(n);
+                $("#news_panel").append(loadtxt);
+            },
+            error: function(n, s) {
+                setTimeout((() => {
+                    $.ajax(this)
+                }), 1e3)
+            }
+        });
+    }
+</script>
