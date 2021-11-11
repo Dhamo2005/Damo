@@ -24,9 +24,12 @@ if (isset($_GET['out'])) {
     <link href="../assets/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
     <link href="../assets/css/style.bundle.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="../assets/material-icon-font-pack-master/sass/material-icons-outlined.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
 </head>
 
-<body id="kt_body" class="bg-white">
+<body id="kt_body" class="bg-white" style="font-family: 'Poppins', sans-serif;">
     <div class="d-flex flex-column flex-root">
         <div class="d-flex flex-column flex-column-fluid bgi-position-y-bottom position-x-center bgi-no-repeat bgi-size-contain bgi-attachment-fixed" style="background-image: url(../assets/media/illustrations/progress-hd.png)">
             <div class="d-flex flex-center flex-column flex-column-fluid"><a href="../"><img alt="Logo" src="../assets/media/logos/Damo Softwares logo.svg" height="150px"></a>
@@ -166,10 +169,10 @@ if (isset($_GET['out'])) {
                                             } else if (exception === 'abort') {
                                                 msg = '<h3>Request Aborted<h3><h5 class="fw-normal">Ajax request aborted</h5>';
                                             } else {
-                                                msg = '<h3>Unknown Error<h3><h5 class="fw-normal">Error : &nbsp; '+msg+'</h5>';
+                                                msg = '<h3>Unknown Error<h3><h5 class="fw-normal">Error : &nbsp; ' + msg + '</h5>';
                                             }
                                             $('.logoutmsg').remove();
-                                            $('.log').html('<div class="rounded border-warning border-dashed bg-light-warning px-6 py-5"><span class="text-gray-600 fw-bold fs-6"><center>'+msg+'</center></span></div><br><br>');
+                                            $('.log').html('<div class="rounded border-warning border-dashed bg-light-warning px-6 py-5"><span class="text-gray-600 fw-bold fs-6"><center>' + msg + '</center></span></div><br><br>');
                                             setTimeout(() => {
                                                 $.ajax(this);
                                                 $('.logtxt').html('Retrying...');

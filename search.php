@@ -78,9 +78,9 @@ require('controls/damo_filters.php');
         if (isset($_GET['search']) && !empty($_GET['search'])) {
             $query = mysqli_real_escape_string($GLOBALS['con'], $_GET['search']);
             $uid = mysqli_real_escape_string($GLOBALS['con'], $_SESSION['myid']);
-            $stmt = $GLOBALS['con']->prepare("INSERT INTO `recentlysearched` (`uid`, `keyword`) VALUES (?, ?) ON DUPLICATE KEY UPDATE uid=$uid, keyword='$query';");
-            $stmt->bind_param('is', $uid, $query);
-            if ($stmt->execute()) {
+            if(!$db->query('SELECT count(*) FROM recentlysearched WHERE uid = ? AND keyword = ?', $some_value)->numRows()){
+                $stmt = $GLOBALS['con']->prepare("INSERT INTO `recentlysearched` (`uid`, `keyword`) VALUES (?, ?) ON DUPLICATE KEY UPDATE uid=$uid, keyword='$query';");
+                $stmt->bind_param('is', $uid, $query);
                 $terms = explode(" ", $query);
                 $i = 0;
                 $query = "SELECT * FROM search WHERE ";

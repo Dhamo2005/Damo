@@ -20,9 +20,16 @@
                 <input type="number" id="class" max="12" required min="1" name="class" value="<?php echo $_SESSION['std']; ?>" class="form-control">
             </div>
             <div class="col-12 text-center">
-                <button type="submit" class="btn btn-primary fs-4 mt-5 d-inline-flex">Search <span class="my-auto ms-2 fa fa-search"></span></button>
+                <button type="submit" class="btn btn-primary btn-sm fs-4 mt-5 d-inline-flex">Search <span class="my-auto ms-2 fa fa-search"></span></button>
             </div>
         </form>
     </fieldset>
 </div>
+<a href="#" class="btn btn-icon btn-primary"><i class="las la-wallet fs-2 me-2"></i> Caption</a>
+<!-- 
+<a href="feedback.php" class="btn btn-icon-primary btn-text-primary align-items-center d-flex"><span class="fs-4 pe-4 material-icons-outlined">
+rate_review
+</span>Send Feedback</a> -->
+<!-- <button onclick="window.location.href = ''" class=" btn btn-light btn-sm"> </button> -->
+
 <script src="assets/js/damo_explore.js"></script>

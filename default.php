@@ -1,4 +1,5 @@
-<?php session_start(); session_regenerate_id(true);
+<?php session_start();
+session_regenerate_id(true);
 if (!isset($_SESSION['email']) || empty($_SESSION['email'])) {
     header("location:pages/sign-in.php?c=" . $_SERVER['REQUEST_URI']);
 }
@@ -9,10 +10,11 @@ function activer($act, $additional_text)
     if ($act == $s) {
         echo $additional_text;
     }
-}?>
+} ?>
 <link rel="stylesheet" href="assets/material-icon-font-pack-master/sass/material-icons-outlined.css">
- <!-- <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">  -->
+<!-- <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">  -->
 <html lang="en">
+
 <head>
     <meta http-equiv="content-type" content="text/html;charset=UTF-8">
     <meta charset="utf-8">
@@ -20,13 +22,14 @@ function activer($act, $additional_text)
     <meta name="keywords" content="10th, 11th, 12th, 1-8th School Study Materials & Books & Guieds Free Download | PDF">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" href="assets/media/logos/Damo Softwares Fevicon.svg">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
     <link href="assets/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css">
-    <link href="assets/css/style.bundle.css" rel="stylesheet" type="text/css">  <!-- Custom CSS -->
+    <link href="assets/css/style.bundle.css" rel="stylesheet" type="text/css"> <!-- Custom CSS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 </head>
 
-<body id="kt_body" class="header-fixed header-tablet-and-mobile-fixed toolbar-enabled toolbar-fixed toolbar-tablet-and-mobile-fixed aside-enabled aside-fixed" style="--kt-toolbar-height:55px;--kt-toolbar-height-tablet-and-mobile:55px">
+<body style="font-family: 'Roboto', sans-serif;" id="kt_body" class="header-fixed header-tablet-and-mobile-fixed toolbar-enabled toolbar-fixed toolbar-tablet-and-mobile-fixed aside-enabled aside-fixed" style="--kt-toolbar-height:55px;--kt-toolbar-height-tablet-and-mobile:55px">
     <div class="d-flex flex-column flex-root">
         <div class="page d-flex flex-row flex-column-fluid">
             <div id="kt_aside" class="aside aside-dark aside-hoverable" data-kt-drawer="true" data-kt-drawer-name="aside" data-kt-drawer-activate="{default: true, lg: false}" data-kt-drawer-overlay="true" data-kt-drawer-width="{default:'200px', '300px': '250px'}" data-kt-drawer-direction="start" data-kt-drawer-toggle="#kt_aside_mobile_toggle">
@@ -41,8 +44,8 @@ function activer($act, $additional_text)
                 </div>
                 <div class="noselect aside-menu flex-column-fluid">
                     <div class="hover-scroll-overlay-y my-5 my-lg-5" id="kt_aside_menu_wrapper" data-kt-scroll="true" data-kt-scroll-activate="{default: false, lg: true}" data-kt-scroll-height="auto" data-kt-scroll-dependencies="#kt_aside_logo, #kt_aside_footer" data-kt-scroll-wrappers="#kt_aside_menu" data-kt-scroll-offset="0" style="height: 570px;">
-                        <div class="menu menu-column menu-title fs-5-gray-800 menu-state-title-primary menu-state-icon-primary menu-state-bullet-primary menu-arrow-gray-500" id="#kt_aside_menu" data-kt-menu="true">
-                            <div class="menu-item <?php activer('/Damo/home.php', 'here'); ?>"><a class="<?php activer('/Damo/home.php', 'text-primary '); ?>menu-link text-hover-primary" href="home.php"><span class="menu-icon"><span class="svg-icon svg-icon-2"><span class="svg-icon svg-icon-2 material-icons-outlined fs-2">home</span></span></span><span class="menu-title fs-5">Home</span></a></div>
+                        <div class="menu menu-column menu-title-gray-800 menu-state-title-primary menu-state-icon-primary menu-state-bullet-primary menu-arrow-gray-500" id="#kt_aside_menu" data-kt-menu="true">
+                        <div class="menu-item <?php activer('/Damo/home.php', 'here'); ?>"><a class="<?php activer('/Damo/home.php', 'text-primary '); ?>menu-link text-hover-primary" href="home.php"><span class="menu-icon"><span class="svg-icon svg-icon-2"><span class="svg-icon svg-icon-2 material-icons-outlined fs-2">home</span></span></span><span class="menu-title fs-5">Home</span></a></div>
                             <div class="menu-item <?php activer('/Damo/explore.php', 'here');
                                                     activer('/Damo/news_view.php', 'here');
                                                     activer('/Damo/profile_view.php', 'here');
@@ -61,7 +64,9 @@ function activer($act, $additional_text)
                             <div class="menu-item">
                                 <div class="menu-content pt-5 pb-2"><span class="menu-section text-muted text-uppercase fs-7 ls-1">Account</span></div>
                             </div>
-                            <div class="menu-item <?php activer('/Damo/upload.php', 'here'); activer('/Damo/myuploads.php', 'here'); ?>"><a href="myuploads.php" class="<?php activer('/Damo/myuploads.php', 'text-primary '); activer('/Damo/upload.php', 'text-primary '); ?> menu-link text-hover-primary"><span class="menu-icon"><span class="svg-icon svg-icon-2 material-icons-outlined fs-2">upload</span></span><span class="menu-title fs-5">My Uploads</span></a></div>
+                            <div class="menu-item <?php activer('/Damo/upload.php', 'here');
+                                                    activer('/Damo/myuploads.php', 'here'); ?>"><a href="myuploads.php" class="<?php activer('/Damo/myuploads.php', 'text-primary ');
+                                                                                                                                                                        activer('/Damo/upload.php', 'text-primary '); ?> menu-link text-hover-primary"><span class="menu-icon"><span class="svg-icon svg-icon-2 material-icons-outlined fs-2">upload</span></span><span class="menu-title fs-5">My Uploads</span></a></div>
                             <div class="menu-item"><a class="menu-link text-hover-primary"><span class="menu-icon"><span class="svg-icon svg-icon-2 material-icons-outlined fs-2">person</span></span><span class="menu-title fs-5">Owerview</span></a></div>
                             <div class="menu-item <?php activer('/Damo/settings.php', 'here'); ?>"><a href="settings.php" class="<?php activer('/Damo/settings.php', 'text-primary '); ?>menu-link text-hover-primary"><span class="menu-icon"><span class="svg-icon svg-icon-2 material-icons-outlined fs-2">settings</span></span><span class="menu-title fs-5">Settings</span></a></div>
                             <div class="menu-item">
@@ -307,7 +312,7 @@ function activer($act, $additional_text)
                                     <div data-bs-dismiss="modal" class="text-muted text-active-primary text-hover-primary position-absolute top-50 end-0 translate-middle-y">
                                         <div class="btn btn-icon w-20px btn-sm btn-active-color-primary" data-bs-toggle="tooltip" title="Close" data-bs-original-title="Colse Options">
                                             <span class="svg-icon svg-icon-2 material-icons-outlined fs-2">
-                                            close
+                                                close
                                             </span>
                                         </div>
                                     </div>
@@ -344,11 +349,10 @@ function activer($act, $additional_text)
                         </div>
                     </div>
                 </div>
-
                 <div class="py-4 content d-flex flex-column flex-column-fluid" id="kt_content">
                     <script src="assets/jquery.js"></script>
                     <div class="container-fluid" id="content">
-                        <noscript style="border-left: 8px solid var(--bs-active-danger);"  class="text-center p-4 mb-10 bg-light-danger text-danger card fs-5 justify-content-center">
+                        <noscript style="border-left: 8px solid var(--bs-active-danger);" class="text-center p-4 mb-10 bg-light-danger text-danger card fs-5 justify-content-center">
                             Sorry, your browser does not support javascript! <br> Some functions may not work properly <br><br> Try again in Chrome or other any browsers <br><i>(OR)</i>
                             Enable javascript in your browser
                         </noscript>
