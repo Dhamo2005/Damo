@@ -25,11 +25,10 @@
         </form>
     </fieldset>
 </div>
-<a href="#" class="btn btn-icon btn-primary"><i class="las la-wallet fs-2 me-2"></i> Caption</a>
-<!-- 
+
 <a href="feedback.php" class="btn btn-icon-primary btn-text-primary align-items-center d-flex"><span class="fs-4 pe-4 material-icons-outlined">
 rate_review
-</span>Send Feedback</a> -->
+</span>Send Feedback</a>
 <!-- <button onclick="window.location.href = ''" class=" btn btn-light btn-sm"> </button> -->
 
 <script src="assets/js/damo_explore.js"></script>
