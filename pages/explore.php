@@ -5,14 +5,18 @@
             <div class="col-md-4 gy-7">
                 <label for="sub" class="form-label">Subject</label>
                 <select class="form-select form-select-solid" id="sub" required name="sub" data-control="select2" data-placeholder="Choose Subject">
-                    
+
                 </select>
             </div>
             <div class="col-md-4 gy-7">
                 <label for="med" class="form-label">Medium</label>
                 <select id="med" id="med" name="med" required class="form-select">
-                    <option <?php if($_SESSION['medium'] == 'TM'){echo 'selected';}?> value="TM">TM</option>
-                    <option <?php if($_SESSION['medium'] == 'EM'){echo 'selected';} ?> value="EM">EM</option>
+                    <option <?php if ($_SESSION['medium'] == 'TM') {
+                                echo 'selected';
+                            } ?> value="TM">TM</option>
+                    <option <?php if ($_SESSION['medium'] == 'EM') {
+                                echo 'selected';
+                            } ?> value="EM">EM</option>
                 </select>
             </div>
             <div class="col-md-4 gy-7">
@@ -25,10 +29,10 @@
         </form>
     </fieldset>
 </div>
-
-<a href="feedback.php" class="btn btn-icon-primary btn-text-primary align-items-center d-flex"><span class="fs-4 pe-4 material-icons-outlined">
-rate_review
-</span>Send Feedback</a>
-<!-- <button onclick="window.location.href = ''" class=" btn btn-light btn-sm"> </button> -->
+<div class="d-flex justify-content-end">
+    <a href="feedback.php" class="m-4 p-2 fs-5 text-hover-dark text-gray-500 text-decoration-underline" onmouseover="this.style.textDecoration = 'underline overline'">
+        Send Feedback
+    </a>
+</div>
 
 <script src="assets/js/damo_explore.js"></script>
