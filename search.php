@@ -78,85 +78,95 @@ require('controls/damo_filters.php');
         if (isset($_GET['search']) && !empty($_GET['search'])) {
             $query = mysqli_real_escape_string($GLOBALS['con'], $_GET['search']);
             $uid = mysqli_real_escape_string($GLOBALS['con'], $_SESSION['myid']);
-            if(!$db->query('SELECT count(*) FROM recentlysearched WHERE uid = ? AND keyword = ?', $some_value)->numRows()){
+
+            try {
+                if ($GLOBALS['con']->query("SELECT count(*) AS count FROM `recentlysearched` WHERE uid = {$uid} AND keyword = '{$query}'")->fetch_assoc()['count'] < 1) {
                 $stmt = $GLOBALS['con']->prepare("INSERT INTO `recentlysearched` (`uid`, `keyword`) VALUES (?, ?) ON DUPLICATE KEY UPDATE uid=$uid, keyword='$query';");
                 $stmt->bind_param('is', $uid, $query);
-                $terms = explode(" ", $query);
+                $stmt->execute();
+            }
+            } catch (\Throwable $th) {}
+
+            $terms = explode(" ", $query);
+            $i = 0;
+            $query = "SELECT * FROM search WHERE ";
+            foreach ($terms as $each) {
+                $i++;
+                if ($i == 1) $query .= "keyword LIKE '%$each%' OR title LIKE '%$each%' OR description LIKE '%$each%'";
+            }
+            $qry = mysqli_query($GLOBALS['con'], $query);
+            $result = mysqli_num_rows($qry);
+            if ($result > 0) {
                 $i = 0;
-                $query = "SELECT * FROM search WHERE ";
-                foreach ($terms as $each) {
-                    $i++;
-                    if ($i == 1) $query .= "keyword LIKE '%$each%' OR title LIKE '%$each%' OR description LIKE '%$each%'";
-                }
-                $qry = mysqli_query($con, $query);
-                $result = mysqli_num_rows($qry);
-                if ($result > 0) {
-                    $i = 0;
         ?><div class="d-flex flex-wrap flex-stack">
-                <div class="d-flex flex-wrap align-items-center my-1 p-1 rounded-2 bg-primary d-shadow">
-                    <h3 class="fw-bolder text-white me-5 my-1 ps-2"><?php echo mysqli_num_rows($qry); ?>| <span class="text-white fs-6">Results Found
-                            <?php switch ($result) {
-                                case ($result < 10): {
-                                        echo '😀';
-                                    }
-                                    break;
-                                case ($result > 10): {
-                                        echo '😄';
-                                    }
-                                    break;
-                                default: {
-                                        echo '🙂';
-                                    }
-                            } ?></span></h3>
+            <div class="d-flex flex-wrap align-items-center my-1 p-1 rounded-2 bg-primary d-shadow">
+                <h3 class="fw-bolder text-white me-5 my-1 ps-2"><?php echo mysqli_num_rows($qry); ?>| <span class="text-white fs-6">Results Found
+                        <?php switch ($result) {
+                            case ($result < 10): {
+                                    echo '😀';
+                                }
+                                break;
+                            case ($result > 10): {
+                                    echo '😄';
+                                }
+                                break;
+                            default: {
+                                    echo '🙂';
+                                }
+                        } ?></span></h3>
+            </div>
+            <div class="d-flex flex-wrap my-1">
+                <div class="d-flex my-0">
+                    <select name="status" class="d-shadow form-select form-select-white form-select-sm w-150px me-5">
+                        <option class="fs-4" value="1">Recently Updated</option>
+                        <option class="fs-4" value="2">Last Month</option>
+                        <option class="fs-4" value="3">Last Quarter</option>
+                        <option class="fs-4" value="4">Last Year</option>
+                    </select>
+                    <select name="status" class="d-shadow form-select form-select-white form-select-sm w-100px">
+                        <option class="fs-4" value="1">Excel</option>
+                        <option class="fs-4" value="1">PDF</option>
+                        <option class="fs-4" value="2">Print</option>
+                    </select>
                 </div>
-                <div class="d-flex flex-wrap my-1">
-                    <div class="d-flex my-0">
-                        <select name="status" class="d-shadow form-select form-select-white form-select-sm w-150px me-5">
-                            <option class="fs-4" value="1">Recently Updated</option>
-                            <option class="fs-4" value="2">Last Month</option>
-                            <option class="fs-4" value="3">Last Quarter</option>
-                            <option class="fs-4" value="4">Last Year</option>
-                        </select>
-                        <select name="status" class="d-shadow form-select form-select-white form-select-sm w-100px">
-                            <option class="fs-4" value="1">Excel</option>
-                            <option class="fs-4" value="1">PDF</option>
-                            <option class="fs-4" value="2">Print</option>
-                        </select>
-                    </div>
-                </div>
-            </div><?php while ($row = $qry->fetch_assoc()) {
-                        $i++; ?><div class="card-body card bg-white my-4 cursor-pointer" onclick="window.location.href='<?php echo $row['link']; ?>'">
-                    <div class="tab-content">
-                        <div class="card-body p-0 tab-pane fade show active" role="tabpanel" aria-labelledby="kt_activity_today_tab">
-                            <div class="timeline">
-                                <div class="timeline-item">
-                                    <div class="timeline-line w-40px"></div>
-                                    <div class="timeline-icon symbol symbol-circle symbol-40px">
-                                        <div class="symbol-label rounded-circle" style="background-color: mediumspringgreen; font-size: large;"><?php echo $i; ?></span></span></div>
-                                    </div>
-                                    <div class="overflow-auto pe-3">
-                                        <div class="fs-4 fw-bolder mb-2"><?php echo $row['title']; ?></div>
-                                        <div class="d-flex align-items-center mt-1 fs-6 text-gray-600">
-                                            <p><?php echo $row['description']; ?></p>
-                                        </div>
+            </div>
+        </div><?php while ($row = $qry->fetch_assoc()) {
+                    $i++; ?><div class="card-body card bg-white my-4 cursor-pointer" onclick="window.location.href='<?php echo $row['link']; ?>'">
+                <div class="tab-content">
+                    <div class="card-body p-0 tab-pane fade show active" role="tabpanel" aria-labelledby="kt_activity_today_tab">
+                        <div class="timeline">
+                            <div class="timeline-item">
+                                <div class="timeline-line w-40px"></div>
+                                <div class="timeline-icon symbol symbol-circle symbol-40px">
+                                    <div class="symbol-label rounded-circle" style="background-color: mediumspringgreen; font-size: large;"><?php echo $i; ?></span></span></div>
+                                </div>
+                                <div class="overflow-auto pe-3">
+                                    <div class="fs-4 fw-bolder mb-2"><?php echo $row['title']; ?></div>
+                                    <div class="d-flex align-items-center mt-1 fs-6 text-gray-600">
+                                        <p><?php echo $row['description']; ?></p>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-<?php }
-                } else {
-                    echo ('<center class="fs-6">No results found! <br><span style="font-size: xxx-large">🙄</span></center>');
-                }
+            </div>
+        <?php }
+            } else {
+                echo ('<center class="fs-6"><br><b>'.damo_validate($_GET['search']).'</b><br> No results found! <br><span style="font-size: xxx-large">🙄</span></center>');
+        ?>
+        <trending_tags>
+            <script src="assets/js/damo_search.js" type="text/javascript"></script>
+        </trending_tags>
+    <?php
             }
         } else {
             require('pages\popularsearch.php');
-            ?>
-            <trending_tags>
-                <script src="assets/js/damo_search.js" type="text/javascript"></script>
-            </trending_tags>
-            <?php
+    ?>
+    <trending_tags>
+        <script src="assets/js/damo_search.js" type="text/javascript"></script>
+    </trending_tags>
+<?php
         }
 ?>
 <?php require('footer.php'); ?>
