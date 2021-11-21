@@ -29,19 +29,6 @@ require('default.php');
             <div class="card-body p-0" style="position: relative;">
                 <div class="card-p mt-n20 position-relative">
                     <div class="row g-0">
-                        <div class="d-shadow col bg-light-warning px-6 py-8 rounded-2 me-7 mb-7"><span class="svg-icon svg-icon-3x svg-icon-warning d-block my-2"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
-                                    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                        <polygon points="0 0 24 0 24 24 0 24" />
-                                        <path d="M5.74714567,13.0425758 C4.09410362,11.9740356 3,10.1147886 3,8 C3,4.6862915 5.6862915,2 9,2 C11.7957591,2 14.1449096,3.91215918 14.8109738,6.5 L17.25,6.5 C19.3210678,6.5 21,8.17893219 21,10.25 C21,12.3210678 19.3210678,14 17.25,14 L8.25,14 C7.28817895,14 6.41093178,13.6378962 5.74714567,13.0425758 Z" fill="#000000" opacity="0.3" />
-                                        <path d="M11.1288761,15.7336977 L11.1288761,17.6901712 L9.12120481,17.6901712 C8.84506244,17.6901712 8.62120481,17.9140288 8.62120481,18.1901712 L8.62120481,19.2134699 C8.62120481,19.4896123 8.84506244,19.7134699 9.12120481,19.7134699 L11.1288761,19.7134699 L11.1288761,21.6699434 C11.1288761,21.9460858 11.3527337,22.1699434 11.6288761,22.1699434 C11.7471877,22.1699434 11.8616664,22.1279896 11.951961,22.0515402 L15.4576222,19.0834174 C15.6683723,18.9049825 15.6945689,18.5894857 15.5161341,18.3787356 C15.4982803,18.3576485 15.4787093,18.3380775 15.4576222,18.3202237 L11.951961,15.3521009 C11.7412109,15.173666 11.4257142,15.1998627 11.2472793,15.4106128 C11.1708299,15.5009075 11.1288761,15.6153861 11.1288761,15.7336977 Z" fill="#000000" fill-rule="nonzero" transform="translate(11.959697, 18.661508) rotate(-90.000000) translate(-11.959697, -18.661508) " />
-                                    </g>
-                                </svg></span><a href="upload.php" class="text-warning fw-bold fs-6">Upload</a></div>
-                        <div class="d-shadow col bg-light-primary px-6 py-8 rounded-2 mb-7"><span class="svg-icon svg-icon-3x svg-icon-primary d-block my-2"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                                    <path d="M17 6C17 8.76142 14.7614 11 12 11C9.23858 11 7 8.76142 7 6C7 3.23858 9.23858 1 12 1C14.7614 1 17 3.23858 17 6Z" fill="#121319" />
-                                    <path opacity="0.25" fill-rule="evenodd" clip-rule="evenodd" d="M18.818 14.1248C18.2016 13.4101 17.1428 13.4469 16.3149 13.9001C15.0338 14.6013 13.5635 15 12 15C10.4365 15 8.96618 14.6013 7.68505 13.9001C6.85717 13.4469 5.79841 13.4101 5.182 14.1248C3.82222 15.7014 3 17.7547 3 20V21C3 22.1045 3.89543 23 5 23H19C20.1046 23 21 22.1045 21 21V20C21 17.7547 20.1778 15.7014 18.818 14.1248Z" fill="#191213" />
-                                </svg></span><a href="settings.php" class="text-primary fw-bold fs-6">My Profile</a></div>
-                    </div>
-                    <div class="row g-0">
                         <div class="d-shadow col bg-light-danger px-6 py-8 rounded-2 me-7"><span class="svg-icon svg-icon-3x svg-icon-danger d-block my-2"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
                                     <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                                         <rect x="0" y="0" width="24" height="24" />
@@ -54,6 +41,19 @@ require('default.php');
                                         <rect fill="#000000" opacity="0.3" x="10" y="16" width="4" height="4" rx="2" />
                                     </g>
                                 </svg></span><a href="#" class="text-success fw-bold fs-6 mt-2">Notifications</a></div>
+                    </div>
+                    <div class="row g-0">
+                        <div class="d-shadow col bg-light-warning px-6 py-8 rounded-2 me-7 mt-7"><span class="svg-icon svg-icon-3x svg-icon-warning d-block my-2"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                                    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                        <polygon points="0 0 24 0 24 24 0 24" />
+                                        <path d="M5.74714567,13.0425758 C4.09410362,11.9740356 3,10.1147886 3,8 C3,4.6862915 5.6862915,2 9,2 C11.7957591,2 14.1449096,3.91215918 14.8109738,6.5 L17.25,6.5 C19.3210678,6.5 21,8.17893219 21,10.25 C21,12.3210678 19.3210678,14 17.25,14 L8.25,14 C7.28817895,14 6.41093178,13.6378962 5.74714567,13.0425758 Z" fill="#000000" opacity="0.3" />
+                                        <path d="M11.1288761,15.7336977 L11.1288761,17.6901712 L9.12120481,17.6901712 C8.84506244,17.6901712 8.62120481,17.9140288 8.62120481,18.1901712 L8.62120481,19.2134699 C8.62120481,19.4896123 8.84506244,19.7134699 9.12120481,19.7134699 L11.1288761,19.7134699 L11.1288761,21.6699434 C11.1288761,21.9460858 11.3527337,22.1699434 11.6288761,22.1699434 C11.7471877,22.1699434 11.8616664,22.1279896 11.951961,22.0515402 L15.4576222,19.0834174 C15.6683723,18.9049825 15.6945689,18.5894857 15.5161341,18.3787356 C15.4982803,18.3576485 15.4787093,18.3380775 15.4576222,18.3202237 L11.951961,15.3521009 C11.7412109,15.173666 11.4257142,15.1998627 11.2472793,15.4106128 C11.1708299,15.5009075 11.1288761,15.6153861 11.1288761,15.7336977 Z" fill="#000000" fill-rule="nonzero" transform="translate(11.959697, 18.661508) rotate(-90.000000) translate(-11.959697, -18.661508) " />
+                                    </g>
+                                </svg></span><a href="upload.php" class="text-warning fw-bold fs-6">Upload</a></div>
+                        <div class="d-shadow col bg-light-primary px-6 py-8 rounded-2 mt-7"><span class="svg-icon svg-icon-3x svg-icon-primary d-block my-2"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                    <path d="M17 6C17 8.76142 14.7614 11 12 11C9.23858 11 7 8.76142 7 6C7 3.23858 9.23858 1 12 1C14.7614 1 17 3.23858 17 6Z" fill="#121319" />
+                                    <path opacity="0.25" fill-rule="evenodd" clip-rule="evenodd" d="M18.818 14.1248C18.2016 13.4101 17.1428 13.4469 16.3149 13.9001C15.0338 14.6013 13.5635 15 12 15C10.4365 15 8.96618 14.6013 7.68505 13.9001C6.85717 13.4469 5.79841 13.4101 5.182 14.1248C3.82222 15.7014 3 17.7547 3 20V21C3 22.1045 3.89543 23 5 23H19C20.1046 23 21 22.1045 21 21V20C21 17.7547 20.1778 15.7014 18.818 14.1248Z" fill="#191213" />
+                                </svg></span><a href="settings.php" class="text-primary fw-bold fs-6">My Profile</a></div>
                     </div>
                 </div>
                 <div class="resize-triggers">
@@ -91,6 +91,7 @@ require('default.php');
 <!-- <link rel="stylesheet" href="assets/plugins/global/plugins.bundle.css"> -->
 <!-- <script type="text/javascript" src="assets/js/damo_home.js"></script> -->
 <script>
+    "use strict"
     $(document).ready((function() {
         load_trends()
     }));
@@ -105,21 +106,25 @@ require('default.php');
 
     var loada = '<div data-kt-indicator="on"><span class="ps-4 fs-6 indicator-progress">Loading...<span class="spinner-border spinner-border-sm align-middle ms-2"></span></span></div>';
     var loadb = '<div data-kt-indicator="off"><span class="ps-4 fs-6 indicator-progress"><span class="spinner-border spinner-border-sm align-middle ms-2"></span></span></div>';
-    var loadtxt = '<div id="load_more_btn" class="d-flex justify-content-center mt-4"><button onclick="load_more_news()" class="d-flex align-items-center btn btn-success flex-auto mx-3 ml-md-3 mr-md-0 ml-lg-0 mb-3 mb-md-0 py-1 px-4">Load More' + loadb + '</button></div>';
+    var loadtxt = '<load_more_btn id="load_more_btn" class="d-flex justify-content-center mt-4"><button page="1" onclick="load_more_news()" class="d-flex align-items-center btn btn-success flex-auto mx-3 ml-md-3 mr-md-0 ml-lg-0 mb-3 mb-md-0 py-1 px-4">Load More' + loadb + '</button></load_more_btn>';
 
 
     function load_more_news() {
         $.ajax({
             type: "GET",
             url: "pages/news.php",
+            data: {
+                
+            },
             beforeSend: function() {
-                // alert("Loading...");
                 $('#load_more_btn').children('button').children('div').attr('data-kt-indicator', 'on');
             },
             success: function(n) {
                 $("#load_more_btn").remove();
                 $("#news_panel").append(n);
                 $("#news_panel").append(loadtxt);
+                // $page = $(this).data(page)
+                // $(this).attr(page,'');
             },
             error: function(n, s) {
                 setTimeout((() => {

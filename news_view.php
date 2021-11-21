@@ -5,10 +5,11 @@ if (isset($_GET['news'])) {
     require('controls/numfunctions.php');
     require('controls/damo_func.php');
     $news_id = damo_validate(base64_decode(base64_decode($_GET['news'], true), true));
-    $sql = "SELECT title,description,DATE_FORMAT(date,'%D-%M-%Y') AS date, views FROM `news` WHERE news.id = '$news_id'";
+    $sql = "SELECT title,description,image,DATE_FORMAT(date,'%D-%M-%Y') AS date, views FROM `news` WHERE news.id = '$news_id'";
     $res = $con->query($sql);
     $row = $res->fetch_assoc();
     if(mysqli_num_rows($res) > 0){
+    echo '<title>'.damo_validate($row['title']).'</title>';
 ?>
     <link rel="stylesheet" href="assets/css/news.css">
     <div class="card">
@@ -34,11 +35,10 @@ if (isset($_GET['news'])) {
                                     </span><span class="fw-bolder text-gray-400"><?php echo $row['views']; ?>&nbsp;Views</span></div>
                             </div><a class="text-dark text-hover-primary fs-2 fw-bolder news_title"><?php echo $row['title']; ?><span class="fw-bolder text-muted fs-5 ps-1">5 mins read</span></a>
                             <div class="overlay mt-8">
-                                <div class="bgi-no-repeat bgi-position-center bgi-size-cover card-rounded min-h-350px" style="background-image:url('assets/media/stock/2000x800/1.jpg')"></div>
-                                <div class="overlay-layer card-rounded bg-dark bg-opacity-25"><a href="pages/company/about.html" class="btn btn-primary">About Us</a><a href="pages/careers/apply.html" class="btn btn-light-primary ms-3">Join Us</a></div>
+                                <div class="bgi-no-repeat bgi-position-center bgi-size-cover card-rounded min-h-350px" style="background-image:url('<?php if(!empty($row['image'])){echo $row['image'];}else{echo "assets/media/stock/2000x800/1.jpg";} ?>')"></div>
                             </div>
                         </div>
-                        <div class="fs-5 fw-bold text-gray-600">
+                        <div class="fs-5" style="text-align: justify; color: #000000b8 !important; font-weight: 600 !important; line-height: 2;">
                             <p class="mb-8 news text-gray-700"> <?php echo $row['description']; ?> </p>
                         </div>
                         <div class="d-flex align-items-center border-dashed card-rounded p-5 p-lg-10 mb-14">
@@ -60,8 +60,8 @@ if (isset($_GET['news'])) {
                                 $(link).attr('href', url + window.location.href);
                             }
                             $(document).ready(function() {
-                                sharer('#share_facebook', 'https://www.facebook.com/sharer/sharer.php?u=');
-                                sharer('#share_twitter', 'https://twitter.com/intent/tweet?text=');
+                                sharer('#share_facebook', 'https://www.facebook.com/sharer/u=');
+                                sharer('#share_twitter', 'https://twitter.com/intent/tweet?url=');
                                 sharer('#share_insta', 'https://twitter.com/intent/tweet?text=');
                             });
                         </script>
@@ -99,6 +99,7 @@ if (isset($_GET['news'])) {
             </div>
         </div>
     </div><?php }else {
+                echo '<title>News | Damo Softwares</title>';
             ?>
     <link rel="stylesheet" href="assets/css/news.css"><?php
                                                         $sql = "SELECT id,title,DATE_FORMAT(date,'%D-%M-%Y') AS Date, views FROM `news` ORDER BY date DESC";
@@ -109,7 +110,7 @@ if (isset($_GET['news'])) {
         <article class="d-flex flex-column">
             <div style="border-left: 8px solid var(--bs-active-primary);" class="card my-2">
                 <a class="card-body text-dark text-hover-primary p-4" href="news_view.php?news=<?php echo base64_encode(base64_encode($row['id'])); ?>">
-                    <h4 class="news_title card-title"><?php echo limitxt($row['title'], 200, 'Read More'); ?></h4>
+                    <h4 class="news_title card-title"><?php echo limitxt($row['title'], 300, 'Read More'); ?></h4>
                     <div class="d-flex justify-content-between opacity-75">
                         <div class="text-start">
                             <time><?php echo time_ago($row['Date']); ?></time>
@@ -129,15 +130,15 @@ if (isset($_GET['news'])) {
     <link rel="stylesheet" href="assets/css/news.css"><?php
                                                         require('controls/numfunctions.php');
                                                         require('controls/damo_func.php');
+                                                        echo '<title>News | Damo Softwares</title>';
                                                         $sql = "SELECT id,title,DATE_FORMAT(date,'%D-%M-%Y') AS Date, views FROM `news` ORDER BY date DESC";
                                                         $res = $con->query($sql);
-                                                        $date = null;
                                                         while ($row = $res->fetch_assoc()) {
                                                         ?>
         <article class="d-flex flex-column">
             <div style="border-left: 8px solid var(--bs-active-primary);" class="card my-2">
                 <a class="card-body text-dark text-hover-primary p-4" href="news_view.php?news=<?php echo base64_encode(base64_encode($row['id'])); ?>">
-                    <h4 class="news_title card-title"><?php echo limitxt($row['title'], 200, 'Read More'); ?></h4>
+                    <h4 class="news_title card-title"><?php echo limitxt($row['title'], 300, 'Read More'); ?></h4>
                     <div class="d-flex justify-content-between opacity-75">
                         <div class="text-start">
                             <time><?php echo time_ago($row['Date']); ?></time>

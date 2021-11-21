@@ -1,3 +1,18 @@
+#Turn Rewrite Engine On
+RewriteEngine on
+RewriteRule ^custom$ test.php [NC,L]
+
+# NC makes the rule non case sensitive
+# L makes this the last rule that this specific condition will match
+# $ in the regular expression makes the matching stop so that "customblah" will not work
+
+# Rewrite for test.php?u=xxxxx
+RewriteRule ^test/([0-9a-zA-Z]+)$ test.php?u=$1 [NC,L]
+
+# Rewrite for test.php?id=1&title=Title-Goes-Here
+RewriteRule ^test/([0-9]+)/([0-9a-zA-Z_-]+)$ test.php?id=$1&title=$2 [NC,L]
+#Rewrite for explore.php explore.php?sub=$1&med=$2&class=$3 [NC, L]
+# RewriteRule ^explore/([0-9]+)/([0-9a-zA-Z]+)/([0-9a-zA-Z]+)/?$ explore.php?sub=$1&med=$2&class=$3 [NC, L]
 
 #    RewriteEngine Off
 

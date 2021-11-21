@@ -76,7 +76,7 @@ require('controls/damo_filters.php');
     </div>
 </form><?php
         if (isset($_GET['search']) && !empty($_GET['search'])) {
-            $query = mysqli_real_escape_string($GLOBALS['con'], $_GET['search']);
+            $query = damo_validate(mysqli_real_escape_string($GLOBALS['con'], $_GET['search']));
             $uid = mysqli_real_escape_string($GLOBALS['con'], $_SESSION['myid']);
 
             try {
