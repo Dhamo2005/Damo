@@ -10,7 +10,7 @@ if (mysqli_num_rows($result) > 0) {
             <div class="card card-flush">
                 <div class="card-header bg-primary">
                     <div class="card-title flex-column">
-                        <h3 class="fw-bolder text-white mb-1">Following... 😇</h3>
+                        <h3 class="fw-bolder text-white mb-1">Following</h3>
                         <div class="fs-6 text-white opacity-75 bg-gradient"><?php echo mysqli_num_rows($result) . "&nbsp;"; ?>Member<?php if(mysqli_num_rows($result) >1){echo 's';} ?></div>
                     </div>
                     <div class="card-toolbar"><span class="badge badge-light-success fw-bolder fs-8 px-2 py-1 ms-2 p-4">2 New</span></div>

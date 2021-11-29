@@ -1,7 +1,8 @@
-<?php error_reporting(0);
+<?php
 if (isset($_GET['sub']) && isset($_GET['class'])) {
     require('default.php');
     require('controls/damo_filters.php');
+    require('controls/damo_func.php');
 ?>
     <title>
         <?php if (isset($_GET['sub']) && isset($_GET['class']) && is_numeric($_GET['class']) && is_string($_GET['class'])) {
@@ -10,14 +11,11 @@ if (isset($_GET['sub']) && isset($_GET['class'])) {
                 echo '&nbsp;|&nbsp;' . damo_validate($_GET['med']);
             }
             echo "&nbsp;|&nbsp;Damo Softwares";
-        } else {
-            echo "Explorer | Damo Softwares";
-            header('location:index.php');
         } ?></title>
     <?php $sub = damo_validate($_GET['sub']);
     $class = damo_validate($_GET['class']);
     require('controls/numfunctions.php');
-    $sql = "SELECT DISTINCT users.Name, materials.format, materials.Title, materials.id, materials.likes, materials.dislikes, (select DISTINCT count(mydownloads.id) FROM mydownloads WHERE mydownloads.fileid = materials.id ) as downloads, materials.Std, materials.Author, materials.link, materials.Date, users.email, users.gender, users.avatar, users.id as uploaderid FROM users,materials WHERE materials.uid=users.id AND materials.Std LIKE '%$class%' AND materials.Subject LIKE'%$sub%' ORDER BY materials.Date DESC";
+    $sql = "SELECT DISTINCT users.Name, materials.format, materials.Title, materials.id, materials.likes, materials.dislikes, (select DISTINCT count(mydownloads.id) FROM mydownloads WHERE mydownloads.fileid = materials.id ) as downloads, materials.Std, materials.link, materials.Date, users.email, users.gender, users.avatar, users.id as uploaderid FROM users,materials WHERE materials.uid=users.id AND materials.Std LIKE '%$class%' AND materials.Subject LIKE'%$sub%' ORDER BY materials.Date DESC";
     $result = $GLOBALS['con']->query($sql); ?><div class="d-flex px-2 container-fluid flex-sm-nowrap flex-stack flex-wrap">
         <div class="d-flex flex-column align-items-start flex-wrap justify-content-center me-2">
             <h1 class="d-flex align-items-center fs-2 fw-bolder my-1 text-dark"><?php echo $class . "th&nbsp;" . $sub . "&nbsp;materials"; ?><span class="px-2 badge 
@@ -28,14 +26,14 @@ if (isset($_GET['sub']) && isset($_GET['class'])) {
             } ?> bg-opacity-10 fs-7 ms-2"><?php echo mysqli_num_rows($result); ?></span></h1>
             <ul class="fw-bold breadcrumb fs-5 my-1">
                 <li class="breadcrumb-item text-muted"><a href="index.php">Home</a></li>
-                <li class="breadcrumb-item text-muted"><a href="index.php">Explore</a></li>
+                <li class="breadcrumb-item text-muted"><a href="explore.php">Explore</a></li>
                 <li class="breadcrumb-item text-dark"><?php echo $class; ?>th</li>
             </ul>
         </div>
         <div class="d-flex align-items-center flex-nowrap py-1 text-nowrap"><a class="d-flex btn me-4 btn-active-primary btn-white px-1 px-md-4" target="_blank"><span class="material-icons-outlined fs-2 pe-2">share</span><span class="d-sm-none">Share</span></a><a class="btn px-2 px-md-4 btn-primary" target="_blank"><span class="d-flex menu-link"><span class="menu-icon"><span class="material-icons-outlined fs-2 pe-2">filter_list</span></span><span class="d-sm-none menu-title">Filter</span></span></a></div>
     </div>
     <?php if (mysqli_num_rows($result) == 0) {
-        echo "<h6 class='text-center'><br><span class='fs-1'>🙄</span><br><br>Sorry No Uploads Found!<br></h6><br>";
+        echo "<center class='text-center'><br><span class='fs-1'>🙄</span><br><br>Sorry No Uploads Found!<br></center><br>";
         require('pages/explore.php');
     } else {
         while ($row = $result->fetch_assoc()) { ?><div class="mb-5 card mb-xxl-8">
@@ -44,17 +42,7 @@ if (isset($_GET['sub']) && isset($_GET['class'])) {
                         <div class="d-flex align-items-center flex-grow-1">
                             <div onclick="window.location.href = 'profile_view.php?p=<?php echo base64_encode(base64_encode($row['uploaderid'])); ?>'" class="cursor-pointer d-flex border-1 border-dotted rounded-1 border-active border-primary p-2">
                                 <div class="me-5 symbol symbol-45px"><img alt="<?php echo $row['Name']; ?>" width="45px" height="45px" src="
-                                <?php if (!empty($row['avatar'])) {
-                                    echo $row['avatar'];
-                                } else {
-                                    if ($row['gender'] === 'm') {
-                                        echo 'assets/media/avatars/blank_male.svg';
-                                    } elseif ($row['gender'] === 'f') {
-                                        echo 'assets/media/avatars/blank_female.png';
-                                    } elseif ($row['gender'] === 't') {
-                                        echo 'assets/media/avatars/blank_t.svg';
-                                    }
-                                } ?>" alt="<?php echo $row['name']; ?>"></div>
+                                <?php avatar($row['avatar'],$row['gender']); ?>" alt="<?php echo $row['Name']; ?>"></div>
                                 <div class="d-flex flex-column"><a class="text-gray-800 fs-5 fw-bolder"><?php echo $row['Name']; ?></a><span class="fw-bold text-gray-600"><?php echo time_ago($row["Date"]); ?></span></div>
                             </div>
                         </div>
@@ -91,7 +79,7 @@ if (isset($_GET['sub']) && isset($_GET['class'])) {
 <?php
 } else {
     require('default.php');
-    error_reporting(0);
+    ?><title>Explorer | Damo Softwares</title><?php
     require('pages/explore.php');
 ?>
 <br>
