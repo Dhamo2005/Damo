@@ -24,5 +24,5 @@ if (isset($_POST['followid'])) {
 		echo 'Failed';
 	}
 } else {
-	echo 'Failed To Follow';
+	return false;
 }

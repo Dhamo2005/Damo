@@ -21,7 +21,7 @@
         <div class="d-flex flex-column flex-column-fluid bgi-position-y-bottom position-x-center bgi-no-repeat bgi-size-contain bgi-attachment-fixed" style="background-image: url(../assets/media/illustrations/progress-hd.png)">
             <div class="d-flex flex-center flex-column flex-column-fluid p-10 pb-lg-20"><a href="../" class="mb-2"><img alt="Logo" src="../assets/media/logos/Damo Softwares logo.svg" height="150px" /></a>
                 <div class="w-lg-600px d-shadow bg-white rounded shadow-sm p-10 p-lg-15 mx-auto">
-                    <form class="form w-100" novalidate="novalidate" id="kt_sign_up_form" autocomplete="on">
+                    <form class="form w-100" novalidate="novalidate" id="kt_sign_up_form" autocomplete="off">
                         <div class="log"></div>
                         <div class="mb-10 text-center">
                             <h1 class="text-dark mb-3">Create an Account</h1>
@@ -303,7 +303,6 @@ var KTSignupGeneral = (function () {
 KTUtil.onDOMContentLoaded(function () {
   KTSignupGeneral.init();
 });
-
     </script>
 
 </html>

@@ -1,226 +1,140 @@
 <?php
-require('default.php'); ?>
-<script src="assets/plugins/global/plugins.bundle.js"></script>
-<div class="bg-primary py-2 text-center">
-    <h1 class="text-dark mb-3">Upload Files</h1>
-    <div class="text-gray-400 fw-bold fs-4"><a class="link-white fw-bolder">Need Help?</a></div>
-</div>
-<form class=" card-body bg-white form w-100" novalidate="novalidate" id="upload_form" autocomplete="off">
-    <div class="fv-row mb-7"><label class="form-label fw-bolder text-dark fs-6">Title</label><input type="text" name="title" id="name" rows="1" class="form-control form-control-lg form-control-solid" placeholder="Title" autocomplete="off"></div>
-    <div class="fv-row mb-7"><label class="form-label fw-bolder text-dark fs-6">Class</label>
-        <select id="classs" name="class" class="form-control form-control-lg form-control-solid" data-control="select2" data-placeholder="Choose Class">
-            <option></option>
-            <option value="10">12th</option>
-            <option value="11">11th</option>
-            <option value="12">10th</option>
-            <option value="9">9th</option>
-            <option value="8">8th</option>
-            <option value="7">7th</option>
-            <option value="6">6th</option>
-        </select>
-    </div>
-    <div class="fv-row mb-7"><label class="form-label fw-bolder text-dark fs-6">Medium</label>
-        <select id="medium" name="Medium" class="form-select form-select-solid" data-control="select2" data-placeholder="Choose Subject">
-            <option></option>
-            <option value="tm">Tamil Medium(TM)</option>
-            <option value="em">English Medium (EM)</option>
-        </select>
-    </div>
-    <div class="fv-row mb-7"><label class="form-label fw-bolder text-dark fs-6">Subject</label>
-        <select id="gender" name="subject" class="form-select form-select-solid" data-control="select2" data-placeholder="Choose Subject">
-            <option></option>
-            <option value="Tamil">Tamil</option>
-            <option value="English">English</option>
-            <option value="Maths">Maths</option>
-            <option value="Science">Science</option>
-            <option value="Social Science">Social Science</option>
-            <option value="Physics">Physics</option>
-            <option value="2"></option>
-            <option value="2"></option>
-            <option value="2"></option>
-            <option value="2"></option>
-        </select>
-    </div>
-    <div class="fv-row mb-7"><label class="form-label fw-bolder text-dark fs-6">Description</label><input id="about" class="form-control form-control-lg form-control-solid" type="text" name="about" placeholder="Enter Description Here"></div><br><br>
-    <div class="fv-row">
-        <div class="dropzone">
-            <div class="dz-message needsclick"><i class="material-icons-outlined text-primary fs-3x">upload</i>
-                <div class="ms-4">
-                    <h3 class="fs-5 fw-bolder text-gray-900 mb-1">Drop files here or click to upload.</h3><span class="fs-7 fw-bold text-gray-400">Accepted Formats : PDF, DOC, PPT, JPEG, JPG, PNG, PPT </span>
+require('default.php');
+include('controls/damo_subjects.php'); ?>
+<title>Upload File | Damo Softwares</title>
+<div id="upload_form" class="card">
+    <div class="card-body scroll-y px-10 px-lg-15 pt-0 pb-15">
+        <form id="form_fields" class="form" action="#">
+            <div class="mb-13 mt-13 text-center">
+                <h1 class="mb-3">Upload</h1>
+                <div class="text-gray-400 fw-bold fs-5">If you need more info, please check <a href="#" class="fw-bolder link-primary">Project Guidelines</a>. </div>
+            </div>
+            <div class="d-flex flex-column mb-8 fv-row"><label class="d-flex align-items-center fs-6 fw-bold mb-2"><span class="required">Title</span><i class="fas fa-exclamation-circle ms-2 fs-7" data-bs-toggle="tooltip" title="Specify a name for future usage and reference"></i></label><input type="text" class="form-control form-control-solid" placeholder="Enter Title" name="target_title" />
+            </div>
+            <div class="row g-9 mb-8">
+                <div class="col-md-4 fv-row"><label class="required fs-6 fw-bold mb-2">Standard</label>
+                    <select class="form-select form-select-solid" data-control="select2" data-hide-search="false" data-placeholder="Select standard..." name="class">
+                        <option value="">Select standard...</option>
+                        <?php
+                        for ($i = 1; $i <= 12; $i++) {
+                            echo '<option value="' . $i . '">' . $i . '</option>';
+                        }
+                        ?>
+                    </select>
+                </div>
+                <div class="col-md-4 fv-row"><label class="required fs-6 fw-bold mb-2">Subject</label>
+                    <select class="form-select form-select-solid" data-control="select2" data-hide-search="false" data-placeholder="Select subject..." name="subject">
+                        <option value="">Select subject...</option>
+                        <d_subjects></d_subjects>
+                    </select>
+                    <script>
+                        $('d_subjects').html(``)
+                    </script>
                 </div>
             </div>
-        </div>
+            <div class="text-center"><button type="reset" id="form_cancel" class="btn btn-white me-3">Cancel</button><button type="submit" id="form_submit" class="btn btn-primary"><span class="indicator-label">Submit</span><span class="indicator-progress">Please wait... <span class="spinner-border spinner-border-sm align-middle ms-2"></span></span></button></div>
+        </form>
     </div>
-    <br><br>
-    <div class="fv-row mb-10"><label class="form-check form-check-custom form-check-solid"><input class="form-check-input" type="checkbox" name="toc" value="1" /><span class="form-check-label fw-bold text-gray-700 fs-6">I Agree &amp; <a href="#" class="ms-1 link-primary">Terms and conditions</a>.</span></label></div>
-    <div class="text-center"><button type="button" id="kt_sign_up_submit" class="btn btn-lg btn-primary"><span class="indicator-label">Submit</span><span class="indicator-progress">Please wait... <span class="spinner-border spinner-border-sm align-middle ms-2"></span></span></button></div>
-    <script>
-        var myDropzone = new Dropzone(".dropzone", {
-            url: "test.php",
-            paramName: "file",
-            maxFiles: 1,
-            addRemoveLinks: true,
-            accept: function(file, done) {
-                if (file.name == "wow.jpg") {
-                    done("Naha, you don't.");
-                } else {
-                    done();
-                }
-            }
-        });
-    </script>
-    <!-- <script>
-        "use strict";
-        var KTSigninGeneral = function() {
-            var t, n, e;
-            return {
-                init: function() {
-                    t = document.querySelector("#kt_sign_in_form"), n = document.querySelector("#kt_sign_in_submit"), e = FormValidation.formValidation(t, {
-                        fields: {
-                            email: {
-                                validators: {
-                                    notEmpty: {
-                                        message: "Email address is required"
-                                    },
-                                    emailAddress: {
-                                        message: "The value is not a valid email address"
-                                    }
-                                }
-                            },
-                            password: {
-                                validators: {
-                                    notEmpty: {
-                                        message: "The password is required"
-                                    },
-                                    callback: {
-                                        message: "Please enter valid password",
-                                        callback: function(t) {
-                                            if (0 < t.value.length) return _validatePassword()
-                                        }
-                                    }
-                                }
-                            }
-                        },
-                        plugins: {
-                            trigger: new FormValidation.plugins.Trigger,
-                            bootstrap: new FormValidation.plugins.Bootstrap5({
-                                rowSelector: ".fv-row",
-                                eleInvalidClass: "",
-                                eleValidClass: ""
-                            })
-                        }
-                    }), n.addEventListener("click", function(t) {
-                        t.preventDefault(), e.validate().then(function(t) {
-                            if ("Valid" == t) {
-                                var e = $("#email").val(),
-                                    i = $("#password").val();
-                                $.ajax({
-                                    method: "POST",
-                                    url: "../server/login.php",
-                                    data: {
-                                        email: e,
-                                        password: i
-                                    },
-                                    beforeSend: function() {
-                                        $("#kt_sign_in_submit").attr("data-kt-indicator", "on")
-                                    },
-                                    success: function(t) {
-                                        1 != t ? ($("#kt_sign_in_submit").attr("data-kt-indicator", "off"), Swal.fire({
-                                            text: "Wrong Login Details, Please Try Again.",
-                                            icon: "error",
-                                            buttonsStyling: !1,
-                                            confirmButtonText: "Ok, got it!",
-                                            customClass: {
-                                                confirmButton: "btn btn-primary"
-                                            }
-                                        })) : (n.setAttribute("data-kt-indicator", "on"), n.disabled = !0, setTimeout(function() {
-                                            n.removeAttribute("data-kt-indicator"), n.disabled = !1, Swal.fire({
-                                                text: "Your Are Successfully Log In!",
-                                                icon: "success",
-                                                buttonsStyling: !1,
-                                                confirmButtonText: "Go To Home Page!",
-                                                customClass: {
-                                                    confirmButton: "btn btn-primary"
-                                                }
-                                            }).then(setTimeout(function() {
-                                                window.location.href = '<?php if (isset($_GET['c'])) {
-                                                                            echo ('..' . $_GET['c']);
-                                                                        } else {
-                                                                            echo "../home.php";
-                                                                        } ?>';
-                                            }, 1e3))
-                                        }))
-                                    }
-                                })
-                            }
-                            elseSwal.fire({
-                                text: "Sorry, looks like there are some errors detected, please try again.",
-                                icon: "error",
-                                buttonsStyling: !1,
-                                confirmButtonText: "Ok, got it!",
-                                customClass: {
-                                    confirmButton: "btn btn-primary"
-                                }
-                            })
-                        })
-                    })
-                }
-            }
-        }();
-        KTUtil.onDOMContentLoaded(function() {
-            KTSigninGeneral.init()
-        })
-    </script> -->
-</form>
+</div>
+<script src="assets/plugins/global/plugins.bundle.js"></script>
+<script src="assets/js/scripts.bundle.js"></script>
+<!--end::Global Javascript Bundle-->
+<!--begin::Page Custom Javascript(used by this page)-->
 <script>
-    $(document).ready(function() {
-            FormValidation
-                .formValidation(
-                    document.getElementById('upload_form'), {
+    "use strict";
+    var KTModalNewTarget = (function() {
+        var t, n, a, o, i;
+        return {
+            init: function() {
+                (i = document.querySelector("#upload_form")) &&
+                ((o = new bootstrap.Modal(i)),
+                    (a = document.querySelector("#form_fields")),
+                    (t = document.getElementById("form_submit")),
+                    $(a.querySelector('[name="due_date"]')).flatpickr({
+                        enableTime: !0,
+                        dateFormat: "d, M Y, H:i",
+                    }),
+                    (n = FormValidation.formValidation(a, {
                         fields: {
-                            name:{
+                            target_title: {
                                 validators: {
                                     notEmpty: {
-                                        message: 'The title is required'
+                                        message: "Title is required"
                                     }
-                                }
-                            },
-                            classs:{
-                                validators: {
-                                    notEmpty: {
-                                        message: 'The description is required'
-                                    }
-                                }
-                            },
-                            medium:{
-                                validators: {
-                                    notEmpty: {
-                                        message: 'The category is required'
-                                    }
-                                }
-                            },
-                            gender:{
-                                validators: {
-                                    notEmpty: {
-                                        message: 'The file is required'
-                                    }
-                                }
+                                },
                             }
-
+                            // ,
+                            // target_assign: {
+                            //     validators: {
+                            //         notEmpty: { message: "Assign is required" },
+                            //     },
+                            // },
+                            // target_due_date: {
+                            //     validators: {
+                            //         notEmpty: { message: "due date is required" },
+                            //     },
+                            // },
+                            // target_tags: {
+                            //     validators: { notEmpty: { message: "tags are required" } },
+                            // },
+                            // "targets_notifications[]": {
+                            //     validators: {
+                            //         notEmpty: {
+                            //             message: "Please select at least one communication method",
+                            //         },
+                            //     },
+                            // },
                         },
                         plugins: {
-                            trigger: new FormValidation.plugins.Trigger,
+                            trigger: new FormValidation.plugins.Trigger(),
                             bootstrap: new FormValidation.plugins.Bootstrap5({
                                 rowSelector: ".fv-row",
                                 eleInvalidClass: "",
-                                eleValidClass: ""
-                            })
-                        }
+                                eleValidClass: "",
+                            }),
+                        },
+                    })),
+                    t.addEventListener("click", function(e) {
+                        e.preventDefault(),
+                            n &&
+                            n.validate().then(function(e) {
+                                console.log("validated!"),
+                                    "Valid" == e ?
+                                    (t.setAttribute("data-kt-indicator", "on"),
+                                        (t.disabled = !0),
+                                        setTimeout(function() {
+                                            t.removeAttribute("data-kt-indicator"),
+                                                (t.disabled = !1),
+                                                Swal.fire({
+                                                    text: "Form has been successfully submitted!",
+                                                    icon: "success",
+                                                    buttonsStyling: !1,
+                                                    confirmButtonText: "Ok, got it!",
+                                                    customClass: {
+                                                        confirmButton: "btn btn-primary"
+                                                    },
+                                                }).then(function(t) {
+                                                    t.isConfirmed && o.hide();
+                                                });
+                                        }, 2e3)) :
+                                    Swal.fire({
+                                        text: "Sorry, please fill all fields.",
+                                        icon: "error",
+                                        buttonsStyling: !1,
+                                        confirmButtonText: "Ok, got it!",
+                                        customClass: {
+                                            confirmButton: "btn btn-primary"
+                                        },
+                                    });
+                            });
                     })
-        })
-        .on('core.form.valid', function() {
-
-        });
+                )
+            },
+        };
+    })();
+    KTUtil.onDOMContentLoaded(function() {
+        KTModalNewTarget.init();
+    });
 </script>
 <?php
 require('footer.php'); ?>

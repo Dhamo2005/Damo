@@ -1,30 +1,30 @@
 <?php
+include('default.php');
+?>
+<select class="form-select form-select-solid" data-control="select2" data-hide-search="true"
+    data-placeholder="Select subject..." name="subject">
+    <option value="">Select subject...</option>
+    <pre>
+    <d_subjects>
 
-$request = $_SERVER['REQUEST_URI'];
-switch ($request) {
-    case '/' :
-        require __DIR__ . '/index.php';
-        break;
-    case '' :
-        require __DIR__ . '/index.php';
-        break;
-    case '/Damo/follow' :
-        require __DIR__ . '/follow.php';
-        break;
-    case '/Damo/explore' :
-        require __DIR__ . '/explore.php';
-        break;
-    case '/Damo/feedback' :
-        require __DIR__ . '/feedback.php';
-        break;
-    case '/Damo/login' :
-        require __DIR__ . '/pages/sign-in.php';
-        break;
-    case '/Damo/logout' :
-        require __DIR__ . '/pages/sign-in.php';
-        break;
-    default:
-        http_response_code(404);
-        require __DIR__ . '/index.php';
-        break;
-}
+    </d_subjects>
+</pre>
+</select>
+<script>
+    $('d_subjects').html(``);
+    class tn_subjects {
+        one_two() {
+            const arrayLike = {
+                'Tamil': 'Tamil', 'English': 'English', 'Maths': 'Maths', 'Environmental Science': 'Environmental Science'
+            };
+            console.log(arrayLike);
+        }
+        three_ten() {
+            // return ['Tamil' : 'Tamil', 'English' : 'English', 'Maths' : 'Maths', 'Science' : 'Science', 'Social Science' : 'Social Science'];
+        }
+    }
+    var s = new tn_subjects;
+</script>
+<?php
+include('footer.php');
+?>

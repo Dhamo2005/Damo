@@ -4,7 +4,7 @@ if (isset($_GET['p']) && !empty($_GET['p']) && !empty(base64_decode(base64_decod
     require('controls/damo_filters.php');
     $profile_view_id =  damo_validate(base64_decode(base64_decode($_GET['p'], true), true));
     $row = $GLOBALS['con']->query("SELECT users.id as profileid, users.name as name, users.gender, users.`avatar`, `about`, `place`,`type`, `Joined`FROM users WHERE `id`= $profile_view_id")->fetch_assoc();
-    $profile_id = $row['profileid'];
+    $fid =  $row['profileid'];
 ?>
     <div class="card">
         <div style="background-image: url(assets/bg/profilebg.jpg); background-repeat: round;"><br>
@@ -45,7 +45,9 @@ if (isset($_GET['p']) && !empty($_GET['p']) && !empty(base64_decode(base64_decod
                                     </g>
                                 </svg></span><?php echo $row['place']; ?></a></div>
                 </div>
-                <div class="d-flex my-4"><a class="btn btn-sm btn-light-success me-2 d-flex" id="kt_user_follow_button" data-kt-indicator="off"><span class="material-icons-outlined px-2 fs-4 indicator-label">how_to_reg</span><span class="indicator-progress"><span class="me-2 align-middle ms-2 spinner-border spinner-grow-sm" data-kt-indicator="o" style="width: 1.2rem;height: 1.2rem;"></span></span><span><span><?php echo ($GLOBALS['con']->query("SELECT COUNT(id) FROM `followers` WHERE followid = $profile_id"))->fetch_array()[0]; ?></span></span></a><a class="btn btn-sm btn-primary me-3 d-flex"><span class="material-icons-outlined px-2 fs-4">share</span><span class="d-sm-none">Share Profile</span></a></div>
+                <?php
+                    include('controls/followsharebtn.php');
+                ?>
             </div>
 
                         

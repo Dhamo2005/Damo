@@ -1,70 +1,102 @@
+<?php $rowCount = $GLOBALS['con']->query("SELECT id FROM followers WHERE followers.uid={$_SESSION['myid']} AND followers.followid={$fid}");
+if (mysqli_num_rows($rowCount) > 0) {
+	// following
+	$f = true;
+} else {
+	// new follow
+	$f = false;
+} ?>
 <div class="d-flex my-4">
-	<followbtn>
-		<?php $rowCount = $GLOBALS['con']->query("SELECT id FROM followers WHERE followers.uid={$_SESSION['myid']} AND followers.followid={$row['uid']}");
-		if (mysqli_num_rows($rowCount) > 0) {
-			// following
-			echo '<a class="btn btn-sm btn-light-success me-2 d-flex" data-follow="false" id="damo_user_follow_button" data-kt-indicator="off"><span class="material-icons-outlined px-2 fs-4 indicator-label">how_to_reg</span><span class="indicator-progress"><span class="me-2 align-middle ms-2 spinner-border spinner-grow-sm" data-kt-indicator="o" style="width: 1.2rem;height: 1.2rem;"></span></span><span class="d-sm-none"><span class="follow-true">Following</span></span></a>';
-		} else {
-			// new follow
-			echo '<a class="btn btn-sm btn-light me-2 d-flex" data-follow="true" id="damo_user_follow_button" data-kt-indicator="off"><span class="material-icons-outlined px-2 fs-4 indicator-label">person_add</span><span class="indicator-progress"><span class="me-2 align-middle ms-2 spinner-border spinner-grow-sm" data-kt-indicator="o" style="width: 1.2rem;height: 1.2rem;"></span></span><span class="d-sm-none">Follow</span></a>';
-		} ?>
-	</followbtn>
+	<a href="#" class="btn <?php if ($f == true) {
+								echo 'btn-success';
+							} else {
+								echo 'btn-light';
+							} ?> btn-sm me-2" id="kt_user_follow_button">
+		<!--begin::Svg Icon | path: icons/duotone/Navigation/Double-check.svg-->
+		<span class="svg-icon svg-icon-3 <?php if (!$f == true) {
+												echo 'd-none';
+											} ?>">
+			<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+				<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+					<polygon points="0 0 24 0 24 24 0 24" />
+					<path d="M9.26193932,16.6476484 C8.90425297,17.0684559 8.27315905,17.1196257 7.85235158,16.7619393 C7.43154411,16.404253 7.38037434,15.773159 7.73806068,15.3523516 L16.2380607,5.35235158 C16.6013618,4.92493855 17.2451015,4.87991302 17.6643638,5.25259068 L22.1643638,9.25259068 C22.5771466,9.6195087 22.6143273,10.2515811 22.2474093,10.6643638 C21.8804913,11.0771466 21.2484189,11.1143273 20.8356362,10.7474093 L17.0997854,7.42665306 L9.26193932,16.6476484 Z" fill="#000000" fill-rule="nonzero" opacity="0.5" transform="translate(14.999995, 11.000002) rotate(-180.000000) translate(-14.999995, -11.000002)" />
+					<path d="M4.26193932,17.6476484 C3.90425297,18.0684559 3.27315905,18.1196257 2.85235158,17.7619393 C2.43154411,17.404253 2.38037434,16.773159 2.73806068,16.3523516 L11.2380607,6.35235158 C11.6013618,5.92493855 12.2451015,5.87991302 12.6643638,6.25259068 L17.1643638,10.2525907 C17.5771466,10.6195087 17.6143273,11.2515811 17.2474093,11.6643638 C16.8804913,12.0771466 16.2484189,12.1143273 15.8356362,11.7474093 L12.0997854,8.42665306 L4.26193932,17.6476484 Z" fill="#000000" fill-rule="nonzero" transform="translate(9.999995, 12.000002) rotate(-180.000000) translate(-9.999995, -12.000002)" />
+				</g>
+			</svg>
+		</span>
+		<!--end::Svg Icon-->
+		<!--begin::Indicator-->
+		<span class="indicator-label"><?php if ($f == true) {
+											echo 'Following';
+										} else {
+											echo 'Follow';
+										} ?></span>
+		<span class="indicator-progress">Please wait...
+			<span class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
+		<!--end::Indicator-->
+	</a>
 	<a class="btn btn-sm btn-primary me-3 d-flex"><span class="material-icons-outlined px-2 fs-4">share</span><span class="d-sm-none">Share Profile</span></a>
 </div>
-<script>
-	$('#damo_user_follow_button').on('click', function(follow) {
-		var o = $('#damo_user_follow_button').data("follow");
-		if (1 == o) {
-			$.ajax({
-				url: "controls/follow.php",
-				type: "POST",
-				data: {
-					followid: "<?php echo base64_encode(base64_encode($row['uid'])); ?>",
-				},
-				beforeSend: function() {
-					$("#damo_user_follow_button").attr("data-kt-indicator", "on");
-				},
-				success: function(o) {
-					$("#damo_user_follow_button").attr("data-kt-indicator", "off"),
-						"1" == o &&
-						$("followbtn").html(
-							'<a id="damo_user_follow_button" class="btn btn-sm btn-light-success me-2 d-flex" data-follow="false" data-kt-indicator="off"><span class="material-icons-outlined px-2 fs-4 indicator-label">how_to_reg</span><span class="indicator-progress"><span class="me-2 align-middle ms-2 spinner-border spinner-grow-sm" data-kt-indicator="o" style="width: 1.2rem;height: 1.2rem;"></span></span><span class="d-sm-none"><span class="follow-true">Following</span></span></a>'
-						);
-				},
-				error: function(o, a) {
-					setTimeout(() => {
-						$.ajax(this);
-					}, 2500);
-				},
-			});
-		} else if (0 == o) {
-			// unfollow
-			let v = window.confirm("Are You Want Remove this profile from your follow list?");
-			if (v = true) {
-				$.ajax({
-					url: "controls/follow.php",
-					type: "POST",
-					data: {
-						unfollowid: "<?php echo base64_encode(base64_encode($row['uid'])); ?>",
-					},
-					beforeSend: function() {
-						$("#damo_user_follow_button").attr("data-kt-indicator", "on");
-					},
-					success: function(o) {
-						$("#damo_user_follow_button").attr("data-kt-indicator", "off"),
-							"1" == o &&
-							$("followbtn").html(
-								'<a class="btn btn-sm btn-light me-2 d-flex" data-follow="true" id="damo_user_follow_button" data-kt-indicator="off"><span class="material-icons-outlined px-2 fs-4 indicator-label">person_add</span><span class="indicator-progress"><span class="me-2 align-middle ms-2 spinner-border spinner-grow-sm" data-kt-indicator="o" style="width: 1.2rem;height: 1.2rem;"></span></span><span class="d-sm-none">Follow</span></a>'
-							);
-					},
-					error: function(o, a) {
-						setTimeout(() => {
-							$.ajax(this);
-						}, 2500);
-					},
-				});
-			}
-		}
-	});
-</script>
 <!-- <script src="assets/js/damo_followsharebtn.js"></script> -->
+<script>
+	(h = document.querySelector("#kt_user_follow_button")) &&
+  h.addEventListener("click", function (e) {
+    e.preventDefault(),
+      h.setAttribute("data-kt-indicator", "on"),
+      (h.disabled = !0),
+      h.classList.contains("btn-success")
+        ? // unfollow
+          setTimeout(function () {
+            $.ajax({
+              url: "controls/follow.php",
+              type: "POST",
+              data: {
+                unfollowid:
+                  "<?php echo base64_encode(base64_encode($fid)); ?>",
+              },
+              beforeSend: function () {
+                h.removeAttribute("data-kt-indicator");
+              },
+              success: function (o) {
+                h.classList.remove("btn-success"),
+                  h.classList.add("btn-light"),
+                  h.querySelector(".svg-icon").classList.add("d-none"),
+                  (h.querySelector(".indicator-label").innerHTML = "Follow"),
+                  (h.disabled = !1);
+              },
+              error: function (o, a) {
+                setTimeout(() => {
+                  $.ajax(this);
+                }, 2500);
+              },
+            });
+          }, 1500)
+        : // follow
+          setTimeout(function () {
+            $.ajax({
+              url: "controls/follow.php",
+              type: "POST",
+              data: {
+                followid:
+                  "<?php echo base64_encode(base64_encode($fid)); ?>",
+              },
+              beforeSend: function () {
+                h.removeAttribute("data-kt-indicator");
+              },
+              success: function (o) {
+                h.classList.add("btn-success"),
+                  h.classList.remove("btn-light"),
+                  h.querySelector(".svg-icon").classList.remove("d-none"),
+                  (h.querySelector(".indicator-label").innerHTML = "Following"),
+                  (h.disabled = !1);
+              },
+              error: function (o, a) {
+                setTimeout(() => {
+                  $.ajax(this);
+                }, 2500);
+              },
+            });
+          }, 1e3);
+  });
+
+</script>

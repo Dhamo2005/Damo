@@ -53,7 +53,7 @@
                                             </g>
                                         </svg></span><?php echo $row['place']; ?></a></div>
                         </div>
-                        <?php require('controls/followsharebtn.php'); ?>
+                        <?php $fid = $row['uid']; require('controls/followsharebtn.php'); ?>
                     </div>
                     <div class="d-flex flex-wrap flex-stack">
                         <div class="d-flex flex-column flex-grow-1">

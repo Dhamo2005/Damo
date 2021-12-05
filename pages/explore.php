@@ -30,7 +30,7 @@
     </fieldset>
 </div>
 <div class="d-flex justify-content-end">
-    <a href="feedback.php" class="m-4 p-2 fs-5 text-hover-dark text-gray-500 text-decoration-underline" onmouseover="this.style.textDecoration = 'underline overline'">
+    <a href="feedback.php" class="m-4 p-2 fs-5 text-hover-dark text-gray-500 text-decoration-underline">
         Send Feedback
     </a>
 </div>

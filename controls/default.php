@@ -15,10 +15,6 @@ function activer($act, $additional_text)
 <link rel="stylesheet" href="assets/material-icon-font-pack-master/sass/material-icons-outlined.css">
 <!-- <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet"> -->
 <html lang="en">
-<style>
-	*{font-family: 'Roboto', sans-serif;}
-</style>
-
 <head>
 	<meta http-equiv="content-type" content="text/html;charset=UTF-8">
 	<meta charset="utf-8">
@@ -32,6 +28,10 @@ function activer($act, $additional_text)
 	<link href="assets/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css">
 	<link href="assets/css/style.bundle.css" rel="stylesheet" type="text/css">
 </head>
+
+<style>
+	*{font-family: 'Roboto', sans-serif;}
+</style>
 
 <body id="kt_body" class="header-fixed header-tablet-and-mobile-fixed toolbar-enabled toolbar-fixed toolbar-tablet-and-mobile-fixed aside-enabled aside-fixed" style="--kt-toolbar-height:55px;--kt-toolbar-height-tablet-and-mobile:55px">
 	<div class="d-flex flex-column flex-root">

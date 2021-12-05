@@ -1,0 +1,28 @@
+{
+	"php": {
+		"scope": "php,html",
+		"prefix": "php",
+		"body": [
+			"<?php",
+			"$1",
+			"?>"
+		],
+		"description": "PHP opening and closing tag"
+	},
+	"default.php": {
+		"scope": "php,html",
+		"prefix": "default",
+		"body": [
+			"include('default.php');"
+		],
+		"description": "include default.php"
+	},
+	"footer.php": {
+		"scope": "php,html",
+		"prefix": "footer",
+		"body": [
+			"include('footer.php');"
+		],
+		"description": "include footer.php"
+	}
+}
