@@ -161,7 +161,7 @@ require('controls/damo_filters.php');
     <?php
             }
         } else {
-            require('pages\popularsearch.php');
+            require('pages/popularsearch.php');
     ?>
     <trending_tags>
         <script src="assets/js/damo_search.js" type="text/javascript"></script>
