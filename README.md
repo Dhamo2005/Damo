@@ -1,6 +1,6 @@
 # About
 
-Damo School Study Materials System is created by Dhamodharan. Now It is owned by Damo Softwares
+Damo School Study Materials System is created by Dhamodharan.
 
 ## Usage
 We give all our feature products for completely free
