@@ -9,5 +9,5 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 
 Please make sure to update tests as appropriate.
 
-## License
-For License: Contact dhamo0202@gmail.com
+## Contact
+dhamo0202@gmail.com
