@@ -1,23 +1,44 @@
-School Study Materials System
-Created and maintained by Dhamodharan.
+# 📚 School Study Materials System  
 
-📘 Overview
-The School Study Materials System provides free access to curated study resources designed to support learners. All features and products are offered at no cost.
+**Created and maintained by Dhamodharan**
 
-🚀 Usage
-Explore and use the study materials freely
+---
 
-No subscription or payment required
+## 📘 Overview  
 
-🤝 Contributing
-We welcome contributions!
+The **School Study Materials System** is a free platform that provides curated study resources to support students in their learning journey.  
 
-For major changes, please open an issue first to discuss your ideas
+All features and materials are offered **completely free of cost**, ensuring accessible education for everyone.
 
-Submit pull requests with updates or improvements
+---
 
-Ensure that tests are updated as appropriate
+## 🚀 Usage  
 
-📬 Contact
-For questions or suggestions, reach out at:
-dhamo0202@gmail.com
+- Browse and explore available study materials  
+- Download and use resources freely  
+- No subscription required  
+- No payment needed  
+
+---
+
+## 🤝 Contributing  
+
+Contributions are welcome and appreciated!
+
+If you would like to contribute:
+
+1. Open an issue first to discuss major changes  
+2. Submit a pull request with your updates or improvements  
+3. Ensure any relevant tests are added or updated  
+
+---
+
+## 📬 Contact  
+
+For questions, suggestions, or collaboration opportunities:  
+
+📧 **Email:** dhamo0202@gmail.com  
+
+---
+
+⭐ If you find this project helpful, consider sharing it with others!
